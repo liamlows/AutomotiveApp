@@ -47,6 +47,43 @@ exports.login_user = function(req,res){
   }
 };
 
+exports.update_email = function(req,res){
+  // handle missing ID num
+  if(!req.params.id){
+    res.status(400).json({
+      "code": 400,
+      "response":"Missing ID in API request."
+    });
+  }
+  // handle missing email from body
+  else if(!req.body.email){
+    res.status(400).json({
+      "code": 400,
+      "response":"Missing email in API request body."
+    });
+  }
+  else{
+    // update email function
+    User.updateEmailById(req.params.id, req.body.email, function(err,user){
+      if(err){
+        res.send(err);
+      }
+      else {
+        res.json(user);
+      }
+    });
+  }
+};
+
+
+// exports.update_a_task = function(req, res) {
+//   Task.updateById(req.params.taskId, new Task(req.body), function(err, task) {
+//     if (err)
+//       res.send(err);
+//     res.json(task);
+//   });
+// };
+
 // -------------------------------  NOTES  -------------------------------
 
 // exports.list_users = function(req, res){

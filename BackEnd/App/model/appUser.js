@@ -60,6 +60,32 @@ User.loginUser = function(login_user, result){
   });
 }
 
+// Task.updateById = function(id, task, result) {
+//   sql.query("UPDATE tasks SET task = ? WHERE id = ?", [task.task, id], function(err, res) {
+//     if (err) {
+//       console.log("error: ", err);
+//       result(null, err);
+//     }
+//     else {
+//       result(null, res);
+//     }
+//   });
+// };
+
+User.updateEmailById = function(id, email, result) {
+  // update email in MySQL
+  sql.query("UPDATE `AutomotiveApp`.`users` SET email = ? WHERE u_id = ?", [email, id], function(err, res){
+    // error handler
+    if(err){
+      result(err,null);
+    }
+    // successful update
+    else{
+      result(null,res);
+    }
+  })
+}
+
 User.listUsers = function(result) {
   sql.query("SELECT * from `AutomotiveApp`.`users`;", function(err, res) {
     if (err) {
