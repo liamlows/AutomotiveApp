@@ -5,7 +5,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const PORT = process.env.PORT || 8080;
-const HOST = 0.0.0.0;
+const HOST = '0.0.0.0';
 
 // Start API server
 app.listen(PORT, HOST);
