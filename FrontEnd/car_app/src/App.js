@@ -4,28 +4,26 @@ import { Nav, Navbar, NavItem } from "react-bootstrap";
 import Routes from "./Routes";
 import { LinkContainer } from "react-router-bootstrap";
 import "./App.css";
-import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/css/bootstrap.css';
+// import 'bootstrap/dist/css/bootstrap-theme.css';
 
 
 class App extends Component {
     render() {
         return (
           <div className="App container">
-            <Navbar bg="light" expand="lg">
-            <Navbar.Brand href="#home">
+            <Navbar bg="light" expand="lg" ht className = "justify-content-between">
+            <Navbar.Brand className = "navbar-brand" href="#home">
                 <Link to="/">Car App</Link>
             </Navbar.Brand>
-            {/* <Navbar.Toggle aria-controls="basic-navbar-nav" /> */}
-            {/* <Navbar.Collapse id="basic-navbar-nav"> */}
-            <Nav pullRight>
-                <LinkContainer to="/signup">
-                <NavItem>Signup</NavItem>
+            <Nav pullRight className=" mr-sm-2">
+                <LinkContainer id = "item" to="/signup">
+                    <NavItem>Sign Up</NavItem>
                 </LinkContainer>
-                <LinkContainer to="/login">
-                <NavItem>Login</NavItem>
+                <LinkContainer id = "item" to="/login">
+                    <NavItem>Login</NavItem>
                 </LinkContainer>
             </Nav>
-            {/* </Navbar.Collapse> */}
             </Navbar>
             <Routes />
           </div>

@@ -1,63 +1,33 @@
 import React, { Component } from 'react';
 import "./Login.css";
-import { Button, FormGroup, FormControl, Form } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
-export default class Login extends Component {
-    // constructor(props) {
-    //   super(props);
-  
-    //   this.state = {
-    //     email: "",
-    //     password: ""
-    //   };
-    // }
-  
-    // validateForm() {
-    //   return this.state.email.length > 0 && this.state.password.length > 0;
-    // }
-  
-    // handleChange = event => {
-    //   this.setState({
-    //     [event.target.id]: event.target.value
-    //   });
-    // }
-  
-    // handleSubmit = event => {
-    //   event.preventDefault();
-    // }
-  
+class Login extends Component {
     render() {
       return (
         <div className="Login">
-        <p>TEST TEST TEST</p>
-          {/* <form onSubmit={this.handleSubmit}>
-            <FormGroup controlId="email" bsSize="large">
-              <Form.Label>Email</Form.Label>
-              <FormControl
-                autoFocus
-                type="email"
-                value={this.state.email}
-                onChange={this.handleChange}
-              />
-            </FormGroup>
-            <FormGroup controlId="password" bsSize="large">
-              <Form.Label>Password</Form.Label>
-              <FormControl
-                value={this.state.password}
-                onChange={this.handleChange}
-                type="password"
-              />
-            </FormGroup>
-            <Button
-              block
-              bsSize="large"
-              disabled={!this.validateForm()}
-              type="submit"
-            >
-              Login
-            </Button>
-          </form> */}
+        <Form className = "Form">
+        <Form.Group controlId="formBasicEmail">
+            {/* <Form.Label>Email address</Form.Label> */}
+            <Form.Control type="email" placeholder="Enter email" />
+            <Form.Text className="text-muted">
+            </Form.Text>
+        </Form.Group>
+
+        <Form.Group controlId="formBasicPassword">
+            {/* <Form.Label>Password</Form.Label> */}
+            <Form.Control type="password" placeholder="Password" />
+        </Form.Group>
+        <Link to="/main">
+        <Button variant="primary" type="submit">
+            Submit
+        </Button>
+        </Link>
+        </Form>
         </div>
       );
     }
   }
+
+export default Login;

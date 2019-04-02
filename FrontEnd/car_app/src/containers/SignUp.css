@@ -1,0 +1,16 @@
+@media all and (min-width: 480px) {
+    .SignUp {
+        padding: 60px 0;
+    }
+
+    .SignUp form {
+        margin: 0 auto;
+        max-width: 320px;
+        /* padding: 2em; */
+    }
+}
+  
+form.Form {
+    border:'2px solid #000000';
+    padding: 1.5em;
+}
