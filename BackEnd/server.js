@@ -1,14 +1,14 @@
 // Automotive App RESTFul API
 
 // Define const variables
-const express = require('express'),
-bodyParser = require('body-parser'),
-app = express(),
-PORT = process.env.PORT || 8080,
-HOST = 0.0.0.0;
+const express = require('express');
+const bodyParser = require('body-parser');
+const app = express();
+const PORT = process.env.PORT || 8080;
+const HOST = 0.0.0.0;
 
 // Start API server
-app.listen(port);
+app.listen(PORT, HOST);
 console.log('API server started on: ' + port);
 
 // Body Parser
