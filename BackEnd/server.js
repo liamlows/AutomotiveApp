@@ -2,9 +2,10 @@
 
 // Define const variables
 const express = require('express'),
-app = express(),
 bodyParser = require('body-parser'),
-port = process.env.PORT || 3000;
+app = express(),
+PORT = process.env.PORT || 8080,
+HOST = 0.0.0.0;
 
 // Start API server
 app.listen(port);
