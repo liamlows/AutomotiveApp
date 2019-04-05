@@ -6,8 +6,10 @@ import { LinkContainer } from "react-router-bootstrap";
 import "./App.css";
 import 'bootstrap/dist/css/bootstrap.css';
 // import 'bootstrap/dist/css/bootstrap-theme.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faEnvelope, faCar, faKey, faBuilding } from '@fortawesome/free-solid-svg-icons';
 
+library.add(faEnvelope, faCar, faKey, faBuilding);
 
 class App extends Component {
     logout() {
@@ -57,7 +59,7 @@ class App extends Component {
             <Routes />
           </div>
         );
-      }
+    }
 }
 
 export default App;
