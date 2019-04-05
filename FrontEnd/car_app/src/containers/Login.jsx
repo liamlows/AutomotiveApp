@@ -10,7 +10,7 @@ class Login extends Component {
         <Form className = "Form">
         <Form.Group controlId="formBasicEmail">
             {/* <Form.Label>Email address</Form.Label> */}
-            <Form.Control type="email" placeholder="Enter email" />
+            <Form.Control type="email" placeholder="Email" />
             <Form.Text className="text-muted">
             </Form.Text>
         </Form.Group>
@@ -20,7 +20,7 @@ class Login extends Component {
             <Form.Control type="password" placeholder="Password" />
         </Form.Group>
         <Link to="/main">
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" >
             Submit
         </Button>
         </Link>
