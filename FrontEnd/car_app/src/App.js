@@ -7,6 +7,7 @@ import "./App.css";
 import 'bootstrap/dist/css/bootstrap.css';
 // import 'bootstrap/dist/css/bootstrap-theme.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faCar, faKey, faBuilding } from '@fortawesome/free-solid-svg-icons';
 
 library.add(faEnvelope, faCar, faKey, faBuilding);
