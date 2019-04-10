@@ -31,3 +31,40 @@
     transform: rotate(360deg);
   }
 }
+
+.icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.icons > div {
+  display: flex;
+  margin: 0.75em;
+  border: solid 0.3em gray;
+  background: black;
+  justify-content: center;
+  align-items: center;
+}
+
+.headers {
+  display: flex;
+  width: 100%;
+}
+
+/*.icons {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 5em;
+}
+
+.headers {
+  display: flex;
+  width: 100%;
+}
+
+.icons > div {
+  margin: 0.2em;
+  padding: 0.15em;
+  border: solid 0.05em black;
+}*/

@@ -12,3 +12,25 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.theGallery {
+  display: flex;
+  flex-flow: row wrap;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0 auto;
+  font-size: 0;
+
+  @media only screen and (min-width: 900px) {
+    width: 80%;
+  }
+}
+
+.gallery-figure {
+  margin: 2px;
+}
+
+.gallery-image {
+  width: 100%;
+  height: auto;
+}
