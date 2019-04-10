@@ -6,18 +6,6 @@ class App extends Component {
   state = {
   }
 
-  /*imgs = [
-    [0,"fas fa-car-battery"],
-    [1,"fas fa-temperature-high"],
-    [2,"fas fa-oil-can"],
-    [3, "fas fa-gas-pump"],
-    [4, "fas fa-snowflake"],
-    [5, "fas fa-wrench"],
-    [6, "fas fa-info"],
-    [7, "fas fa-key"],
-    [8, "fas fa-road"]
-  ]  */
-
   icons = [
     //Warning Symbols
     [0, "icons/battery.jpg", "Battery"],
@@ -87,8 +75,3 @@ class App extends Component {
 }
 
 export default App;
-/*
-          <script src="https://unpkg.com/react/umd/react.production.js" crossorigin />
-          <script src="https://unpkg.com/react-dom/umd/react-dom.production.js" crossorigin/>
-          <script src="https://unpkg.com/react-bootstrap@next/dist/react-bootstrap.min.js" crossorigin/>
-*/

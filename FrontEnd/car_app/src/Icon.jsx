@@ -70,18 +70,3 @@ export default class Icon extends React.Component {
     );
   }
 }
-
- /*<figure className='gallery-figure' onClick={e => this.onClick()}>
-<Modal.Dialog>
-        <Modal.Header closeButton>
-          <Modal.Title>{this.props.descriptions[ind][1]}</Modal.Title>
-        </Modal.Header>
-          <Modal.Body>
-            <p>Modal body text goes here.</p>
-          </Modal.Body>
-
-          <Modal.Footer>
-            <Button variant="secondary">Close</Button>
-          </Modal.Footer>
-      </Modal.Dialog>
- */
