@@ -51,20 +51,3 @@
   display: flex;
   width: 100%;
 }
-
-/*.icons {
-  display: flex;
-  flex-wrap: wrap;
-  font-size: 5em;
-}
-
-.headers {
-  display: flex;
-  width: 100%;
-}
-
-.icons > div {
-  margin: 0.2em;
-  padding: 0.15em;
-  border: solid 0.05em black;
-}*/
