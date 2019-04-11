@@ -1,14 +1,13 @@
 {
-  "name": "AutomotiveApp",
+  "name": "AutomotiveApp-API",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Node API server for MySQL DB.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Liam Lowsley-Williams",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",

@@ -4,9 +4,9 @@ var mysql = require('mysql');
 
 // Local mysql db connection
 var connection = mysql.createConnection({
-  host: '127.0.0.1',
+  host: 'autoapp_mysql_comp',
   user: 'manager',
-  password: 'pass',
+  password: 'Kent2015',
   database: 'AutomotiveApp'
 });
 
