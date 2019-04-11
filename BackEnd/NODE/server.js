@@ -9,12 +9,12 @@ const HOST = '0.0.0.0';
 
 // Start API server
 app.listen(PORT, HOST);
-console.log('API server started on: ' + port);
+console.log('API server started on: ' + PORT);
 
 // Body Parser
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // Import routes and pass express app object to register them
-var routes = require('./app/routes/approutes');
+var routes = require('./App/routes/appRoutes');
 routes(app);
