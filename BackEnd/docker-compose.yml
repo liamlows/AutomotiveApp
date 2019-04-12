@@ -10,7 +10,7 @@ services:
     ports:
       - 3306:3306
     volumes:
-      - ./MYSQL/SQL-DATA:/var/lib/mysql
+      - MYSQL:/var/lib/mysql
   autoapp_node_comp:
     image: liamlows/autoapp_node-api
     build: ./NODE
@@ -24,3 +24,6 @@ services:
       - autoapp_mysql_comp
     volumes:
       - ./NODE:/var/lib/node
+
+volumes:
+  MYSQL:
