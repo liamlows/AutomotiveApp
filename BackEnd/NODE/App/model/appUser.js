@@ -78,7 +78,7 @@ User.updateEmailById = function(id, email, result) {
     else{
       result(null,res);
     }
-  })
+  });
 }
 
 User.updateFNameById = function(id, first_name, result) {
@@ -92,7 +92,7 @@ User.updateFNameById = function(id, first_name, result) {
     else{
       result(null,res);
     }
-  })
+  });
 }
 
 User.updateLNameById = function(id, last_name, result) {
@@ -106,7 +106,7 @@ User.updateLNameById = function(id, last_name, result) {
     else{
       result(null,res);
     }
-  })
+  });
 }
 
 User.updatePassByID = function(id, password, result) {
@@ -122,7 +122,7 @@ User.updatePassByID = function(id, password, result) {
     else{
       result(null,res);
     }
-  })
+  });
 }
 
 User.listUsers = function(result) {
