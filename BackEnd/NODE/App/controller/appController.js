@@ -75,32 +75,87 @@ exports.update_email = function(req,res){
   }
 };
 
+exports.update_fname = function(req,res){
+  // handle missing ID
+  if(!req.params.id){
+    res.status(400).json({
+      "code": 400,
+      "response":"Missing ID in API request."
+    });
+  }
+  // handle missing first name
+  else if(!req.body.first_name){
+    res.status(400).json({
+      "code": 400,
+      "response":"Missing first name in API request body."
+    });
+  }
+  else{
+    // update name function
+    User.updateFNameById(req.params.id, req.body.first_name, function(err,user){
+      if(err){
+        res.send(err);
+      }
+      else {
+        res.json(user);
+      }
+    });
+  }
+};
 
-// exports.update_a_task = function(req, res) {
-//   Task.updateById(req.params.taskId, new Task(req.body), function(err, task) {
-//     if (err)
-//       res.send(err);
-//     res.json(task);
-//   });
-// };
+exports.update_lname = function(req,res){
+  // handle missing ID
+  if(!req.params.id){
+    res.status(400).json({
+      "code": 400,
+      "response":"Missing ID in API request."
+    });
+  }
+  // handle missing last name
+  else if(!req.body.last_name){
+    res.status(400).json({
+      "code": 400,
+      "response":"Missing last name in API request body."
+    });
+  }
+  else{
+    // update last name function
+    User.updateLNameById(req.params.id, req.body.last_name, function(err,user){
+      if(err){
+        res.send(err);
+      }
+      else {
+        res.json(user);
+      }
+    });
+  }
+};
 
-// -------------------------------  NOTES  -------------------------------
 
-// exports.list_users = function(req, res){
-//   // call on Task obj
-//   User.listUsers(
-//     //pass function to getAllTask
-//     function(err, task){
-//       console.log("Listing Users. User req: ");
-//
-//       // Exception handling
-//       if(err){
-//         res.send(err);
-//         console.log('err: ', err);
-//       }
-//       // Send task response if success
-//       console.log('Successful All Tasks', task);
-//       res.send(task);
-//     }
-//   );
-// };
+exports.update_pass = function(req,res){
+  // handle missing ID
+  if(!req.params.id){
+    res.status(400).json({
+      "code": 400,
+      "response":"Missing ID in API request."
+    });
+  }
+  // handle missing password
+  else if(!req.body.password){
+    res.status(400).json({
+      "code": 400,
+      "response":"Missing password in API request body."
+    });
+  }
+  else{
+    // update password hash func
+    User.updatePassByID(req.params.id, req.body.password, function(err,user){
+      if(err){
+        res.send(err);
+      }
+      else {
+        res.json(user);
+      }
+    });
+  }
+};
