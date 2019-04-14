@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import { Nav, Navbar } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { Link } from "react-router-dom";
+import { faEnvelope, faCar, faKey, faBuilding } from '@fortawesome/free-solid-svg-icons';
+import { library } from '@fortawesome/fontawesome-svg-core';
+library.add(faEnvelope, faCar, faKey, faBuilding);
 
 class MyNav extends Component {
     logout() {
@@ -13,10 +15,12 @@ class MyNav extends Component {
     render() {
         return (
         <Navbar bg="primary" expand="lg" variant="dark" >
-            <Navbar.Brand className="text-white" style={{text:"10em"}}>
-                <FontAwesomeIcon icon="car" />
-                Automotive
+            <FontAwesomeIcon icon="car" />
+            <LinkContainer to="/">
+            <Navbar.Brand className = "navbar-brand" href="#home">
+                Car App
             </Navbar.Brand>
+            </LinkContainer>
             <Nav className="flex-row ml-md-auto d-none d-md-flex">
                 <LinkContainer to="/garage">
                     <Nav.Link href="#garage" className="text-white">My Garage</Nav.Link>
