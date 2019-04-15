@@ -1,5 +1,4 @@
 import React from 'react';
-import IconModal from './IconModal.jsx';
 import {Card, Modal, Button} from 'react-bootstrap';
 
 export default class Icons extends React.Component {
