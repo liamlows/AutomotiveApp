@@ -1,12 +1,13 @@
 import React from 'react';
 import IconModal from './IconModal.jsx';
-import {Card} from 'react-bootstrap';
+import {Card, Modal, Button} from 'react-bootstrap';
 
 export default class Icons extends React.Component {
   state = {
     showModal: false,
-    name: 'name',
-    des: 'des'
+    name: '',
+    path: '',
+    des: ''
   }
 
   renderIcons(obj) {
@@ -18,7 +19,7 @@ export default class Icons extends React.Component {
             {
               obj.imgs.map(img => {
                 return(<div> 
-                  <img src={img[0]} alt="pic" onClick={(e) => this.onClickIcon(img[1])}></img>
+                  <img src={img[0]} alt="pic" onClick={(e) => this.onClickIcon(img[0], img[1], img[2])}></img>
                 </div>);
               })
             }
@@ -28,27 +29,51 @@ export default class Icons extends React.Component {
     );
   }
 
-  onClickIcon(n) {
-    this.setState({showModal: true, name: 'name'})
+  onClickIcon = (p, n, d) => {
+    //alert("hello");
+    this.setState(
+      {
+        showModal: true, 
+        path: p, 
+        name: n, 
+        des: d
+      });
   }
 
   onClose(){
     this.setState({
       showModal: false,
       name: '',
-      des: ''
-    })
+      des: '',
+      path: ''
+    });
   }
 
   render() {
     return (
-      <div className="gallery">
+      <div>
         <h1>Dashboard Symbols</h1>
           {
             this.props.images.map(obj => this.renderIcons(obj))
           }
-        {this.state.showModal && <IconModal name={this.state.name} onClose={c => this.onClose()}/>}
+        <Modal show={this.state.showModal} onHide={this.onClose}>
+        <Modal.Header>
+          <Modal.Title id="contained-modal-title-vcenter">
+            {this.state.name}
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <img src={this.state.path} alt="pic" style={{float: 'left', margin: '0 2em 0 0'}}></img>
+          <p>{this.state.des}</p>
+          <div style={{clear: 'left'}}></div>
+        </Modal.Body>
+        <Modal.Footer>
+        <Button variant="secondary" onClick={e => this.onClose()}>Close</Button>
+        </Modal.Footer>
+        </Modal>
       </div>
     );
   }
 }
+
+//{this.state.showModal && <IconModal name={this.state.name} onClose={c => this.onClose()}/>}

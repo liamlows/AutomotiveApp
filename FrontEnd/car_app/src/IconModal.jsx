@@ -9,24 +9,52 @@ export class IconModal extends React.Component {
     
     render(){
         return(
-            <div>
-                <Modal>
-            <Modal.Dialog>
-                <Modal.Header closeButton>
-                <Modal.Title>name</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <p>test</p>
-                </Modal.Body>
-
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={e => this.onSubmit()}>Close</Button>
-                </Modal.Footer>
-            </Modal.Dialog>
-            </Modal>
-            </div>
+            <Modal
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id="contained-modal-title-vcenter">
+            Modal heading
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <h4>Centered Modal</h4>
+          <p>
+            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
+            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta
+            ac consectetur ac, vestibulum at eros.
+          </p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button>Close</Button>
+        </Modal.Footer>
+      </Modal>
         );
-        }
+    }
 }
 
 export default IconModal;
+
+
+/*
+<Modal {...this.props}
+            size="lg"
+            aria-labelledby="contained-modal-title-vcenter" 
+            centered
+            >
+                <Modal.Dialog>
+                    <Modal.Header closeButton>
+                    <Modal.Title>name</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <p>test</p>
+                    </Modal.Body>
+
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={e => this.onClick()}>Close</Button>
+                    </Modal.Footer>
+                </Modal.Dialog>
+            </Modal>
+*/
