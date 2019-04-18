@@ -1,0 +1,17 @@
+.logo {
+    width: 50%;
+  }
+  .carous{
+    background-color: darkgray;
+    width: 80%
+    
+  }
+  .plus{
+    width: 100%;
+    opacity: .75;
+    
+    
+  }
+  .plus:hover{
+    opacity: 1;
+  }

@@ -42,7 +42,7 @@ class App extends Component {
                 </Navbar.Brand>
                 </LinkContainer>
                 <Nav className="flex-row ml-md-auto d-none d-md-flex">
-                    <LinkContainer to="/garage">
+                    <LinkContainer to="/my_garage">
                         <Nav.Link href="#garage" className="text-white">My Garage</Nav.Link>
                     </LinkContainer>
                     <LinkContainer to="/shops">
