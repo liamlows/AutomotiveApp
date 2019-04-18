@@ -18,4 +18,21 @@ module.exports = function(app) {
   app.route('/user/password/:id')
     .put(autoApp.update_pass);
 
+
+//Delete user account
+  app.route('/delete_user/:id')
+    .delete(autoApp.delete_user);
+
+//Set/remove favorite shop name and phone
+  app.route('/user/update_shop/:id')
+    .put(autoApp.update_shop);
+  app.route('/user/remove_shop/:id')
+    .put(autoApp.remove_shop);
+    
+//Set/remove insurance name and policy
+  app.route('/user/update_insurance/:id')
+    .put(autoApp.update_insurance);
+  app.route('/user/remove_insurance/:id')
+    .put(autoApp.remove_insurance);
+
 };

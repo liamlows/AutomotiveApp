@@ -159,3 +159,145 @@ exports.update_pass = function(req,res){
     });
   }
 };
+
+
+//Delete user account
+
+exports.delete_user = function(req,res){
+    
+    if(!req.params.id){
+        res.status(400).json({
+            "code": 400,
+            "response":"Missing ID in API request."
+        });
+    }
+    else{
+    // if input is provided, delete user
+        User.deleteUser(req.params.id, function(err,user){
+            if (err){
+                res.send(err);
+            }
+            else{
+                res.json(user);
+            }
+        });
+  }
+};
+
+//Set/remove favorite shop name and phone
+
+exports.update_shop = function(req,res){
+    
+    if(!req.params.id){
+        res.status(400).json({
+            "code": 400,
+            "response":"Missing ID in API request."
+        });
+    }
+    else if(!req.body.shop_fav){
+         res.status(400).json({
+            "code": 400,
+            "response":"Missing Shop in API request."
+        });
+    }
+    else if(!req.body.shop_num){
+         res.status(400).json({
+            "code": 400,
+            "response":"Missing Shop number in API request."
+        });
+    }
+    else{
+    // if input is provided, create shop
+        User.updateShopByID(req.body.shop_fav,req.body.shop_num, req.params.id,function(err,user){
+            if (err){
+                res.send(err);
+            }
+            else{
+                res.json(user);
+            }
+        });
+  }
+};
+
+exports.remove_shop = function(req,res){
+    
+    if(!req.params.id){
+        res.status(400).json({
+            "code": 400,
+            "response":"Missing ID in API request."
+        });
+    }
+    else{
+    // if input is provided, create shop   
+        User.removeShopByID(req.params.id,function(err,user){
+            if (err){
+                res.send(err);
+            }
+            else{
+                res.json(user);
+            }
+        });
+  }
+};
+
+//Set/remove insurance name and policy
+
+exports.update_insurance = function(req,res){
+    
+    if(!req.params.id){
+        res.status(400).json({
+            "code": 400,
+            "response":"Missing ID in API request."
+        });
+    }
+    else if(!req.body.insurance_num){
+         res.status(400).json({
+            "code": 400,
+            "response":"Missing Ins number in API request."
+        });
+    }
+    else if(!req.body.insurance_phone){
+         res.status(400).json({
+            "code": 400,
+            "response":"Missing Ins phone in API request."
+        });
+    }
+    else if(!req.body.insurance_company){
+         res.status(400).json({
+            "code": 400,
+            "response":"Missing Ins company in API request."
+        });
+    }
+    else{
+    // if input is provided, create shop
+        User.updateInsuranceByID(req.body.Insurance_num,req.body.Insurance_phone,req.body.insurance_company, req.params.id,function(err,user){
+            if (err){
+                res.send(err);
+            }
+            else{
+                res.json(user);
+            }
+        });
+    }
+};
+
+exports.remove_insurance = function(req,res){
+    
+    if(!req.params.id){
+        res.status(400).json({
+            "code": 400,
+            "response":"Missing ID in API request."
+        });
+    }
+    else{
+    // if input is provided, create shop
+        User.removeInsuranceByID(req.params.id,function(err,user){
+            if (err){
+                res.send(err);
+            }
+            else{
+                res.json(user);
+            }
+        });
+    }
+};

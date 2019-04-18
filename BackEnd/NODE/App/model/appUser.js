@@ -138,3 +138,75 @@ User.listUsers = function(result) {
 };
 
 module.exports = User;
+
+
+
+//hhhh
+//Delete user account
+User.deleteUser = function(id,result) {
+  sql.query("DELETE from `AutomotiveApp`.`users` WHERE u_id = ?;", [id], function(err, res) {
+    if (err) {
+      console.log('all tasks error: ', err); 
+      result(err, null);
+    } else {
+      console.log('all tasks: ', res);
+      result(null, res);
+    }
+  });
+};
+
+
+
+//Set/remove favorite shop name and phone
+User.updateShopByID = function(shop_fav, shop_num, id, result) {
+  sql.query("UPDATE `AutomotiveApp`.`users` SET shop_fav = ?, shop_num = ? WHERE u_id = ?;", [shop_fav, shop_num,id], function(err, res) {
+    if (err) {
+      console.log('all tasks error: ', err);
+      result(err, null);
+    } else {
+      console.log('all tasks: ', res);
+      result(null, res);
+    }
+  });
+};
+
+User.removeShopByID = function(id,result) {
+  sql.query("UPDATE `AutomotiveApp`.`users` SET shop_fav = '', shop_num = '' WHERE u_id = ?", [id], function(err, res) {
+    if (err) {
+      console.log('all tasks error: ', err);
+      result(err, null);
+    } else {
+      console.log('all tasks: ', res);
+      result(null, res);
+    }
+  });
+};
+
+
+
+//Set/remove insurance name and policy
+User.updateInsuranceByID = function(insurance_phone,insurance_num,insurance_company, id, result) {
+  sql.query("UPDATE `AutomotiveApp`.`users` SET insurance_phone = ?, insurance_num = ?, insurance_company = ? WHERE u_id = ?", [insurance_phone,insurance_num,insurance_company, id], function(err, res) {
+    if (err) {
+      console.log('all tasks error: ', err);
+      result(err, null);
+    } else {
+      console.log('all tasks: ', res);
+      result(null, res);
+    }
+  });
+};
+
+User.removeInsuranceByID = function(id, result){
+  sql.query("UPDATE `AutomotiveApp`.`users` SET insurance_phone = '', insurance_num = '', insurance_company = '' WHERE u_id = ?", [id], function(err, res) {
+    if (err) {
+      console.log('all tasks error: ', err);
+      result(err, null);
+    } else {
+      console.log('all tasks: ', res);
+      result(null, res);
+    }
+  });
+};
+
+
