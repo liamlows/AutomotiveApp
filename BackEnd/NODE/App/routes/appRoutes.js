@@ -17,5 +17,10 @@ module.exports = function(app) {
     .put(autoApp.update_lname);
   app.route('/user/password/:id')
     .put(autoApp.update_pass);
+  // Car
+  app.route('/car/add_car/:id')
+    .post(autoApp.add_car);
+  app.route('/car/get_car/:id')
+    .get(autoApp.get_car);
 
 };
