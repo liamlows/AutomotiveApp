@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CarList from './CarList';
 import NewCar from './NewCar';
+import MapComponent from '../shops/MapComponent';
 
 class MyGarage extends Component {
 
@@ -26,6 +27,7 @@ class MyGarage extends Component {
                 </div> }
                 <CarList cars={ this.state.cars }/>
                 <NewCar onNewReview={ a => this.onAddCar(a) }></NewCar>
+                {/* <MapComponent /> */}
             </body>
         );
     }

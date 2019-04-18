@@ -1,0 +1,11 @@
+#navbar-brand{
+    font-family: industry, sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 2em;
+    margin-bottom: 0em;
+}
+
+.dropdown-toggle::after {
+    /* display:none !important; */
+}
