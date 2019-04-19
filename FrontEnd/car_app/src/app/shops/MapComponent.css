@@ -1,0 +1,35 @@
+.google_map{
+    width:48%;
+    margin-right:2%;
+    margin-left: 1em;
+    float: left;
+}
+.google_map Map{
+   width:100%;
+}
+.places {
+    /* width:40%; */
+    margin-right: 1em;
+    padding: .5em;
+    /* max-height: 60%; */
+    float: right;
+    margin-top: 2em;
+    overflow: scroll;
+}
+
+div.places{
+    height: 60vh;
+    width: 36vw;
+    overflow-y: auto;
+    border: solid .05em rgb(200,200,200);
+    border-radius: .7em;
+}
+
+.clearfix{
+    clear:both;
+    margin-bottom: 3em;
+}
+
+.parent{
+    margin-bottom: 3em;
+}

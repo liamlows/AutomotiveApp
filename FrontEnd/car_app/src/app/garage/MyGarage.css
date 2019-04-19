@@ -1,0 +1,32 @@
+.logo {
+    width: 50%;
+}
+
+.carous{
+    background-color: darkgray;
+    width: 80%
+}
+
+.plus{
+    width: 100%;
+    max-height: 20vh;
+    opacity: .75;
+    float: right;
+}
+
+.plus:hover{
+    opacity: 1;
+}
+
+.clearfix{
+    clear:both;
+    margin-bottom: 3em;
+}
+
+.parent{
+    margin-bottom: 3em;
+}
+
+.alert {
+    margin-top: 1.5em;
+}
