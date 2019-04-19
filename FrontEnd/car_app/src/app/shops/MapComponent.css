@@ -18,12 +18,18 @@
 }
 
 div.places{
-    max-height: 60vh;
+    height: 60vh;
     width: 36vw;
     overflow-y: auto;
     border: solid .05em rgb(200,200,200);
     border-radius: .7em;
 }
+
 .clearfix{
-    clear:both
+    clear:both;
+    margin-bottom: 3em;
+}
+
+.parent{
+    margin-bottom: 3em;
 }

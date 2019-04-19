@@ -121,7 +121,8 @@ export class MapContainer extends Component {
             <div className="places">
                 <Listing places={this.state.places} style={{overflowY: 'scroll'}}/>
             </div>
-            <div className="clearfix"></div>
+            <div className="clearfix"> </div>
+            <hr/>
             </div>
             </>
         );

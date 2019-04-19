@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import Insurance from './Insurance'
+import InsurancePage from './InsurancePage'
 
 class AccountInfo extends Component {
   render() {
     return (
       <div className="">
-        <Insurance />
+        <InsurancePage />
       </div>
     );
   }
