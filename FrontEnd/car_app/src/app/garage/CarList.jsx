@@ -1,29 +1,31 @@
 import React from 'react';
+import { Button, Carousel, Image } from "react-bootstrap";
 
-const CarList = (props) => (
-  <div >
-    {
-        props.cars.map( (a, i) => 
-        <div key={i} className="card" style={{margin:"0.5em"}}>
-            <div className="card-header">   
-                {a.name}
-            </div>
-            <div className="card-body">
-            <div className="row justify-content-between">
-                <div className="col">
-                    <h6 className="text-muted">{a.make}</h6>
-                </div>
-                <div className="col">
-                    <h6 className="text-muted float-right">{a.model}</h6>
-                </div>
-            </div>
-                <p>{a.year}</p>
-            </div>
-        </div>
-        )
 
-    }
-  </div>
+export const CarList = (props) => (
+    <Carousel className = "carous align-self-center" style={{marginTop:'3em'}}>
+        {
+            props.cars.map((x,i) =>(
+            
+                <Carousel.Item key = {i} >
+                    <div className = "logo">
+                    <Image
+                    className="d-block w-100 float-left"
+                    src="http://www.car-brand-names.com/wp-content/uploads/2015/05/Mercedes-Benz-logo.png"
+                    alt="First slide"
+                    thumbnail
+                    />
+                    </div>  
+                    <h3>Make: {x.make}</h3>
+                    <h3>Model: {x.model}</h3>
+                    <h3>Year: {x.year}</h3>
+                    <h3>Mileage: {x.mileage}</h3>
+                    <Button>Edit Car</Button>
+                </Carousel.Item>
+            
+            ))
+        }
+    </Carousel>
 );
 
-export default CarList;
+export default CarList
