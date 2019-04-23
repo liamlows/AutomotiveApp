@@ -1,8 +1,9 @@
+//G#########################################################################
 'use strict';
 module.exports = function(app) {
   var autoAppUser = require('../controller/appControllerUser');
   var autoAppCar = require('../controller/appControllerVehicle');
-
+  var autoMaintenance = require('../controller/appControllerMaintenance');
 
   // REGISTER USER
   app.route('/register')
@@ -57,5 +58,33 @@ module.exports = function(app) {
     .put(autoAppCar.update_car_avg_mileage)
   app.route('/car/update_car_cur_mileage/:id')
     .put(autoAppCar.update_car_cur_mileage)
+
+//Maintainance
+  app.route('/maintenance/add_maint/:id')
+    .post(autoMaintenance.add_maint);
+
+  app.route('/maintenance/get_maint/:id')
+    .get(autoMaintenance.get_maint);
+
+  app.route('/maintenance/update_maint/:id')
+    .put(autoMaintenance.update_maint);
+
+  app.route('/maintenance/update_type/:id')
+    .put(autoMaintenance.update_type);
+
+  app.route('/maintenance/update_last_mileage/:id')
+    .put(autoMaintenance.update_last_mileage);
+
+  app.route('/maintenance/update_date_serviced/:id')
+    .put(autoMaintenance.update_date_serviced);
+
+  app.route('/maintenance/update_cost/:id')
+    .put(autoMaintenance.update_cost);
+
+  app.route('/maintenance/update_description/:id')
+    .put(autoMaintenance.update_description);
+
+  app.route('/maintenance/delete_maint/:id')
+    .delete(autoMaintenance.delete_maint);
 
 };
