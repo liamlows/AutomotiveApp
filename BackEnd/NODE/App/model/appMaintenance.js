@@ -27,7 +27,7 @@ Maintenance.createMaint = function(id, newMaint, result) {
 };
 
 Maintenance.updateMaintCID = function(id, type, last_mileage, date_serviced, cost, description) {
-  sql.query("UPDATE `AutomotiveApp`.`maintenance` SET type = ?, last_mileage = ?, date_serviced = ?, cost = ?, description = ? WHERE c_id = ?;",[type, last_mileage, date_serviced, cost, description, id]
+  sql.query("UPDATE `AutomotiveApp`.`maintenance` SET type = ?, last_mileage = ?, date_serviced = ?, cost = ?, description = ? WHERE c_id = ?;",[type, last_mileage, date_serviced, cost, description, id],
     function(err,res){
       if(err){
         result({"code":204,"response":"Could not locate id in table. ID="+id},null);
