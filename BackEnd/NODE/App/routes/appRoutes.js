@@ -59,31 +59,26 @@ module.exports = function(app) {
   app.route('/car/update_car_cur_mileage/:id')
     .put(autoAppCar.update_car_cur_mileage)
 
-//Maintainance
+  // ADD MAINTENANCE RERCORD
   app.route('/maintenance/add_maint/:id')
     .post(autoMaintenance.add_maint);
-
+  // GET MAINTENANCE RERCORD
   app.route('/maintenance/get_maint/:id')
     .get(autoMaintenance.get_maint);
-
+  // UPDATE MAINTENANCE RERCORD
   app.route('/maintenance/update_maint/:id')
     .put(autoMaintenance.update_maint);
-
   app.route('/maintenance/update_type/:id')
     .put(autoMaintenance.update_type);
-
   app.route('/maintenance/update_last_mileage/:id')
     .put(autoMaintenance.update_last_mileage);
-
   app.route('/maintenance/update_date_serviced/:id')
     .put(autoMaintenance.update_date_serviced);
-
   app.route('/maintenance/update_cost/:id')
     .put(autoMaintenance.update_cost);
-
   app.route('/maintenance/update_description/:id')
     .put(autoMaintenance.update_description);
-
+  // DELETE MAINTENANCE RERCORD
   app.route('/maintenance/delete_maint/:id')
     .delete(autoMaintenance.delete_maint);
 
