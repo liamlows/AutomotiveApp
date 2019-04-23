@@ -1,9 +1,9 @@
+//G  #################################################################################
 'use strict';
 var sql = require('./dbConn.js');
 
 //Car object constructor
 var Car = function(car) {
-  this.VIN = car.VIN;
   this.MAKE = car.MAKE;
   this.MODEL = car.MODEL;
   this.YEAR = car.YEAR;
@@ -11,10 +11,10 @@ var Car = function(car) {
   this.current_mileage = car.current_mileage;
   this.created_at = new Date();
 };
-
+//G  #################################################################################
 Car.createCar = function(id, newCar, result) {
   //call query
-  sql.query("INSERT INTO `AutomotiveApp`.`vehicles` (`u_id`, `VIN`, `MAKE`, `MODEL`, `YEAR`, `avg_mileage`, `current_mileage`) VALUES ('" + id + "', '" + newCar.VIN + "', '" + newCar.MAKE + "', '" + newCar.MODEL + "', '" + newCar.YEAR + "', '" + newCar.avg_mileage + "', '" + newCar.current_mileage + "');",
+  sql.query("INSERT INTO `AutomotiveApp`.`vehicles` (`u_id`, `MAKE`, `MODEL`, `YEAR`, `avg_mileage`, `current_mileage`) VALUES ('" + id + "', '" + newCar.MAKE + "', '" + newCar.MODEL + "', '" + newCar.YEAR + "', '" + newCar.avg_mileage + "', '" + newCar.current_mileage + "');",
     function(err, res) {
       //if invalid query, send error to user
       if (err) {
@@ -27,8 +27,8 @@ Car.createCar = function(id, newCar, result) {
     }
   );
 };
-
-Car.getCarByUID = function(id, result) {
+//GET Car by car id. User has option to store multiple cars
+Car.getCarByCID = function(id, result) {
   sql.query("SELECT * FROM `AutomotiveApp`.`vehicles` WHERE u_id = ?;",[id],
     function(err,res){
       if(err){
@@ -40,5 +40,29 @@ Car.getCarByUID = function(id, result) {
     }
   );
 }
-
+Car.getCarMileageByCID = function(id, result) {
+  sql.query("SELECT current_mileage FROM `AutomotiveApp`.`vehicles` WHERE c_id = ?;",[id],
+    function(err,res){
+      if(err){
+        result({"code":204,"response":"Could not locate id in table. ID="+id},null);
+      }
+      else {
+        result(null,res);
+      }
+    }
+  );
+}
+Car.deleteCarByCID = function(id, result){
+sql.query("DELETE from `AutomotiveApp`.`vehicles` WHERE u_id = ?;",[id],
+    function(err,res){
+      if(err){
+        result({"code":204,"response":"Could not locate id in table. ID="+id},null);
+      }
+      else {
+        result(null,res);
+      }
+    }
+  );
+}
 module.exports = Car;
+//#########################################################################################

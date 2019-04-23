@@ -1,3 +1,4 @@
+//G##################################################################################################################################
 'use strict';
 var sql = require('./dbConn.js');
 var sha512 = require('js-sha512');
@@ -12,7 +13,7 @@ var User = function(user) {
     this.last_name = user.last_name;
   this.created_at = new Date();
 };
-
+//G##################################################################################################################################
 User.createUser = function(newUser, result) {
   //gen hash
   let hash = sha512(newUser.password);
@@ -185,8 +186,8 @@ User.removeShopByID = function(id,result) {
 
 
 //Set/remove insurance name and policy
-User.updateInsuranceByID = function(insurance_phone,insurance_num,insurance_company, id, result) {
-  sql.query("UPDATE `AutomotiveApp`.`users` SET insurance_phone = ?, insurance_num = ?, insurance_company = ? WHERE u_id = ?", [insurance_phone,insurance_num,insurance_company, id], function(err, res) {
+User.updateInsuranceByID = function(insurance_phone,insurance_num,insurance_company,insurance_email, id, result) {
+  sql.query("UPDATE `AutomotiveApp`.`users` SET insurance_phone = ?, insurance_num = ?, insurance_company = ?, insurance_email = ? WHERE u_id = ?", [insurance_phone,insurance_num,insurance_company,insurance_email,id], function(err, res) {
     if (err) {
       console.log('all tasks error: ', err);
       result(err, null);
@@ -198,7 +199,7 @@ User.updateInsuranceByID = function(insurance_phone,insurance_num,insurance_comp
 };
 
 User.removeInsuranceByID = function(id, result){
-  sql.query("UPDATE `AutomotiveApp`.`users` SET insurance_phone = '', insurance_num = '', insurance_company = '' WHERE u_id = ?", [id], function(err, res) {
+  sql.query("UPDATE `AutomotiveApp`.`users` SET insurance_phone = '', insurance_num = '', insurance_company = '', insurance_email = '' WHERE u_id = ?", [id], function(err, res) {
     if (err) {
       console.log('all tasks error: ', err);
       result(err, null);
@@ -208,5 +209,4 @@ User.removeInsuranceByID = function(id, result){
     }
   });
 };
-
-
+//G##################################################################################################################################

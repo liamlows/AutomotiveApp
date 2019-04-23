@@ -1,8 +1,9 @@
+//G##################################################################################################################################
 'use strict';
 var User = require('../model/appUser.js');
 var Car = require('../model/appCar.js');
 
-// #####  USER SECTION  #####
+//G##################################################################################################################################
 exports.create_user = function(req,res){
   // gen user obj
   var new_user = new User(req.body);
@@ -239,33 +240,15 @@ exports.remove_shop = function(req,res){
 
 exports.update_insurance = function(req,res){
 
-    if(!req.params.id){
+    if(!req.params.id|| !req.body.insurance_num || !req.body.insurance_phone || !req.body.insurance_company || !req.body.insurance_email){
         res.status(400).json({
             "code": 400,
-            "response":"Missing ID in API request."
-        });
-    }
-    else if(!req.body.insurance_num){
-         res.status(400).json({
-            "code": 400,
-            "response":"Missing Ins number in API request."
-        });
-    }
-    else if(!req.body.insurance_phone){
-         res.status(400).json({
-            "code": 400,
-            "response":"Missing Ins phone in API request."
-        });
-    }
-    else if(!req.body.insurance_company){
-         res.status(400).json({
-            "code": 400,
-            "response":"Missing Ins company in API request."
+            "response":"Missing"
         });
     }
     else{
     // if input is provided, create shop
-        User.updateInsuranceByID(req.body.Insurance_num,req.body.Insurance_phone,req.body.insurance_company, req.params.id,function(err,user){
+        User.updateInsuranceByID(req.body.insurance_num,req.body.insurance_phone,req.body.insurance_company,req.body.insurance_email, req.params.id,function(err,user){
             if (err){
                 res.send(err);
             }
@@ -296,10 +279,9 @@ exports.remove_insurance = function(req,res){
         });
     }
 };
+//G##################################################################################################################################
 
-// ##########################
-
-// #####  CAR  SECTION  #####
+//G##################################################################################################################################
 exports.add_car = function(req,res){
   // handle missing ID
   if(!req.params.id){
@@ -311,10 +293,10 @@ exports.add_car = function(req,res){
   // create new car object ######## IS THIS ABSOLUTELY NECCESARY???? ########
   var new_car = new Car(req.body);
   // handles empty input
-  if (!new_car.VIN || !new_car.MAKE || !new_car.MODEL || !new_car.YEAR) {
+  if (!new_car.MAKE || !new_car.MODEL || !new_car.YEAR) {
     res.status(400).json({
       "code": 400,
-      "response":"Please provide input for all fields.(VIN/MAKE/MODEL/YEAR)"
+      "response":"Please provide input for all fields.(MAKE/MODEL/YEAR)"
     });
   }
   else{
@@ -337,7 +319,7 @@ exports.get_car = function(req,res){
     });
   }
   else{
-    Car.getCarByUID(req.params.id, function(err,resp){
+    Car.getCarByCID(req.params.id, function(err,resp){
       if(err){
         res.send(err);
       }
@@ -347,4 +329,46 @@ exports.get_car = function(req,res){
     });
   }
 };
-// ##########################
+
+exports.get_car_mileage = function(req,res){
+  // handle missing ID
+  if(!req.params.id){
+    res.status(400).json({
+      "code": 400,
+      "response":"Missing ID in API request."
+    });
+  }
+  else{
+    Car.getCarMileageByCID(req.params.id, function(err,resp){
+      if(err){
+        res.send(err);
+      }
+      else {
+        res.json(resp);
+      }
+    });
+  }
+};
+
+
+exports.delete_car = function(req,res){
+
+    if(!req.params.id){
+        res.status(400).json({
+            "code": 400,
+            "response":"Missing ID in API request."
+        });
+    }
+    else{
+    // if input is provided, create shop
+        Car.deleteCarByCID(req.params.id,function(err,user){
+            if (err){
+                res.send(err);
+            }
+            else{
+                res.json(user);
+            }
+        });
+    }
+};
+//G##################################################################################################################################
