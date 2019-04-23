@@ -7,7 +7,7 @@ import "./SignUp.css";
 class SignUp extends Component {
     render() {
       return (
-        <div className = "SignUp">
+        <div className = "flex-wrap float-right">
             <Form className = "Form" id = "su_form">
             <Form.Row id="no_margin">
                 <Col id="no_margin">
