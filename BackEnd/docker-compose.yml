@@ -1,0 +1,29 @@
+version: '3'
+# list out mysql and node service
+services:
+  autoapp_mysql_comp:
+    image: liamlows/autoapp_mysql
+    build: ./MYSQL
+    container_name: autoapp_mysql_comp
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    ports:
+      - 3306:3306
+    volumes:
+      - mysql_volume:/var/lib/mysql
+  autoapp_node_comp:
+    image: liamlows/autoapp_node-api
+    build: ./NODE
+    container_name: autoapp_node_comp
+    restart: always
+    ports:
+      - 8080:8080
+    links:
+      - autoapp_mysql_comp:autoapp_mysql_comp
+    depends_on:
+      - autoapp_mysql_comp
+    volumes:
+      - ./NODE:/var/lib/node
+
+volumes:
+  mysql_volume:

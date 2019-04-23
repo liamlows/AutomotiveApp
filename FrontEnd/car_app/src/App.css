@@ -17,3 +17,17 @@
   display: flex;
   width: 100%;
 }*/
+.App {
+    margin-top: 15px;
+}
+  
+.App .navbar-brand {
+    font-weight: bold;
+}
+
+#item {
+    padding: 0.1em;
+    margin: 1em;
+    cursor: pointer;
+}
+  

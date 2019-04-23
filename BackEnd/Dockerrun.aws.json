@@ -1,0 +1,58 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "volumes": [
+    {
+      "name": "autoapp_mysql",
+      "host": {
+        "sourcePath": "/var/app/current/mysql"
+      }
+    },
+    {
+      "name": "autoapp_node",
+      "host": {
+        "sourcePath": "/var/app/current/node"
+      }
+    }
+  ],
+  "containerDefinitions": [
+    {
+      "name": "autoapp_mysql",
+      "image": "liamlows/autoapp_mysql",
+      "essential": true,
+      "memory": 128,
+      "portMappings": [
+        {
+          "hostPort": 3306,
+          "containerPort": 3306
+        }
+      ],
+      "mountPoints": [
+        {
+          "sourceVolume": "./MYSQL/SQL-DATA",
+          "containerPath": "/var/lib/mysql"
+        }
+      ]
+    },
+    {
+      "name": "autoapp_node",
+      "image": "liamlows/autoapp-node-api",
+      "essential": true,
+      "memory": 128,
+      "portMappings": [
+        {
+          "hostPort": 8080,
+          "containerPort": 8080
+        }
+      ],
+      "links": [
+        "autoapp_mysql"
+      ],
+      "mountPoints": [
+        {
+          "sourceVolume": "./NODE",
+          "containerPath": "/var/lib/node"
+        }
+      ]
+    }
+  ]
+}
