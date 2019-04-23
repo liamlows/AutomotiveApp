@@ -9,6 +9,7 @@ CREATE TABLE `AutomotiveApp`.`users` (
   `Insurance_phone` VARCHAR(45) NULL,
   `Insurance_num` VARCHAR(45) NULL,
   `insurance_company` VARCHAR(45) NULL,
+  `insurance_email` VARCHAR (45) NULL,
   PRIMARY KEY (`u_id`),
   UNIQUE INDEX `u_id_UNIQUE` (`u_id` ASC) VISIBLE,
   UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE);
@@ -16,7 +17,6 @@ CREATE TABLE `AutomotiveApp`.`users` (
 CREATE TABLE `AutomotiveApp`.`vehicles` (
   `c_id` INT NOT NULL,
   `u_id` INT NOT NULL,
-  `VIN` VARCHAR(45) NULL,
   `MAKE` VARCHAR(45) NULL,
   `MODEL` VARCHAR(45) NULL,
   `YEAR` VARCHAR(45) NULL,
@@ -34,9 +34,8 @@ CREATE TABLE `AutomotiveApp`.`vehicles` (
 CREATE TABLE `AutomotiveApp`.`Maintainance` (
   `m_id` INT NOT NULL,
   `c_id` INT NULL,
-  `last_mile_car` INT NULL,
-  `last_mile_tire` INT NULL,
-  `last_mile_oil` INT NULL,
+  `type` VARCHAR(45) NULL,
+  `last_mileage` VARCHAR(45) NULL,
   `date_serviced` VARCHAR(45) NULL,
   `cost` VARCHAR(45) NULL,
   `description` VARCHAR(255) NULL,
