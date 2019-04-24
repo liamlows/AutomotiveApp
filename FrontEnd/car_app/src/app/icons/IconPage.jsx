@@ -78,7 +78,7 @@ export class IconPage extends React.Component {
   render() {
     return (
       <>
-        <Icons images={this.icons} />
+        <Icons images={this.icons} style={{marginTop:'3em'}}/>
       </>
     );
   }

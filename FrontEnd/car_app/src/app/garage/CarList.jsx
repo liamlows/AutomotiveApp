@@ -28,4 +28,4 @@ export const CarList = (props) => (
     </Carousel>
 );
 
-export default CarList
+export default CarList;

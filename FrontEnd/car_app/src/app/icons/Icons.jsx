@@ -19,8 +19,9 @@ export default class Icons extends React.Component {
         <Card.Body>
           <div className="icons row justify-content-around">
             {
-              obj.imgs.map(img => {
-                return(<div style={{margin: '.5em 1em 1em .5em'}}> 
+              obj.imgs.map((img,i) => {
+                return(
+                <div key={i} style={{margin: '.5em 1em 1em .5em'}}> 
                   <img src={img[0]} alt="pic" onClick={(e) => this.onClickIcon(img[0], img[1], img[2])}></img>
                 </div>);
               })
@@ -53,7 +54,7 @@ export default class Icons extends React.Component {
 
   render() {
     return (
-      <div className="" style={{fontFamily:'Arial'}}>
+      <div className="" style={{fontFamily:'Arial',marginTop:'3em'}}>
         {/* <h1>Dashboard Symbols</h1> */}
           {
             this.props.images.map(obj => this.renderIcons(obj))

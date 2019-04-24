@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 import './MapComponent.css';
 import Listing from './Listing';
+import FavShop from './FavShop';
+import Shop from './../../models/shop';
   
 export class MapContainer extends Component {
     // constructor(props){
@@ -23,36 +25,52 @@ export class MapContainer extends Component {
             lng: this.lng
         },
         activeMarker: {},
-        showingInfoWindow: false
+        showingInfoWindow: false,
+        favShop: {}
     }
 
     style = {
         width: '40%',
         height: '60%',
-        position: 'relative',
+        // position: 'relative',
         margin: '2em 0em 2em 0em'
     }
 
     onMarkerClick = (props, marker) =>
-    this.setState({
-      activeMarker: marker,
-      selectedPlace: props,
-      showingInfoWindow: true
+        this.setState({
+        activeMarker: marker,
+        selectedPlace: props,
+        showingInfoWindow: true
     });
 
-  onInfoWindowClose = () =>
-    this.setState({
-      activeMarker: null,
-      showingInfoWindow: false
-    });
-
-  onMapClicked = () => {
-    if (this.state.showingInfoWindow)
-      this.setState({
+    onInfoWindowClose = () =>
+        this.setState({
         activeMarker: null,
         showingInfoWindow: false
-      });
-  };
+        });
+
+    onMapClicked = () => {
+        if (this.state.showingInfoWindow)
+        this.setState({
+            activeMarker: null,
+            showingInfoWindow: false
+        });
+    };
+
+    onShopClicked = (p) => {
+        console.log(p);
+        var shop;
+        if(p.opening_hours !== {} && p.opening_hours){
+            var open = p.opening_hours.open_now
+            shop = new Shop(p.name, p.vicinity, p.rating, open);
+        }
+        else {
+            shop = new Shop(p.name, p.vicinity, p.rating);
+        }
+        this.setState({
+            favShop: shop
+        });
+    }
 
     componentDidMount() {
         if (this.props.centerAroundCurrentLocation) {
@@ -95,34 +113,40 @@ export class MapContainer extends Component {
         return (
             <>
             <div className="parent">
-            <div className="google_map">
-                <Map centerAroundCurrentLocation google={this.props.google} onReady={this.fetchPlaces} 
-                    onRecenter={this.fetchPlaces} onClick={this.onMapClicked}
-                     onDragend={this.fetchPlaces}  zoom={14} style={this.style}>
-            
-                    <Marker onClick={this.onMarkerClick} name={'Current location'} />
+                <div className="favShop" style={{marginTop:'1.5em',marginBottom:'0em'}}>
+                    { this.state.favShop.hasOwnProperty('name') ? <FavShop favShop={this.state.favShop} /> : <div className="alert alert-success" >Add your favorite shop!</div>}
+                </div>
+                <div className="row" >
+                    <div className="google_map">
+                        <Map centerAroundCurrentLocation google={this.props.google} onReady={this.fetchPlaces} 
+                            onRecenter={this.fetchPlaces} onClick={this.onMapClicked}
+                            onDragend={this.fetchPlaces}  zoom={14} style={this.style}>
+                    
+                            <Marker onClick={this.onMarkerClick} name={'Current location'} />
 
-                    {this.state.places.map(p => 
-                        <Marker onClick={this.onMarkerClick} name={p.name} position={p.geometry.location} />
-                    )}
+                            {this.state.places.map((p,i) => 
+                                <Marker key={i} onClick={this.onMarkerClick} name={p.name} position={p.geometry.location} />
+                            )}
 
-                    <InfoWindow
-                        marker={this.state.activeMarker}
-                        onClose={this.onInfoWindowClose}
-                        visible={this.state.showingInfoWindow}>
-                        <div>
-                            <h1>{this.state.selectedPlace.name}</h1>
-                        </div>
-                    </InfoWindow>
+                            <InfoWindow
+                                marker={this.state.activeMarker}
+                                onClose={this.onInfoWindowClose}
+                                visible={this.state.showingInfoWindow}>
+                                <div>
+                                    <h1>{this.state.selectedPlace.name}</h1>
+                                </div>
+                            </InfoWindow>
 
-                </Map>
-            </div>
+                        </Map>
+                    </div>
 
-            <div className="places">
-                <Listing places={this.state.places} style={{overflowY: 'scroll'}}/>
-            </div>
-            <div className="clearfix"> </div>
-            <hr/>
+                    <div className="places">
+                        <Listing places={this.state.places} onShopClicked={this.onShopClicked} style={{overflowY: 'scroll'}}/>
+                    </div>
+                </div>
+                <div className="clearfix"> </div>
+
+                <hr/>
             </div>
             </>
         );
