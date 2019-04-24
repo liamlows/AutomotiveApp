@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 import './MapComponent.css';
 import Listing from './Listing';
-  
+
 export class MapContainer extends Component {
     // constructor(props){
         // super(props);
@@ -74,16 +74,16 @@ export class MapContainer extends Component {
 
     searchNearby = (map, center) => {
       const { google } = this.props;
-  
+
       const service = new google.maps.places.PlacesService(map);
-  
+
       // Specify location, radius and place types for your Places API search.
       const request = {
         location: center,
         radius: '1000',
         type: ['car_repair']
       };
-  
+
       service.nearbySearch(request, (results, status) => {
         if (status === google.maps.places.PlacesServiceStatus.OK)
           this.setState({ places: results });
@@ -96,13 +96,13 @@ export class MapContainer extends Component {
             <>
             <div className="parent">
             <div className="google_map">
-                <Map centerAroundCurrentLocation google={this.props.google} onReady={this.fetchPlaces} 
+                <Map centerAroundCurrentLocation google={this.props.google} onReady={this.fetchPlaces}
                     onRecenter={this.fetchPlaces} onClick={this.onMapClicked}
                      onDragend={this.fetchPlaces}  zoom={14} style={this.style}>
-            
+
                     <Marker onClick={this.onMarkerClick} name={'Current location'} />
 
-                    {this.state.places.map(p => 
+                    {this.state.places.map(p =>
                         <Marker onClick={this.onMarkerClick} name={p.name} position={p.geometry.location} />
                     )}
 
@@ -128,7 +128,7 @@ export class MapContainer extends Component {
         );
     }
 }
- 
+
 export default GoogleApiWrapper({
   apiKey: ("AIzaSyDofTzgMt6_8WFGoy-gb0CepOWTugEuELc")
 })(MapContainer)
