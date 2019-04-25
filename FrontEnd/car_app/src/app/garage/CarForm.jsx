@@ -5,33 +5,39 @@ import { Button, Modal } from "react-bootstrap";
 export class CarForm extends React.Component {
     
     state = {
-        make: "",
+        make: '',
         model: "",
         year: "",
-        mileage: 0,
-        show: true
+        mileage: '',
+        show: true,
+        imgPath: '',
+        makes: [
+            {make:'Audi',imgPath:'icons/audi.jpg'},
+            {make:'BMW',imgPath:'icons/bmw.jpg'},
+            {make:'Ford',imgPath:'icons/ford.jpg'},
+            {make:'Hyundai',imgPath:'icons/hyundai.jpg'},
+            {make:'Kia',imgPath:'icons/kia.jpg'},
+            {make:'Mazda',imgPath:'icons/mazda.jpg'},
+            {make:'Mercedes-Benz',imgPath:'icons/mercedes-benz.jpg'},
+            {make:'Nissan',imgPath:'icons/nissan.jpg'},
+            {make:'Toyota',imgPath:'icons/toyota.jpg'},
+            {make:'Volkswagen',imgPath:'icons/volkswagen.jpg'},
+        ]
     }
 
     onCarAdded(car){
-        this.carMake.value = '';
-        this.mod.value = '';
-        this.carYear.value = '';
-        this.mile.value = 0;
         this.props.onCarAdded(car);
-        this.setState(
-            {
+        this.setState({
               show: true
             });
     }
     
 
     onShow = () => {
-        //alert("hello");
-        this.setState(
-          {
+        this.setState({
             show: true
           });
-          this.onCarAdded(new Car(this.state.make, this.state.model, this.state.year, this.state.mileage));
+          this.onCarAdded(new Car(this.state.make, this.state.model, this.state.year, this.state.mileage,this.state.imgPath));
       }
     
     onClose = () => {
@@ -40,8 +46,19 @@ export class CarForm extends React.Component {
         });
     }
 
-    componentDidMount(){
+    onChange = e => {
+        this.setState({ make: e.target.value});
 
+        var val = e.target.options[e.target.selectedIndex].dataset
+        this.setState({imgPath:val.src});
+    }
+
+    componentDidMount() {
+        // $("#datepicker").datepicker({
+        //     format: "yyyy",
+        //     viewMode: "years", 
+        //     minViewMode: "years"
+        // });
     }
     
     render() {
@@ -52,34 +69,40 @@ export class CarForm extends React.Component {
             </Modal.Header>
             <Modal.Body>
                 <form>
-                <div className="form-row">
-                    <div className="form-group">
+                <div className="form-row" style={{padding:'.5em',margin:'.5em'}}>
+                    <div className="form-group col" style={{marginRight:'1.5em'}}>
                         <label htmlFor="make">Make</label>
-                        <input type="name" className="form-control" id="make" placeholder="Make" ref={input => this.carMake = input}
-                        onChange={e => this.setState({ make: e.target.value })}>
-                        </input>
+                        <select type="name" className="form-control" id="make"
+                        value={this.state.make}
+                        onChange={e => this.onChange(e)}>
+                        <option></option>
+                            {
+                                this.state.makes.map( (a, i) => 
+                                    <option key={i} data-src={a.imgPath} value={a.make} >{a.make}</option>
+                                )
+                            }
+                        </select>
                     </div>
-                </div>
-                <div className="form-row">
-                    <div className="form-group">
+                    <div className="form-group col">
                         <label htmlFor="model">Model</label>
-                        <input type="name" className="form-control" id="model" placeholder="Model" ref={input => this.mod = input}
+                        <input type="name" className="form-control" id="model" placeholder="Model"
+                        value={this.state.model}
                         onChange={e => this.setState({ model: e.target.value })}>
                         </input>
                     </div>
                 </div>
-                <div className="form-row">
-                    <div className="form-group">
+                <div className="form-row" style={{padding:'.5em',margin:'.5em'}}>
+                    <div className="form-group col" style={{marginRight:'1.5em'}}>
                         <label htmlFor="year">Year</label>
-                        <input type="name" className="form-control" id="year" placeholder="Year" ref={input => this.carYear = input}
+                        <input className="form-control col" type="text" id= "year" placeholder="Year"
+                        value={this.state.year}
                         onChange={e => this.setState({ year: e.target.value })}>
                         </input>
                     </div>
-                </div>
-                <div className="form-row">
                     <div className="form-group">
-                        <label htmlFor="userName">Mileage</label>
-                        <input className="form-control" id="mileage" placeholder="Mileage" ref={input => this.mile = input}
+                        <label htmlFor="mileage">Mileage</label>
+                        <input className="form-control col" id="mileage" placeholder="Mileage" 
+                        value={this.state.mileage}
                         onChange={e => this.setState({ mileage: e.target.value })}>
                         </input>
                     </div>

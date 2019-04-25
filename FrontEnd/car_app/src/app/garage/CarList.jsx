@@ -1,31 +1,39 @@
 import React from 'react';
-import { Button, Carousel, Image } from "react-bootstrap";
+import { Link } from 'react-router-dom'
+// import { Button, Carousel, Image } from "react-bootstrap";
 
 
 export const CarList = (props) => (
-    <Carousel className = "carous align-self-center" style={{marginTop:'3em'}}>
-        {
-            props.cars.map((x,i) =>(
-            
-                <Carousel.Item key = {i} >
-                    <div className = "logo">
-                    <Image
-                    className="d-block w-100 float-left"
-                    src="http://www.car-brand-names.com/wp-content/uploads/2015/05/Mercedes-Benz-logo.png"
-                    alt="First slide"
-                    thumbnail
-                    />
-                    </div>  
-                    <h3>Make: {x.make}</h3>
-                    <h3>Model: {x.model}</h3>
-                    <h3>Year: {x.year}</h3>
-                    <h3>Mileage: {x.mileage}</h3>
-                    <Button>Edit Car</Button>
-                </Carousel.Item>
-            
-            ))
+    <div>
+
+        {!props.cars.length 
+            ? <div className="alert alert-info">It looks like you don't have any cars in your garage yet... Add one by clicking the plus button!</div>
+            :
+            <div className="row justify-content-around" style={{marginTop:'2em'}}>
+            {
+                props.cars.map( (a, i) => 
+                <div key={i} className="card col-md-5" style={{margin:'1em',padding:'.5em'}}>
+                    <div className="card-body" style={{padding:'0em'}}>
+                        <Link to={`/car/${a.id}`} className="btn btn-primary float-right" style={{marginBottom:'.75em'}}>
+                            <i className="fa fa-edit"></i>&nbsp;
+                        </Link>
+                        <div className="row justify-content-between align-items-center" style={{margin:'0em'}}>
+                            <div className="col">
+                                <img className="img-fluid" src={a.imgPath} alt="Make" style={{width:'100%',height:'21vh'}}/>
+                            </div>
+                            <div className="col">
+                                <h4 className="">{ a.make }</h4>
+                                <h4 className="text-muted">{ a.model }</h4>
+                                <h4 className="text-muted">{ a.year }</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                )
+            }
+            </div>
         }
-    </Carousel>
+    </div>
 );
 
 export default CarList;

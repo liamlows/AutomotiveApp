@@ -8,7 +8,7 @@ export default () =>
     <Switch>
         <Route path="/" exact component={HomePage} />
         <Route path="/account_info" exact component={AccountInfo} />
-        {/* route for specific car info */}
+        {/* <Route path="/car/:carId" exact component={Car} /> */}
 
         {/* <Route path="/login" exact component={Login} />
         <Route path="/signup" exact component={SignUp} />

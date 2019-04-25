@@ -2,9 +2,7 @@ import React from 'react';
 import CarForm from './CarForm';
 import CarList from './CarList';
 import "./MyGarage.css";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core'
-// import { fab } from '@fortawesome/free-brands-svg-icons'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
  
 library.add(faPlus)
@@ -23,26 +21,30 @@ export class MyGarage extends React.Component {
         this.setState(state => ({ isCar: true }));
     };
 
-    onCarToBeAdded = () => {
+    onCarToBeAdded (){
         this.setState(state => ({ carToBeAdded: !state.carToBeAdded }));
     }
     
     render() {
         return (
             <div className="container parent" style={{marginBottom:'0em'}}>
-                <div className = "float-left">
-                    {this.state.carToBeAdded && <CarForm onCarAdded = {a => this.onCarAdded(a)}/>}
+                <div>
+                    {
+                        this.state.carToBeAdded && <CarForm onCarAdded = {a => this.onCarAdded(a)} />
+                    }
                 </div>
-               <div className="row align-items-center" style={{marginBottom:'1.5em'}}>
-                    <div className="col">
-                        {this.state.isCar && !this.state.carToBeAdded && <CarList cars = {this.state.cars} style={{marginTop:'1.5em'}}/>}
-                        {!this.state.cars.length && <div className="alert alert-info">It looks like you don't have any cars in your garage yet... Add one by clicking the plus button!</div>}
-                    </div>
-                    <div className="">
-                        {!this.state.carToBeAdded && <FontAwesomeIcon id="plus" icon="plus" onClick = {this.onCarToBeAdded} color="" size="lg" />}
-                        {/* <img src="https://image.flaticon.com/icons/svg/16/16909.svg" 
-                        alt="" className = "plus align-middle" onClick = {this.onCarToBeAdded} style={{marginTop:'3em'}}/> */}
-                    </div>
+                <div>
+                    {
+                        !!this.state.cars && <CarList cars = {this.state.cars} style={{marginTop:'1.5em'}}/>
+                    }
+                </div>
+                {/* <img src="https://image.flaticon.com/icons/svg/16/16909.svg" 
+                        alt="" className = "plus align-middle" onClick = {e => this.onCarToBeAdded()} style={{width:'100%',height:'13vh'}}/> */}
+                <div className="w-100 text-center" >
+                    <button className="btn btn-light border" onClick = {e => this.onCarToBeAdded()} >
+                        <i className="fa fa-plus fa-3x mr-3"></i>
+                        <i className="fa fa-car fa-3x"></i>
+                    </button>
                 </div>
                 <div className="clearfix"></div>
                 <hr/>
