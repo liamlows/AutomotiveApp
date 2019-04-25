@@ -113,9 +113,6 @@ export class MapContainer extends Component {
         return (
             <>
             <div className="parent">
-                <div className="favShop" style={{marginTop:'1.5em',marginBottom:'0em'}}>
-                    { this.state.favShop.hasOwnProperty('name') ? <FavShop favShop={this.state.favShop} /> : <div className="alert alert-success" >Add your favorite shop!</div>}
-                </div>
                 <div className="row" >
                     <div className="google_map">
                         <Map centerAroundCurrentLocation google={this.props.google} onReady={this.fetchPlaces} 
@@ -145,7 +142,9 @@ export class MapContainer extends Component {
                     </div>
                 </div>
                 <div className="clearfix"> </div>
-
+                <div className="favShop" style={{marginTop:'1.5em',marginBottom:'0em'}}>
+                    { this.state.favShop.hasOwnProperty('name') ? <FavShop favShop={this.state.favShop} /> : <div className="alert alert-success" >Add your favorite shop!</div>}
+                </div>
                 <hr/>
             </div>
             </>
