@@ -5,15 +5,15 @@ import { Insurance } from './../../models/insurance'
 export class InsuranceForm extends React.Component {
 
     state = {
-        email: '',
+        phone: '',
         company: '',
         policy_num: ''
     }
 
     onSubmit () {
-        this.props.onNewInsurance(new Insurance(this.state.email, this.state.company, this.state.policy_num))
+        this.props.onNewInsurance(new Insurance(this.state.phone, this.state.company, this.state.policy_num))
         this.setState({
-            email: '',
+            phone: '',
             company: '',
             policy_num : ''
         })
@@ -27,10 +27,10 @@ export class InsuranceForm extends React.Component {
 
                 <form style={{margin:"2em"}} >
                     <div className="form-group ">
-                        <label for="email"><FontAwesomeIcon icon="envelope" size="lg"/> Email address</label>
-                        <input className="d-block form-control" id="email" type="email" placeholder="Enter email" style={{maxWidth:"40%"}} value={this.state.email} onChange={e => this.setState({email:e.target.value})}/>
+                        <label for="phone"><FontAwesomeIcon icon="envelope" size="lg"/> Insurance Phone Number</label>
+                        <input className="d-block form-control" id="phone" type="phone" placeholder="Enter Phone Number" style={{maxWidth:"40%"}} value={this.state.phone} onChange={e => this.setState({phone:e.target.value})}/>
                         <Form.Text className="text-muted">
-                            We'll never share your email with anyone else.
+                            We'll never share your phone number with anyone else.
                         </Form.Text>
                     </div>
                     <br></br>
