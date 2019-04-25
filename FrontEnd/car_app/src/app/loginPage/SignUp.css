@@ -1,4 +1,4 @@
-@media all and (min-width: 480px) {
+@media all and (min-width: 50em) {
     .SignUp {
         padding: 60px 0;
     }
@@ -9,15 +9,8 @@
         /* padding: 2em; */
     }
 }
-  
-form.Form {
-    border:'2px solid #000000';
-    padding: 1.5em;
-}
 
 #su_form *:not(#no_margin){
-    /* padding: 3em; */
-    /* margin-top: 0.8em; */
     margin-bottom: 0.8em;
 }
 

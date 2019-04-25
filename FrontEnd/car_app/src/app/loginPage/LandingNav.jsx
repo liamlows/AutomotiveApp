@@ -19,9 +19,6 @@ class LandingNav extends Component {
             </Navbar.Brand>
             </LinkContainer>
             <Nav className="ml-md-auto d-md-flex flex-wrap">
-            <LinkContainer id="item" to="/signup">
-                    <NavItem>Sign Up</NavItem>
-                </LinkContainer>
                 <LinkContainer id="item" to="/login">
                     <NavItem>Login</NavItem>
                 </LinkContainer>

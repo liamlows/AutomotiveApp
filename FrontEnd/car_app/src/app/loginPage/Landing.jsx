@@ -2,21 +2,27 @@ import React, { Component } from "react";
 import 'bootstrap/dist/css/bootstrap.css';
 import SignUp from "./SignUp";
 import './Landing.css'
+import {Row} from 'react-bootstrap';
 
 
 class Landing extends Component {
     render() {
         return (
-            <div className="flex-row">
-            <img className="img-fluid" src="icons/landingImg.png" alt="img"></img>
-            <SignUp />
-            </div>
+            <Row>
+                <div className="container-fluid" style={{zIndex: '-10'}}>
+                    <img className="img-fluid" src="icons/landingImg.png" alt="img"></img>
+                </div>
+                <div className="container" style={{position: 'absolute', zIndex: '10'}}>
+                    <SignUp />
+                </div>
+            </Row>
         );
     }
 }
 
 export default Landing;
 /*
+<div style={{position: 'relative'}}>
 <>
 <Navbar bg="light" expand="lg" ht className = "justify-content-between">
 <Navbar.Brand className = "navbar-brand" href="#home">
