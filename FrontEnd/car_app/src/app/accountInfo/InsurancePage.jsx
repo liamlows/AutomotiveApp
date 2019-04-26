@@ -20,7 +20,7 @@ class InsurancePage extends Component {
         return (
             <div>
                {!this.state.editMode && (this.state.insurances.length === 0) && <InsuranceForm onNewInsurance={a => this.onNewInsurance(a)}/> }
-                {!this.state.editMode && (this.state.insurances.length !== 0) && <InsuranceInfo insurances={this.state.insurances}/> }
+                {!this.state.editMode && (this.state.insurances.length !== 0) && <InsuranceInfo insurances={this.state.insurances} user={this.props.user}/> }
             </div>
         );
     }

@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 export class CarRepo {
-    url = "https://ec2-3-92-242-46.compute-1.amazonaws.com";
+    url = "http://ec2-3-92-242-46.compute-1.amazonaws.com:8080";
+    // url = "autoapp_node_comp:8080;"
     config = {
         // headers: {
         //     Authorization: 'rbates'
@@ -16,25 +17,25 @@ export class CarRepo {
         });
     }
 
-    getCar(carID) {
+    getCar(carId) {
         return new Promise((resolve, reject) => {
-            axios.get(`${this.url}/${accountId}`, this.config)
+            axios.get(`${this.url}/${carId}`, this.config)
                 .then(resp => resolve(resp.data))
                 .catch(resp => alert(resp));
         });
     }
 
-    updateCar(carID, car) {
+    updateCar(carId, car) {
         return new Promise((resolve, reject) => {
-            axios.put(`${this.url}/${accountId}`, account, this.config)
+            axios.put(`${this.url}/${carId}`, car, this.config)
                 .then(resp => resolve(resp.data))
                 .catch(resp => alert(resp));
         });
     }
     
-    deleteCar(carID) {
+    deleteCar(carId) {
         return new Promise((resolve, reject) => {
-            axios.delete(`${this.url}/${accountId}`, this.config)
+            axios.delete(`${this.url}/${carId}`, this.config)
                 .then(resp => resolve(resp.data))
                 .catch(resp => alert(resp));
         });
@@ -42,7 +43,7 @@ export class CarRepo {
 
     addCar(car) {
         return new Promise((resolve, reject) => {
-            axios.post(this.url, account, this.config)
+            axios.post(this.url, car, this.config)
                 .then(resp => resolve(resp.data))
                 .catch(resp => alert(resp));
         });
