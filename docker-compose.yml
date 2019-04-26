@@ -1,5 +1,5 @@
 version: '3'
-# list out mysql and node service
+# list out mysql/node/nginx service
 services:
   autoapp_mysql_comp:
     image: liamlows/autoapp_mysql
@@ -31,10 +31,12 @@ services:
     restart: always
     ports:
       -  80:80
+      -  443:443
     links:
       - autoapp_node_comp:autoapp_node_comp
     volumes:
       -  ./FrontEnd/car_app/build:/var/www
+      -  ./FrontEnd/nginx/nginx.conf:/etc/nginx/nginx.conf
 
 volumes:
   mysql_volume:
