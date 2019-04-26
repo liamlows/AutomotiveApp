@@ -20,7 +20,7 @@ export const CarList = (props) => (
                         </Link>
                         <div className="row justify-content-between align-items-center" style={{margin:'0em'}}>
                             <div className="col">
-                                <img className="img-fluid" src={a.imgPath} alt="Make" style={{width:'100%',height:'21vh'}}/>
+                                <img className="" src={a.imgPath} alt="Make" style={{width:'100%',height:'21vh'}}/>
                             </div>
                             <div className="col"  id="car-content">
                                 <h3 className="">{ a.make }</h3>
