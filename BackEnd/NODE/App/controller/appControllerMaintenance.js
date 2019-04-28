@@ -60,7 +60,7 @@ exports.get_maint = function(req,res){
     });
   }
   else{
-    Maintenance.getMaintByCID(req.params.id, function(err,resp){
+    Maintenance.getMaintCID(req.params.id, function(err,resp){
       if(err){
         res.send(err);
       }

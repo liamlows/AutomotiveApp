@@ -16,7 +16,12 @@ Maintenance.createMaint = function(id, newMaint, result) {
     function(err, res) {
       //if invalid query, send error to user
       if (err) {
-        result({"code":204,"response":"MYSQL entry error."}, null);
+        if (err.errno == 1216){
+          result({"code":204,"response":"Could not locate id in vehicles table."}, null);
+        }
+        else{
+          result({"code":204,"response":"MYSQL entry error, please refer to SYS ADMIN."}, null);
+        }
       }
       // if valid response, send response to user
       else {
