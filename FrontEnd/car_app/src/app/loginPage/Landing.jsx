@@ -8,34 +8,14 @@ import {Row} from 'react-bootstrap';
 class Landing extends Component {
     render() {
         return (
-            <Row>
-                <div className="container-fluid" style={{zIndex: '-10'}}>
-                    <img className="img-fluid" src="icons/landingImg.png" alt="img"></img>
-                </div>
-                <div className="container" style={{position: 'absolute', zIndex: '10'}}>
+            <div className="landing">
+                <img className="img-fluid" src="icons/landingImg.png" alt="img"></img>
+                <div className="sign">
                     <SignUp />
                 </div>
-            </Row>
+            </div>
         );
     }
 }
 
 export default Landing;
-/*
-<div style={{position: 'relative'}}>
-<>
-<Navbar bg="light" expand="lg" ht className = "justify-content-between">
-<Navbar.Brand className = "navbar-brand" href="#home">
-    <Link to="/">Car App</Link>
-</Navbar.Brand>
-<Nav pullRight className=" mr-sm-2">
-    <LinkContainer id = "item" to="/signup">
-        <NavItem>Sign Up</NavItem>
-    </LinkContainer>
-    <LinkContainer id = "item" to="/login">
-        <NavItem>Login</NavItem>
-    </LinkContainer>
-</Nav>
-</Navbar>
-</>
-*/

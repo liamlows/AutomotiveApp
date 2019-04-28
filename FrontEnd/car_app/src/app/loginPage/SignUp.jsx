@@ -7,7 +7,8 @@ import "./SignUp.css";
 class SignUp extends Component {
     render() {
       return (
-        <Card className="float-right" style={{width: '36%', marginTop: '9em'}}>
+        <div className="signup">
+        <Card>
             <Card.Header>
                 <h5>Sign Up</h5>
             </Card.Header>
@@ -19,13 +20,14 @@ class SignUp extends Component {
                     <Form.Control placeholder="Password" />
                     
                 </Form>
-                <Link to="/main">
+                <Link to="/signup">
                         <Button variant="primary" type="submit">
                             Submit
                         </Button>
                 </Link>
             </Card.Body>
         </Card>
+        </div>
       );
     }
   }

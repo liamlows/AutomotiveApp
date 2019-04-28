@@ -8,8 +8,8 @@ import AccountInfo from './app/accountInfo/AccountInfo';
 export default () =>
     <Switch>
         <Route path="/" exact component={FrontPage} />
-        <Route path="/home" exact component={HomePage} />
-        <Route path="/account_info" exact component={AccountInfo} />
+        <Route path="/home/:username" exact component={HomePage} />
+        <Route path="/account_info/:username" exact component={AccountInfo} />
         {/* route for specific car info */}
 
         {/* <Route path="/login" exact component={Login} />
