@@ -96,7 +96,7 @@ export class MapContainer extends Component {
 
     searchNearby = (map, center) => {
       const { google } = this.props;
-  
+
       const service = new google.maps.places.PlacesService(map);
     
       // Specify location, radius and place types for your Places API search.
@@ -105,7 +105,7 @@ export class MapContainer extends Component {
         radius: '1000',
         type: ['car_repair']
       };
-  
+
       service.nearbySearch(request, (results, status) => {
     // service.findPlaceFromQuery(request, (results, status) => {
         if (status === google.maps.places.PlacesServiceStatus.OK)
@@ -156,7 +156,7 @@ export class MapContainer extends Component {
         );
     }
 }
- 
+
 export default GoogleApiWrapper({
   apiKey: ("AIzaSyDofTzgMt6_8WFGoy-gb0CepOWTugEuELc")
 })(MapContainer)
