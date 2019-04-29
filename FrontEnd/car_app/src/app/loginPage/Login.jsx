@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 class Login extends Component {
   state = {
-    showModal: false
+    showModal: true
   }
 
   onClose() {
@@ -42,11 +42,7 @@ class Login extends Component {
                     {/* <Form.Label>Password</Form.Label> */}
                     <Form.Control type="password" placeholder="Password" />
                 </Form.Group>
-                <Link to="/main">
-                <Button variant="primary" type="submit" >
-                    Submit
-                </Button>
-                </Link>
+                <Link to="/main" className="btn btn-submit">Submit</Link>
                 </Form>
               </div>
               </Modal.Body>
