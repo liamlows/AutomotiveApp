@@ -1,12 +1,10 @@
 @media only screen and (min-width: 600px) {
-    .landing-img {
-        display: inline;
-        position: relative;
-        z-index: 1;
+    .container-fluid {
+        z-index: -10;
     }
 
-    .sign {
-        display: inline;
-        z-index: 2;
+    .container{
+        position: absolute;
+        z-index: 20;
     }
 }

@@ -8,12 +8,14 @@ import {Row} from 'react-bootstrap';
 class Landing extends Component {
     render() {
         return (
-            <div className="landing">
-                <img className="img-fluid" src="icons/landingImg.png" alt="img"></img>
-                <div className="sign">
+            <Row className="landing">
+                <div className="container-fluid">
+                    <img className="img-fluid" src="icons/landingImg.png" alt="img"></img>
+                </div>
+                <div className="container">
                     <SignUp />
                 </div>
-            </div>
+            </Row>
         );
     }
 }
