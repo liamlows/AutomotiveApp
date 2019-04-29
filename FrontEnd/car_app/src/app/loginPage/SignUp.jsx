@@ -7,8 +7,7 @@ import "./SignUp.css";
 class SignUp extends Component {
     render() {
       return (
-        <div className="signup">
-        <Card>
+        <Card className="signup">
             <Card.Header>
                 <h5>Sign Up</h5>
             </Card.Header>
@@ -27,7 +26,6 @@ class SignUp extends Component {
                 </Link>
             </Card.Body>
         </Card>
-        </div>
       );
     }
   }
