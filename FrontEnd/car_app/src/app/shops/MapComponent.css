@@ -1,5 +1,9 @@
+.row{
+    margin-bottom:2em;
+}
+
 .google_map{
-    width:48%;
+    width:45%;
     margin-right:2%;
     margin-left: 1em;
     float: left;
@@ -9,7 +13,8 @@
 }
 .places {
     /* width:40%; */
-    margin-right: 1em;
+    margin-left: 3em;
+    margin-right: .5em;
     padding: .5em;
     /* max-height: 60%; */
     float: right;
@@ -19,17 +24,28 @@
 
 div.places{
     height: 60vh;
-    width: 36vw;
+    width: 38vw;
     overflow-y: auto;
     border: solid .05em rgb(200,200,200);
     border-radius: .7em;
+    z-index:4;
 }
 
 .clearfix{
     clear:both;
-    margin-bottom: 3em;
 }
 
 .parent{
-    margin-bottom: 3em;
+    /* margin-bottom: 3em; */
 }
+
+.favShop{
+    margin: 1em;
+}
+
+
+@media only screen and (max-width: 600px) {
+    body {
+      /* background-color: lightblue; */
+    }
+  }

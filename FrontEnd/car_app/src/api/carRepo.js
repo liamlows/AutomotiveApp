@@ -18,7 +18,7 @@ export class CarRepo {
 
     getCar(carID) {
         return new Promise((resolve, reject) => {
-            axios.get(`${this.url}/${accountId}`, this.config)
+            axios.get(`${this.url}/${carID}`, this.config)
                 .then(resp => resolve(resp.data))
                 .catch(resp => alert(resp));
         });
@@ -26,7 +26,7 @@ export class CarRepo {
 
     updateCar(carID, car) {
         return new Promise((resolve, reject) => {
-            axios.put(`${this.url}/${accountId}`, account, this.config)
+            axios.put(`${this.url}/${carID}`, car, this.config)
                 .then(resp => resolve(resp.data))
                 .catch(resp => alert(resp));
         });
@@ -34,7 +34,7 @@ export class CarRepo {
     
     deleteCar(carID) {
         return new Promise((resolve, reject) => {
-            axios.delete(`${this.url}/${accountId}`, this.config)
+            axios.delete(`${this.url}/${carID}`, this.config)
                 .then(resp => resolve(resp.data))
                 .catch(resp => alert(resp));
         });
@@ -42,7 +42,7 @@ export class CarRepo {
 
     addCar(car) {
         return new Promise((resolve, reject) => {
-            axios.post(this.url, account, this.config)
+            axios.post(this.url, car, this.config)
                 .then(resp => resolve(resp.data))
                 .catch(resp => alert(resp));
         });
