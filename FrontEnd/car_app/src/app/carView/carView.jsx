@@ -6,7 +6,7 @@ import MaintenanceList from './maintenanceList';
 export class CarView extends React.Component {
     
     state = {
-        car: new Car("Mazda","RX-8","2018",200,"icons/mazda.jpg"),
+        car: new Car("Mazda","RX-8","2018",200,"icons/mazda.png"),
         records: []
     };
 
