@@ -4,34 +4,8 @@ export class CarRepo {
     url = "http://ec2-34-227-100-210.compute-1.amazonaws.com:8080";
     // url = "autoapp_node_comp:8080;"
     config = {
-        // headers: {
-        //     Authorization: 'rbates'
-        // }
+
     };
-
-    register(user) {
-        return new Promise((resolve, reject) => {
-            axios.post(`${this.url}/register`, user, this.config)
-                .then(resp => resolve(resp.data))
-                .catch(resp => alert(resp));
-        });
-    }
-
-    login(user) {
-        return new Promise((resolve, reject) => {
-            axios.post(`${this.url}/login`, user, this.config)
-                .then(resp => resolve(resp.data))
-                .catch(resp => alert(resp));
-        });
-    }
-    
-    deleteAccount(userId) {
-        return new Promise((resolve, reject) => {
-            axios.delete(`${this.url}/delete_user/${userId}`, this.config)
-                .then(resp => resolve(resp.data))
-                .catch(resp => alert(resp));
-        });
-    }
 
     addCar(userId, car) {
         return new Promise((resolve, reject) => {
@@ -97,3 +71,5 @@ export class CarRepo {
         });
     }
 }
+
+export default CarRepo;

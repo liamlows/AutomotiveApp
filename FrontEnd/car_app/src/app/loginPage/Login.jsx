@@ -22,7 +22,7 @@ export class Login extends Component{
 
         this.loginRepo.loginUser(user)
         .then(() => {
-            if(localStorage.getItem('code') === 200){
+            if(localStorage.getItem('code') === '200'){
                 this.setState({redirect: '/home'})
             }
             else{
@@ -30,6 +30,11 @@ export class Login extends Component{
             }
         })
         .catch(() => alert('error'));
+        this.setState(state => {
+            state.email="";
+            state.password="";
+            return state;
+        });
     }
 
     render() {
@@ -49,14 +54,14 @@ export class Login extends Component{
                 <Form className = "Form">
                 <Form.Group controlId="formBasicEmail">
                     {/* <Form.Label>Email address</Form.Label> */}
-                    <Form.Control type="email" placeholder="Email" onChange={(e,newValue) => this.setState({email: newValue})}/>
+                    <Form.Control type="email" placeholder="Email" onChange={e => this.setState({ email: e.target.value })}/>
                     <Form.Text className="text-muted">
                     </Form.Text>
                 </Form.Group>
 
                 <Form.Group controlId="formBasicPassword">
                     {/* <Form.Label>Password</Form.Label> */}
-                    <Form.Control type="password" placeholder="Password" onChange={(e,newValue) => this.setState({password: newValue})}/>
+                    <Form.Control type="password" placeholder="Password" onChange={e => this.setState({ password: e.target.value })}/>
                 </Form.Group>
                 
                 </Form>

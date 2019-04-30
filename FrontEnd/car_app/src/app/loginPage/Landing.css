@@ -4,7 +4,11 @@
     }
 
     .container {
-        position: absolute;
-        z-index: 20;
+        /* position: absolute; */
+        /* z-index: 20; */
     }
+}
+
+* {
+    box-sizing: border-box;
 }

@@ -1,14 +1,14 @@
 import axios from 'axios';
 
 export class LoginRepo {
-    url = "http://ec2-34-227-100-210.compute-1.amazonaws.com";
+    url = "http://ec2-34-227-100-210.compute-1.amazonaws.com:8080";
     config = {
 
     };
 
     registerUser(user) {
         return new Promise((resolve, reject) => {
-            axios.post(`${this.url}/register`, this.config)
+            axios.post(`${this.url}/register`, user, this.config)
                 .then(resp => resolve(resp.data))
                 .catch(resp => alert(resp));
         });
