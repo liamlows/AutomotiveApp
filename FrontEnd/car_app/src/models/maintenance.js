@@ -5,8 +5,9 @@ export default class Maintenance extends Component {
         super();
         this.type = type;
         this.cost = cost;
-        this.date = date;
-        this.miles = miles;
+        this.date_serviced = date;
+        this.last_mileage = miles;
         this.description = description;
+        this.id=0;
     }
 }

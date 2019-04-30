@@ -17,9 +17,9 @@ const MaintenanceList = (props) => (
                     
                 </div>
             </div> */}
-            <h6 className="">Date of Service: { a.date }</h6>
+            <h6 className="">Date of Service: { a.date_serviced }</h6>
             <h6 className="">Cost of Service: ${ a.cost }</h6>
-            <h6 className="">Miles at Service: { a.miles }</h6>
+            <h6 className="">Miles at Service: { a.last_mileage }</h6>
             <h6 className="text-muted">{ a.description }</h6>
             </div>
         </div>

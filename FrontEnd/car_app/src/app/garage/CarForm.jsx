@@ -8,7 +8,8 @@ export class CarForm extends React.Component {
         make: '',
         model: "",
         year: "",
-        mileage: '',
+        avg_mileage: '',
+        current_mileage:'',
         show: true,
         imgPath: '',
         makes: [
@@ -46,7 +47,9 @@ export class CarForm extends React.Component {
         this.setState({
             show: true
           });
-          this.onCarAdded(new Car(this.state.make, this.state.model, this.state.year, this.state.mileage,this.state.imgPath));
+          this.onCarAdded(new Car(this.state.make, this.state.model, this.state.year, 
+            this.state.avg_mileage,this.state.current_mileage,this.state.imgPath));
+        //   {"MAKE":this.state.make,"MODEL":this.state.model,"YEAR":this.state.year}
       }
     
     onClose = () => {
@@ -103,16 +106,25 @@ export class CarForm extends React.Component {
                 <div className="form-row" style={{padding:'.5em',margin:'.5em'}}>
                     <div className="form-group col" style={{marginRight:'1.5em'}}>
                         <label htmlFor="year">Year</label>
-                        <input className="form-control col" type="text" id= "year" placeholder="Year"
+                        <input className="form-control col" type="number" id= "year" placeholder="Year"
                         value={this.state.year}
                         onChange={e => this.setState({ year: e.target.value })}>
                         </input>
                     </div>
                     <div className="form-group">
-                        <label htmlFor="mileage">Mileage</label>
-                        <input className="form-control col" id="mileage" placeholder="Mileage" 
-                        value={this.state.mileage}
-                        onChange={e => this.setState({ mileage: e.target.value })}>
+                        <label htmlFor="avg_mileage">Average Weekly Mileage</label>
+                        <input className="form-control col" type="number" id="avg_mileage" placeholder="Avg Mileage" 
+                        value={this.state.avg_mileage}
+                        onChange={e => this.setState({ avg_mileage: e.target.value })}>
+                        </input>
+                    </div>
+                </div>
+                <div className="form-row" style={{padding:'.5em',margin:'.5em'}}>
+                    <div className="form-group col">
+                        <label htmlFor="model">Current Miles</label>
+                        <input type="number" className="form-control" id="current_mileage" placeholder="Current Miles"
+                        value={this.state.current_mileage}
+                        onChange={e => this.setState({ current_mileage: e.target.value })}>
                         </input>
                     </div>
                 </div>
