@@ -30,7 +30,7 @@ Car.getCarByUID = function(id, result) {
   sql.query("SELECT * FROM `AutomotiveApp`.`vehicles` WHERE u_id = ?;",[id],
     function(err,res){
       if(err){
-        result({"code":204,"response":"Could not locate id in table. ID="+id},null);
+        result({"code":204,"response":"Could not locate UID in table. ID="+id},null);
       }
       else {
         result(null,res);
@@ -47,7 +47,7 @@ Car.deleteCarByCID = function(id, result){
         result({"code":204,"response":"Could not locate id in table. ID="+id},null);
       }
       else {
-        result(null,res);
+        result(null,{"code":200,"response":"Deleted CAR with CID="+id});
       }
     }
   );
@@ -57,10 +57,8 @@ Car.deleteCarByCID = function(id, result){
 Car.updateCarByID = function(id, newCar, result) {
   sql.query("UPDATE `AutomotiveApp`.`users` SET MAKE = ?, MODEL = ?, YEAR = ?, avg_mileage = ?, current_mileage = ? WHERE c_id = ?;", [newCar.MAKE, newCar.MODEL, newCar.YEAR, newCar.avg_mileage, newCar.current_mileage, id], function(err, res) {
     if (err) {
-      console.log('all tasks error: ', err);
       result(err, null);
     } else {
-      console.log('all tasks: ', res);
       result(null, res);
     }
   });
@@ -74,7 +72,7 @@ Car.updateCarMakeByID = function(id, make, result) {
       result(err, null);
     } else {
       console.log('all tasks: ', res);
-      result(null, res);
+      result(null, {"code":200,"response":"Updated CID "+id+" with MAKE="+make});
     }
   });
 };
@@ -83,11 +81,9 @@ Car.updateCarMakeByID = function(id, make, result) {
 Car.updateCarModelByID = function(id, model, result) {
   sql.query("UPDATE `AutomotiveApp`.`users` SET MODEL = ? WHERE c_id = ?;", [model, id], function(err, res) {
     if (err) {
-      console.log('all tasks error: ', err);
       result(err, null);
     } else {
-      console.log('all tasks: ', res);
-      result(null, res);
+      result(null, {"code":200,"response":"Updated CID "+id+" with MODEL="+model});
     }
   });
 };
@@ -96,11 +92,9 @@ Car.updateCarModelByID = function(id, model, result) {
 Car.updateCarYearByID = function(id, year, result) {
   sql.query("UPDATE `AutomotiveApp`.`users` SET YEAR = ? WHERE c_id = ?;", [year, id], function(err, res) {
     if (err) {
-      console.log('all tasks error: ', err);
       result(err, null);
     } else {
-      console.log('all tasks: ', res);
-      result(null, res);
+      result(null, {"code":200,"response":"Updated CID "+id+" with YEAR="+year});
     }
   });
 };
@@ -109,11 +103,9 @@ Car.updateCarYearByID = function(id, year, result) {
 Car.updateCarAvgMileageByID = function(id, avg_mileage, result) {
   sql.query("UPDATE `AutomotiveApp`.`users` SET avg_mileage = ? WHERE c_id = ?;", [avg_mileage, id], function(err, res) {
     if (err) {
-      console.log('all tasks error: ', err);
       result(err, null);
     } else {
-      console.log('all tasks: ', res);
-      result(null, res);
+      result(null, {"code":200,"response":"Updated CID "+id+" with avg_mileage="+avg_mileage});
     }
   });
 };
@@ -122,11 +114,9 @@ Car.updateCarAvgMileageByID = function(id, avg_mileage, result) {
 Car.updateCarCurMileageByID = function(id, current_mileage, result) {
   sql.query("UPDATE `AutomotiveApp`.`users` SET current_mileage = ? WHERE c_id = ?;", [current_mileage, id], function(err, res) {
     if (err) {
-      console.log('all tasks error: ', err);
       result(err, null);
     } else {
-      console.log('all tasks: ', res);
-      result(null, res);
+      result(null, {"code":200,"response":"Updated CID "+id+" with current_mileage="+current_mileage});
     }
   });
 };
