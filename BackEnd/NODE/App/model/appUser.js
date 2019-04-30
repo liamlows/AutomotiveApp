@@ -1,4 +1,3 @@
-//G##################################################################################################################################
 'use strict';
 var sql = require('./dbConn.js');
 var sha512 = require('js-sha512');
@@ -71,11 +70,9 @@ User.loginUser = function(login_user, result){
 User.deleteUserByID = function(id,result) {
   sql.query("DELETE from `AutomotiveApp`.`users` WHERE u_id = ?;", [id], function(err, res) {
     if (err) {
-      console.log('all tasks error: ', err);
       result(err, null);
     } else {
-      console.log('all tasks: ', res);
-      result(null, res);
+      result(null, {"code":200,"response":"Deleted USER with UID="+id});
     }
   });
 };

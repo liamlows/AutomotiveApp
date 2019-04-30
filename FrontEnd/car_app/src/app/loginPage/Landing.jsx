@@ -1,27 +1,47 @@
 import React, { Component } from "react";
 import 'bootstrap/dist/css/bootstrap.css';
+import SignUp from "./SignUp";
+import './Landing.css'
+import {Row} from 'react-bootstrap';
 
+/*const styles = StyleSheet.create({
+    @media only screen and (min-width: 600px) {
+        .container-fluid {
+            z-index: -10;
+        }
+    
+        .container {
+            position: absolute;
+            z-index: 20;
+        }
+    }
+})*/
 
 class Landing extends Component {
     render() {
         return (
-          <>
-            <Navbar bg="light" expand="lg" ht className = "justify-content-between">
-            <Navbar.Brand className = "navbar-brand" href="#home">
-                <Link to="/">Car App</Link>
-            </Navbar.Brand>
-            <Nav pullRight className=" mr-sm-2">
-                <LinkContainer id = "item" to="/signup">
-                    <NavItem>Sign Up</NavItem>
-                </LinkContainer>
-                <LinkContainer id = "item" to="/login">
-                    <NavItem>Login</NavItem>
-                </LinkContainer>
-            </Nav>
-            </Navbar>
-          </>
+            <Row className="landing">
+            <div className="container-fluid">
+                <img className="img-fluid" src="icons/landingImg.png" alt="img"></img>
+            </div>
+            <div className="container">
+                <SignUp />
+            </div>
+        </Row>
+            
         );
     }
 }
 
-export default App;
+export default Landing;
+
+/*
+<Row className="landing">
+                <div className="container">
+                    <img className="img-fluid" src="icons/landingImg.png" alt="img"></img>
+                </div>
+                <div className="sign" style={{zIndex: '20'}}>
+                    <SignUp />
+                </div>
+            </Row>
+*/
