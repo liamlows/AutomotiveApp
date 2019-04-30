@@ -4,12 +4,14 @@ import NotFound from "./app/loginPage/NotFound";
 import HomePage from "./app/home/HomePage";
 import FrontPage from "./app/loginPage/FrontPage";
 import AccountInfo from './app/accountInfo/AccountInfo';
+import Login from './app/loginPage/Login';
 
 export default () =>
     <Switch>
         <Route path="/" exact component={FrontPage} />
-        <Route path="/home/:username" exact component={HomePage} />
-        <Route path="/account_info/:username" exact component={AccountInfo} />
+        <Route path="/login" exact component={Login} />
+        <Route path="/home" exact component={HomePage} />
+        <Route path="/account_info" exact component={AccountInfo} />
         {/* route for specific car info */}
 
         {/* <Route path="/login" exact component={Login} />
