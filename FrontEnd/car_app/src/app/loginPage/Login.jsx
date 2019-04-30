@@ -20,6 +20,8 @@ export class Login extends Component{
             password: this.state.password
         }
 
+        // verifyUser = async func (e) => e.preventDefault() function and put all the shit below in it
+
         this.loginRepo.loginUser(user)
         .then(() => {
             if(localStorage.getItem('code') === 200){

@@ -11,15 +11,29 @@ class SignUp extends Component {
     email: '',
     password: '',
     first_name: '',
-    last_name: ''
+    last_name: '',
+    redirect: ''
   }
 
   onSubmit() {
-    this.loginRepo.registerUser(this.state)
-    .then(alert('register'));
+    var user = {
+        email: this.state.email,
+        password: this.state.password,
+        first_name: this.state.first_name,
+        last_name: this.state.last_name
+    }
+
+    this.loginRepo.registerUser(user)
+    .then(() => {
+      this.setState({redirect: '/home'});
+    });
   }
   
     render() {
+      if(this.state.redirect) {
+        return <Redirect to={{pathname: this.state.redirect}} />
+      }
+
       return (
         <Card className="signup" style={{backgroundColor: 'transparent', border: 'none'}}>
             <Card.Header style={{border: 'none'}}>
@@ -30,7 +44,7 @@ class SignUp extends Component {
                     <Form.Control placeholder="First name" onChange={(e,newValue) => this.setState({first_name: newValue})}/>
                     <Form.Control placeholder="Last name" onChange={(e,newValue) => this.setState({last_name: newValue})}/>
                     <Form.Control placeholder="Email" onChange={(e,newValue) => this.setState({email: newValue})}/>
-                    <Form.Control placeholder="Password" onChange={(e,newValue) => this.setState({password: newValue})}/>
+                    <Form.Control type="password" placeholder="Password" onChange={(e,newValue) => this.setState({password: newValue})}/>
                     
                 </Form>
                       <Button variant="primary" type="submit" onClick={e => this.onSubmit()}>
