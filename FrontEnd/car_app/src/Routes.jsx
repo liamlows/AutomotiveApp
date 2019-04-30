@@ -5,6 +5,7 @@ import HomePage from "./app/home/HomePage";
 import FrontPage from "./app/loginPage/FrontPage";
 import AccountInfo from './app/accountInfo/AccountInfo';
 import Login from './app/loginPage/Login';
+import CarView from './app/carView/carView';
 
 export default () =>
     <Switch>
@@ -12,7 +13,9 @@ export default () =>
         <Route path="/login" exact component={Login} />
         <Route path="/home" exact component={HomePage} />
         <Route path="/account_info" exact component={AccountInfo} />
-        {/* route for specific car info */}
+        {/* <Route path="/car/:carId" exact component={CarView} /> */}
+        <Route path="/car" exact component={CarView} />
+
 
         {/* <Route path="/login" exact component={Login} />
         <Route path="/signup" exact component={SignUp} />

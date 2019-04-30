@@ -20,13 +20,17 @@
 
 .clearfix{
     clear:both;
-    margin-bottom: 3em;
+    /* margin-bottom: 3em; */
 }
 
 .parent{
-    margin-bottom: 3em;
+    /* margin-bottom: 3em; */
 }
 
 .alert {
     margin-top: 1.5em;
+}
+
+#plus:hover {
+    cursor: pointer;
 }
