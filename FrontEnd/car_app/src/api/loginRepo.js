@@ -8,7 +8,7 @@ export class LoginRepo {
 
     registerUser(user) {
         return new Promise((resolve, reject) => {
-            axios.post(`${this.url}/register`, this.config)
+            axios.post(`${this.url}/register`, user, this.config)
                 .then(resp => resolve(resp.data))
                 .catch(resp => alert(resp));
         });

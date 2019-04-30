@@ -16,16 +16,20 @@ export const CarList = (props) => (
                     <div className="card-body" style={{padding:'0em'}}>
                         {/* <Link to={`/car/${a.id}`} className="btn btn-primary float-right" style={{marginBottom:'.75em'}}> */}
                         <Link to="/car" className="btn btn-primary float-right" style={{marginBottom:'.75em'}}>
-                            <i className="fa fa-edit"></i>&nbsp;
+                            <i className="fa fa-cogs"></i>&nbsp;
                         </Link>
                         <div className="row justify-content-between align-items-center" style={{margin:'0em'}}>
                             <div className="col">
                                 <img className="" src={a.imgPath} alt="Make" style={{width:'100%',height:'21vh'}}/>
                             </div>
                             <div className="col"  id="car-content">
-                                <h3 className="">{ a.make }</h3>
-                                <h4 className="text-muted">{ a.model }</h4>
-                                <h4 className="text-muted">{ a.year }</h4>
+                                <h3 className="">{ a.MAKE }</h3>
+                                <h4 className="">{ a.MODEL }</h4>
+                                <h4 className="">{ a.YEAR }</h4>
+                                {
+                                    a.current_mileage ? <h5 className="text-muted">{ a.current_mileage } miles</h5> : <div></div>
+                                }
+                                
                             </div>
                         </div>
                     </div>
