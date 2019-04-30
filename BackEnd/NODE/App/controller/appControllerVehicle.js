@@ -10,22 +10,21 @@ exports.add_car = function(req,res){
       "response":"Missing ID in API request."
     });
   }
-  // create new car object ######## IS THIS ABSOLUTELY NECCESARY???? ########
   var new_car = new Car(req.body);
   // handles empty input
   if (!new_car.MAKE || !new_car.MODEL || !new_car.YEAR) {
     res.status(400).json({
       "code": 400,
-      "response":"Please provide input for all fields.(VIN/MAKE/MODEL/YEAR)"
+      "response":"Please provide input for all fields.(MAKE/MODEL/YEAR)"
     });
   }
   else{
-    Car.createCarByUID(req.params.id, new_car, function(err,user){
+    Car.createCarByUID(req.params.id, new_car, function(err,car){
       if(err){
         res.send(err);
       }
       else {
-        res.json(user);
+        res.json(car);
       }
     });
   }
@@ -59,12 +58,12 @@ exports.delete_car = function(req,res){
     });
   }
   else{
-    Car.deleteCarByCID(req.params.id, function(err,user){
+    Car.deleteCarByCID(req.params.id, function(err,car){
       if (err){
         res.send(err);
       }
       else{
-        res.json(user);
+        res.json(car);
       }
     });
   }
@@ -79,12 +78,12 @@ exports.update_car_all = function(req,res){
   }
   else{
     var new_car = new Car(req.body);
-    User.updateCarByID(req.params.id, new_car, function(err,user){
+    User.updateCarByID(req.params.id, new_car, function(err,car){
       if (err){
         res.send(err);
       }
       else{
-        res.json(user);
+        res.json(car);
       }
     });
   }
@@ -104,12 +103,12 @@ exports.update_car_make = function(req,res){
     });
   }
   else{
-    User.updateCarMakeByID(req.params.id, req.body.MAKE, function(err,user){
+    User.updateCarMakeByID(req.params.id, req.body.MAKE, function(err,car){
       if (err){
         res.send(err);
       }
       else{
-        res.json(user);
+        res.json(car);
       }
     });
   }
@@ -129,12 +128,12 @@ exports.update_car_model = function(req,res){
     });
   }
   else{
-    User.updateCarModelByID(req.params.id, req.body.MODEL, function(err,user){
+    User.updateCarModelByID(req.params.id, req.body.MODEL, function(err,car){
       if (err){
         res.send(err);
       }
       else{
-        res.json(user);
+        res.json(car);
       }
     });
   }
@@ -154,12 +153,12 @@ exports.update_car_year = function(req,res){
     });
   }
   else{
-    User.updateCarYearByID(req.params.id, req.body.YEAR, function(err,user){
+    User.updateCarYearByID(req.params.id, req.body.YEAR, function(err,car){
       if (err){
         res.send(err);
       }
       else{
-        res.json(user);
+        res.json(car);
       }
     });
   }
@@ -172,19 +171,13 @@ exports.update_car_avg_mileage = function(req,res){
       "response":"Missing ID in API request."
     });
   }
-  else if(!req.body.avg_mileage){
-    res.status(400).json({
-      "code": 400,
-      "response":"Missing Model in API request."
-    });
-  }
   else{
-    User.updateCarAvgMileageByID(req.params.id, req.body.avg_mileage, function(err,user){
+    User.updateCarAvgMileageByID(req.params.id, req.body.avg_mileage, function(err,car){
       if (err){
         res.send(err);
       }
       else{
-        res.json(user);
+        res.json(car);
       }
     });
   }
@@ -197,19 +190,13 @@ exports.update_car_cur_mileage = function(req,res){
       "response":"Missing ID in API request."
     });
   }
-  else if(!req.body.current_mileage){
-    res.status(400).json({
-      "code": 400,
-      "response":"Missing Model in API request."
-    });
-  }
   else{
-    User.updateCarCurMileageByID(req.params.id, req.body.current_mileage, function(err,user){
+    User.updateCarCurMileageByID(req.params.id, req.body.current_mileage, function(err,car){
       if (err){
         res.send(err);
       }
       else{
-        res.json(user);
+        res.json(car);
       }
     });
   }
