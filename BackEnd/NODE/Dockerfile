@@ -19,7 +19,3 @@ EXPOSE 8080
 
 # Run the node server
 CMD [ "npm","start" ]
-
-
-
-#establish working directory then copy over stuff but set volume in compose for auto container update
