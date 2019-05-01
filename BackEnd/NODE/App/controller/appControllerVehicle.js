@@ -201,3 +201,60 @@ exports.update_car_cur_mileage = function(req,res){
     });
   }
 };
+// Update car last oil mileage by CID
+exports.update_car_oil_mileage = function(req,res){
+  if(!req.params.id){
+    res.status(400).json({
+      "code": 400,
+      "response":"Missing ID in API request."
+    });
+  }
+  else{
+    User.updateCarMileageOilByID(req.params.id, req.body.miles_oil, function(err,car){
+      if (err){
+        res.send(err);
+      }
+      else{
+        res.json(car);
+      }
+    });
+  }
+};
+// Update car last tire mileage by CID
+exports.update_car_tire_mileage = function(req,res){
+  if(!req.params.id){
+    res.status(400).json({
+      "code": 400,
+      "response":"Missing ID in API request."
+    });
+  }
+  else{
+    User.updateCarMileageTireByID(req.params.id, req.body.miles_tire, function(err,car){
+      if (err){
+        res.send(err);
+      }
+      else{
+        res.json(car);
+      }
+    });
+  }
+};
+// Update car last maintenance mileage by CID
+exports.update_car_maint_mileage = function(req,res){
+  if(!req.params.id){
+    res.status(400).json({
+      "code": 400,
+      "response":"Missing ID in API request."
+    });
+  }
+  else{
+    User.updateCarMileageMainteByID(req.params.id, req.body.miles_maint, function(err,car){
+      if (err){
+        res.send(err);
+      }
+      else{
+        res.json(car);
+      }
+    });
+  }
+};
