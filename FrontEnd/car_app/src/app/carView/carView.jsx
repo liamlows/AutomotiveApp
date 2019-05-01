@@ -21,6 +21,7 @@ export class CarView extends React.Component {
     }
 
     onRecordAdded(record){
+        let carId = +this.props.match.params.carId;
         // let productId = +this.props.match.params.productId;
         // this.productRepository.addReview(productId, review)
         if(record.type==='General'){
@@ -39,7 +40,8 @@ export class CarView extends React.Component {
                 return state;
             });
         }
-        (this.setState(state => {
+        this.carRepo.addRecord(carId, record)
+        .then(this.setState(state => {
             state.records.push(record);
             return state;
         }));

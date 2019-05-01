@@ -18,10 +18,8 @@ export class MyGarage extends React.Component {
     };
 
     async onCarAdded(car){
-        await this.carRepo.addCar(3, car);
-        // .then(this.setState(state => {state.cars.push(car)})));
-
         var id = localStorage.getItem('uID');
+        await this.carRepo.addCar(id, car);
         this.carRepo.getCars(id)
         .then(cars => this.setState({ cars }));
         this.onCarToBeAdded();
@@ -34,6 +32,7 @@ export class MyGarage extends React.Component {
 
     componentDidMount() {
         var id = localStorage.getItem('uID');
+        console.log(id)
         this.carRepo.getCars(id)
         .then(cars => {this.setState({ cars }); console.log(cars); });
     }
