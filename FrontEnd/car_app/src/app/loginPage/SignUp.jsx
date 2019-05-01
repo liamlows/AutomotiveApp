@@ -10,12 +10,11 @@ class SignUp extends Component {
     email: '',
     password: '',
     first_name: '',
-    last_name: '',
-    redirect: ''
+    last_name: ''
   }
 
     onSubmit() {
-        console.log(this.state);
+        alert(`${this.state.email}`);
         this.loginRepo.registerUser(this.state);
         this.setState(state => {
             state.email="";
