@@ -1,33 +1,53 @@
 import React, { Component } from 'react';
-import { Button, Col, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Button, Form, Card } from "react-bootstrap";
 import "./SignUp.css";
+import LoginRepo from '../../api/loginRepo';
 
 
 class SignUp extends Component {
-    render() {
-      return (
-        <div className = "SignUp">
-            <Form className = "Form" id = "su_form">
-            <Form.Row id="no_margin">
-                <Col id="no_margin">
-                    <Form.Control placeholder="First name"/>
-                </Col>
-                <Col id="no_margin">
-                    <Form.Control placeholder="Last name" />
-                </Col>
-            </Form.Row>
-            <Form.Control placeholder="Email" />
-            <Form.Control placeholder="Password" />
-            <Link to="/main">
-                <Button variant="primary" type="submit" >
-                    Submit
-                </Button>
-            </Link>
-            </Form>
-        </div>
-      );
-    }
+  loginRepo = new LoginRepo();
+  state = {
+    email: '',
+    password: '',
+    first_name: '',
+    last_name: '',
+    redirect: ''
   }
+
+    onSubmit() {
+        console.log(this.state);
+        this.loginRepo.registerUser(this.state);
+        this.setState(state => {
+            state.email="";
+            state.password="";
+            state.first_name = "";
+            state.last_name="";
+            return state;
+        });
+    }
+  
+    render() {
+        return (
+            <Card className="signup" style={{backgroundColor: 'transparent', border: 'none', marginRight:'3em',marginTop:'3em'}}>
+                <Card.Header style={{border: 'none'}}>
+                    <h5>Sign Up</h5>
+                </Card.Header>
+                <Card.Body style={{padding:'0em'}}>
+                    <Form className="Form"  id = "su_form">
+                        <Form.Control className="field" placeholder="First name" onChange={e => this.setState({ first_name: e.target.value })}/>
+                        <Form.Control className="field" placeholder="Last name" onChange={e => this.setState({ last_name: e.target.value })}/>
+                        <Form.Control className="field" placeholder="Email" onChange={e => this.setState({ email: e.target.value })}/>
+                        <Form.Control className="field" placeholder="Password" type="password" onChange={e => this.setState({ password: e.target.value })}/>
+                        
+                    </Form>
+                    <Button variant="primary" type="submit" onClick={e => this.onSubmit()}>
+                        Submit
+                    </Button>
+                </Card.Body>
+            </Card>
+        );
+    }
+
+}
 
 export default SignUp;

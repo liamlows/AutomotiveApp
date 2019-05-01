@@ -141,8 +141,7 @@ export class MapContainer extends Component {
 
                         </Map>
                     </div>
-
-                    <div className="places">
+                    <div className="places col">
                         <Listing places={this.state.places} onShopClicked={this.onShopClicked} style={{overflowY: 'scroll'}}/>
                     </div>
                 </div>

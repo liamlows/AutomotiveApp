@@ -27,7 +27,7 @@ export default class MaintenanceForm extends Component {
       <div className="card" style={{marginBottom:'2em', marginTop:'2em'}}>
         <div id="header" className="card-header"><h5>Add Maintenance Record</h5></div>
         <div className="card-body">
-        <form action="" id="form">
+        <form className="needs-validation" action="" id="form">
         <div className="row">
             <div className="col">
                 <div className = "form-group">
@@ -37,7 +37,7 @@ export default class MaintenanceForm extends Component {
                         name="type" 
                         className="form-control"
                         value= { this.state.type }
-                        onChange={ e => this.setState({ type: e.target.value }) }>
+                        onChange={ e => this.setState({ type: e.target.value }) } required>
                         <option value="" hidden></option>
                         <option value="General">General</option>
                         <option value="Oil change">Oil change</option>
@@ -53,7 +53,7 @@ export default class MaintenanceForm extends Component {
                             name="date" 
                             className="form-control"
                             value={this.state.date}
-                            onChange={ e => this.setState({ date: e.target.value }) }/>
+                            onChange={ e => this.setState({ date: e.target.value }) } required/>
                 </div>
             </div>
         </div> 
@@ -66,18 +66,18 @@ export default class MaintenanceForm extends Component {
                             name="cost" 
                             className="form-control"
                             value={this.state.cost}
-                            onChange={ e => this.setState({ cost: e.target.value }) }/>
+                            onChange={ e => this.setState({ cost: e.target.value }) } required/>
                 </div>
             </div>
             <div className="col">
                 <div className = "form-group">
                     <label htmlFor="miles">Miles at Service</label>
-                    <input type="text"
+                    <input type="number"
                             id="miles" 
                             name="miles" 
                             className="form-control"
                             value={this.state.miles}
-                            onChange={ e => this.setState({ miles: e.target.value }) }/>
+                            onChange={ e => this.setState({ miles: e.target.value }) } required/>
                 </div>
             </div>
         </div>

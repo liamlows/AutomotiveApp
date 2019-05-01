@@ -1,17 +1,17 @@
 import { Component } from 'react';
 
 export default class Car extends Component {
-    constructor(make, model, year, mileage, imgPath, id) {
+    constructor(make, model, year, avg_mileage, current_mileage, imgPath, id) {
         super();
-        this.make = make;
-        this.model = model;
-        this.year = year;
-        this.mileage = mileage;
+        this.MAKE = make;
+        this.MODEL = model;
+        this.YEAR = year;
+        this.avg_mileage = avg_mileage;
+        this.current_mileage = current_mileage;
         this.imgPath = imgPath;
         this.id=id;
         this.milesAtLastOilChange = 0;
         this.milesAtLastTireChange = 0;
-        this.milesAtLastMatenience = 0;
-        this.avgMilesPerDay = 0;
+        this.milesAtLastMaintenance = 0;
     }
 }

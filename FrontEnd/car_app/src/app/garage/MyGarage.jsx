@@ -4,25 +4,38 @@ import CarList from './CarList';
 import "./MyGarage.css";
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import {CarRepo} from './../../api/carRepo';
  
 library.add(faPlus)
 
 export class MyGarage extends React.Component {
-    
+    carRepo = new CarRepo();
+
     state = {
         cars: [],
         carToBeAdded: false,
-        isCar: false
+        isCar: false,
     };
 
-    onCarAdded(car){
-        this.setState(state => {state.cars.push(car)});
+    async onCarAdded(car){
+        await this.carRepo.addCar(3, car);
+        // .then(this.setState(state => {state.cars.push(car)})));
+
+        var id = localStorage.getItem('uID');
+        this.carRepo.getCars(id)
+        .then(cars => this.setState({ cars }));
         this.onCarToBeAdded();
         this.setState(state => ({ isCar: true }));
     };
 
     onCarToBeAdded (){
         this.setState(state => ({ carToBeAdded: !state.carToBeAdded }));
+    }
+
+    componentDidMount() {
+        var id = localStorage.getItem('uID');
+        this.carRepo.getCars(id)
+        .then(cars => {this.setState({ cars }); console.log(cars); });
     }
     
     render() {

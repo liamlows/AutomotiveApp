@@ -1,0 +1,14 @@
+@media only screen and (min-width: 600px) {
+    .container-fluid {
+        z-index: -10;
+    }
+
+    .container {
+        /* position: absolute; */
+        /* z-index: 20; */
+    }
+}
+
+* {
+    box-sizing: border-box;
+}

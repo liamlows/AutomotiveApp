@@ -12,7 +12,7 @@ export default class Icons extends React.Component {
 
   renderIcons(obj) {
     return (
-      <Card style={{margin: '2em 2em'}}>
+      <Card key={obj.title} style={{margin: '2em 2em'}}>
         <Card.Header>
             <h5>{obj.title}</h5>
         </Card.Header>
