@@ -10,8 +10,7 @@ class SignUp extends Component {
     email: '',
     password: '',
     first_name: '',
-    last_name: '',
-    redirect: ''
+    last_name: ''
   }
 
     onSubmit() {
