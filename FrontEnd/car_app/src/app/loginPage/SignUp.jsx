@@ -10,7 +10,8 @@ class SignUp extends Component {
     email: '',
     password: '',
     first_name: '',
-    last_name: ''
+    last_name: '',
+    redirect: ''
   }
 
     onSubmit() {
@@ -46,15 +47,6 @@ class SignUp extends Component {
             </Card>
         );
     }
-  
-    /*componentDidMount() {
-      this.loginRepo.registerUser(this.state)
-      .then(this.successfulRegister());
-    }*/
-
-    /*successfulRegister() {
-      <Redirect to="/home"/>
-    }*/
 
 }
 

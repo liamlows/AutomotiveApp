@@ -1,7 +1,8 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Insurance } from './../../models/insurance'
+import { Insurance } from './../../models/insurance';
+import MyNav from "../home/MyNav";
 export class InsuranceForm extends React.Component {
 
     state = {
@@ -23,6 +24,7 @@ export class InsuranceForm extends React.Component {
     render(){
         return (
             <>
+                <MyNav />
                 <h1 style={{margin:"0.5em"}}>Insurance Policy Form</h1>
 
                 <form style={{margin:"2em"}} >
