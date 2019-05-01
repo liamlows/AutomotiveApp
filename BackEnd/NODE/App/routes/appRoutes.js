@@ -67,6 +67,11 @@ module.exports = function(app) {
   // GET MAINTENANCE RERCORD
   app.route('/maintenance/get_maint/:id')
     .get(autoMaintenance.get_maint);
+    // DELETE MAINTENANCE RERCORD
+  app.route('/maintenance/delete_maint/:id')
+    .delete(autoMaintenance.delete_maint_MID);
+  app.route('/maintenance/delete_maint_CID/:id')
+    .delete(autoMaintenance.delete_maint_CID);
   // UPDATE MAINTENANCE RERCORD
   app.route('/maintenance/update_maint/:id')
     .put(autoMaintenance.update_maint);
@@ -80,8 +85,6 @@ module.exports = function(app) {
     .put(autoMaintenance.update_cost);
   app.route('/maintenance/update_description/:id')
     .put(autoMaintenance.update_description);
-  // DELETE MAINTENANCE RERCORD
-  app.route('/maintenance/delete_maint/:id')
-    .delete(autoMaintenance.delete_maint);
+
 
 };

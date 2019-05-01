@@ -45,13 +45,30 @@ exports.get_maint = function(req,res){
   }
 };
 // Delete maintenance record by maintenance ID
-exports.delete_maint = function(req,res){
+exports.delete_maint_MID = function(req,res){
   // handle missing ID
   if(!req.params.id){
     res.status(400).json({"code": 400,"response":"Missing ID in API request."});
   }
   else{
     Maintenance.deleteMaintMID(req.params.id, function(err,resp){
+      if(err){
+        res.send(err);
+      }
+      else {
+        res.json(resp);
+      }
+    });
+  }
+};
+// Delete maintenance record by maintenance ID
+exports.delete_maint_CID = function(req,res){
+  // handle missing ID
+  if(!req.params.id){
+    res.status(400).json({"code": 400,"response":"Missing ID in API request."});
+  }
+  else{
+    Maintenance.deleteMaintCID(req.params.id, function(err,resp){
       if(err){
         res.send(err);
       }

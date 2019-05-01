@@ -54,6 +54,19 @@ sql.query("DELETE FROM `AutomotiveApp`.`maintenance` WHERE m_id = ?;",[id],
   );
 }
 
+Maintenance.deleteMaintCID = function(id, result){
+sql.query("DELETE FROM `AutomotiveApp`.`maintenance` WHERE c_id = ?;",[id],
+    function(err,res){
+      if(err){
+        result({"code":204,"response":"Could not locate id in table. ID="+id},null);
+      }
+      else {
+        result(null,res);
+      }
+    }
+  );
+}
+
 Maintenance.updateMaintMID = function(id, type, last_mileage, date_serviced, cost, description, result) {
   sql.query("UPDATE `AutomotiveApp`.`maintenance` SET type = ?, last_mileage = ?, date_serviced = ?, cost = ?, description = ? WHERE m_id = ?;",[type, last_mileage, date_serviced, cost, description, id],
     function(err,res){
