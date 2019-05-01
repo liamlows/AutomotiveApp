@@ -25,8 +25,10 @@ module.exports = function(app) {
     .put(autoAppUser.update_pass);
   app.route('/user/update_shop_name/:id')
     .put(autoAppUser.update_shop_name);
-  app.route('/user/update_shop_phone/:id')
-    .put(autoAppUser.update_shop_phone);
+  app.route('/user/update_shop_rating/:id')
+    .put(autoAppUser.update_shop_rating);
+  app.route('/user/update_shop_address/:id')
+    .put(autoAppUser.update_shop_address);
   app.route('/user/update_insurance_company/:id')
     .put(autoAppUser.update_insurance_company);
   app.route('/user/update_insurance_phone/:id')
