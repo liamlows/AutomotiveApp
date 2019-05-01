@@ -19,8 +19,8 @@ class InsurancePage extends Component {
     render() {
         return (
             <div>
-               {!this.state.editMode && (localStorage.getItem('insurancePhone') == null) && <InsuranceForm  /> }
-                {!this.state.editMode && (localStorage.getItem('insurancePhone') != null) && <InsuranceInfo  /> }
+                {!this.state.editMode && (localStorage.getItem('insurancePhone') != null) && <InsuranceInfo null={localStorage.getItem('insurancePhone') === 'null'} /> }
+                {!this.state.editMode && (localStorage.getItem('insurancePhone') === 'null') && <InsuranceForm  /> }
             </div>
         );
     }
