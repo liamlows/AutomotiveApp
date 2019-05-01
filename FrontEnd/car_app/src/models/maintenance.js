@@ -8,6 +8,5 @@ export default class Maintenance extends Component {
         this.date_serviced = date;
         this.last_mileage = miles;
         this.description = description;
-        this.id=0;
     }
 }

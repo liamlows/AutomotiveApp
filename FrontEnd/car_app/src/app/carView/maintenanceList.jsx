@@ -4,7 +4,7 @@ const MaintenanceList = (props) => (
   <div>
     {
         props.records.map( (a, i) => 
-        <div key={i} className="card">
+        <div key={i} className="card" style={{marginBottom:'1.5em'}}>
             <div className="card-header">
                 <h5>{a.type}</h5>
             </div>

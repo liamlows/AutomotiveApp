@@ -112,7 +112,7 @@ export class CarForm extends React.Component {
                         </input>
                     </div>
                     <div className="form-group">
-                        <label htmlFor="avg_mileage">Average Weekly Mileage</label>
+                        <label htmlFor="avg_mileage">Average Daily Mileage</label>
                         <input className="form-control col" type="number" id="avg_mileage" placeholder="Avg Mileage" 
                         value={this.state.avg_mileage}
                         onChange={e => this.setState({ avg_mileage: e.target.value })}>

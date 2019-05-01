@@ -72,7 +72,12 @@ export class MapContainer extends Component {
         this.setState({
             favShop: shop
         }, () => {console.log(this.state.favShop)});
-        
+
+        var id = localStorage.getItem('uID');
+        this.carRepo.updateShopName(id,{"shop_name":p.name});
+        this.carRepo.updateShopAddress(id,{"shop_address":p.vicinity});
+        this.carRepo.updateShopRating(id,{"shop_rating":p.rating});
+
     }
 
     componentDidMount() {
@@ -120,7 +125,7 @@ export class MapContainer extends Component {
             <div className="parent">
                 <div className="row justify-content-around" >
                     <div className="google_map">
-                        <Map centerAroundCurrentLocation google={this.props.google} onReady={this.fetchPlaces} 
+                        <Map id="map" centerAroundCurrentLocation google={this.props.google} onReady={this.fetchPlaces} 
                             onRecenter={this.fetchPlaces} onClick={this.onMapClicked}
                             onDragend={this.fetchPlaces}  zoom={14} style={this.style}>
                     

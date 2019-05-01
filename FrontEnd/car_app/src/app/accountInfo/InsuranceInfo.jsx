@@ -120,18 +120,24 @@ export class InsuranceInfo extends React.Component {
                         <div style={{margin:"3em"}}>
                             {!this.state.account_editMode && (  
                                 <>
+
                                     <p ><h5 className="d-inline">Your Email:</h5>  {this.state.user_email}</p>
                                     <p ><h5 className="d-inline">Your First Name:</h5>  {this.state.user_fname}</p>
                                     <p ><h5 className="d-inline">Your Last Name:</h5>  {this.state.user_lname}</p>
+
+
                                     
                                     <button className="btn btn-primary float-right" onClick={() => this.editAccount()}>Edit</button>
                                 </>
                                 )}
                                 {this.state.account_editMode && ( 
                                 <>
+
                                     <h5 className="d-block-inline">Your Email:</h5><input readonly="readonly" className="bg-light form-control" id="email" type="email" placeholder="Enter email" style={{maxWidth:"40%"}} value={this.state.user_email} />
                                     <h5 className="d-block-inline">Your First Name:</h5> <input className="form-control" id="fname" type="name" placeholder="Enter First Name" style={{maxWidth:"40%"}} value={this.state.user_fname} onChange={e => this.setState({user_fname:e.target.value})}/>
                                     <h5 className="d-block-inline">Your Last Name:</h5> <input className="form-control" id="lname" type="name" placeholder="Enter Last Name" style={{maxWidth:"40%"}} value={this.state.user_lname} onChange={e => this.setState({user_lname:e.target.value})}/>
+
+
                                     <button className="btn btn-success float-right" onClick={() => this.saveAccount()}>Save</button>
                                 </>
                                 )}
@@ -140,35 +146,41 @@ export class InsuranceInfo extends React.Component {
                         
                     </div>
                 </div>
-                <div className="card m-5">
-                    <div className="card-header">
-                        <h3>Insurance Information</h3>
-                    </div>
-                    <div className="card-body">
-                        <div style={{margin:"3em"}}>
-                            {!this.state.insurance_editMode && 
-                                <>
-                                    <p ><h5 className="d-inline">Insurance Email:</h5>  {this.state.insurance_phone}</p>
-                                    <p ><h5 className="d-inline">Company Name:</h5>  {this.state.comp_name}</p>
-                                    <p ><h5 className="d-inline">Policy Number:</h5>  {this.state.policy_number}</p>
-                                    <button className="btn btn-primary float-right" onClick={() => this.editInsurance()}>Edit</button>
-                                </>
-                                    
-                            }
-                            {this.state.insurance_editMode && 
-                                <>
-                                    <h5 className="d-block-inline">Insurance Phone:</h5><input className="form-control" id="phone" type="phone" placeholder="Enter phone number" style={{maxWidth:"40%"}} value={this.state.insurance_phone} onInput={e => this.handlePhoneInput(e)} onChange={e => this.setState({insurance_phone:e.target.value})}/>{!this.state.phoneValidation && (<p className="text-red">This is not a valid phone number</p>)}
-                                    <h5 className="d-block-inline">Company Name:</h5><input className="form-control" id="name" type="name" placeholder="Enter Company Name" style={{maxWidth:"40%"}} value={this.state.comp_name} onInput={e => this.handleCompanyInput(e)} onChange={e => this.setState({comp_name:e.target.value})}/>
-                                    <h5 className="d-block-inline">Policy Number:</h5><input className="form-control" id="policy" type="text" placeholder="Enter Policy Number" style={{maxWidth:"40%"}} value={this.state.policy_number} onInput={e => this.handlePolicyInput(e)} onChange={e => this.setState({policy_number:e.target.value})}/>
-                                    <button className="btn btn-success float-right" onClick={() => this.saveInsurance()}>Save</button>
-                                </>   
-                            }
-                            
-                           
+                { 
+                    !this.props.null 
+                    ?
+                        <div className="card m-5">
+                        <div className="card-header">
+                            <h3>Insurance Information</h3>
                         </div>
-                        
+                        <div className="card-body">
+                            <div style={{margin:"3em"}}>
+                                {!this.state.insurance_editMode && 
+                                    <>
+                                        <p ><h5 className="d-inline">Insurance Phone: </h5>{this.state.insurance_phone}</p>
+                                        <p ><h5 className="d-inline">Company Name: </h5> {this.state.comp_name}</p>
+                                        <p ><h5 className="d-inline">Policy Number: </h5> {this.state.policy_number}</p>
+                                        <button className="btn btn-primary float-right" onClick={() => this.editInsurance()}>Edit</button>
+                                    </>
+                                        
+                                }
+                                {this.state.insurance_editMode && 
+                                    <>
+                                        <h5 className="d-block-inline">Insurance Phone: </h5><input className="d-inline" id="phone" type="phone" placeholder="Enter phone number" style={{maxWidth:"40%"}} value={this.state.insurance_phone} onChange={e => this.setState({insurance_phone:e.target.value})}/>
+                                        <h5 className="d-block-inline">Company Name: </h5><input  id="name" type="name" placeholder="Enter Company Name" style={{maxWidth:"40%"}} value={this.state.comp_name} onChange={e => this.setState({comp_name:e.target.value})}/>
+                                        <h5 className="d-block-inline">Policy Number: </h5><input  id="policy" type="text" placeholder="Enter Policy Number" style={{maxWidth:"40%"}} value={this.state.policy_number} onChange={e => this.setState({policy_number:e.target.value})}/>
+                                        <button className="btn btn-success float-right" onClick={() => this.saveInsurance()}>Save</button>
+                                    </>   
+                                }
+                                
+                            
+                            </div>
+                            
+                        </div>
                     </div>
-                </div>
+                    :
+                    <div></div>
+                }
             </>
      )
     }

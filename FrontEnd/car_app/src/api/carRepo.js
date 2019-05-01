@@ -47,6 +47,22 @@ export class CarRepo {
         });
     }
 
+    updateAvgMileage(carId, avg_mileage) {
+        return new Promise((resolve, reject) => {
+            axios.put(`${this.url}/car/update_car_avg_mileage/${carId}`, avg_mileage, this.config)
+                .then(resp => resolve(resp.data))
+                .catch(resp => alert(resp));
+        });
+    }
+
+    updateCurrMileage(carId, currMileage) {
+        return new Promise((resolve, reject) => {
+            axios.put(`${this.url}/car/update_car_cur_mileage/${carId}`, currMileage, this.config)
+                .then(resp => resolve(resp.data))
+                .catch(resp => alert(resp));
+        });
+    }
+
     addRecord(carId, record) {
         return new Promise((resolve, reject) => {
             axios.post(`${this.url}/maintenance/add_maint/${carId}`, record, this.config)
@@ -74,6 +90,30 @@ export class CarRepo {
     updateRecord(maintId, record) {
         return new Promise((resolve, reject) => {
             axios.put(`${this.url}/maintenance/update_maint/${maintId}`, record, this.config)
+                .then(resp => resolve(resp.data))
+                .catch(resp => alert(resp));
+        });
+    }
+
+    updateShopName(userId, name) {
+        return new Promise((resolve, reject) => {
+            axios.put(`${this.url}/user/update_shop_name/${userId}`, name, this.config)
+                .then(resp => resolve(resp.data))
+                .catch(resp => alert(resp));
+        });
+    }
+
+    updateShopAddress(userId, address) {
+        return new Promise((resolve, reject) => {
+            axios.put(`${this.url}/user/update_shop_address/${userId}`, address, this.config)
+                .then(resp => resolve(resp.data))
+                .catch(resp => alert(resp));
+        });
+    }
+
+    updateShopRating(userId, rating) {
+        return new Promise((resolve, reject) => {
+            axios.put(`${this.url}/user/update_shop_rating/${userId}`, rating, this.config)
                 .then(resp => resolve(resp.data))
                 .catch(resp => alert(resp));
         });
