@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export class AccountRepo {
-    url = "https://ec2-3-92-242-46.compute-1.amazonaws.com";
+    url = "https://ec2-3-92-242-46.compute-1.amazonaws.com:8080";
     config = {
        
     };
@@ -25,14 +25,6 @@ export class AccountRepo {
     updateLname(userId, lname) {
         return new Promise((resolve, reject) => {
             axios.put(`${this.url}/user/last_name/${userId}`, lname, this.config)
-                .then(resp => resolve(resp.data))
-                .catch(resp => alert(resp));
-        });
-    }
-
-    updateFname(userId, fname) {
-        return new Promise((resolve, reject) => {
-            axios.put(`${this.url}/user/first_name/${userId}`, fname, this.config)
                 .then(resp => resolve(resp.data))
                 .catch(resp => alert(resp));
         });
