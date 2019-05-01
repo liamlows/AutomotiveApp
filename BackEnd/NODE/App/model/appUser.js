@@ -159,8 +159,8 @@ User.updateShopNameByID = function(shop_name, id, result) {
 };
 
 // update/remove favorite shop phone
-User.updateShopPhoneByID = function(shop_phone, id, result) {
-  sql.query("UPDATE `AutomotiveApp`.`users` SET shop_phone = ? WHERE u_id = ?;", [shop_phone,id], function(err, res) {
+User.updateShopRatingByID = function(shop_rating, id, result) {
+  sql.query("UPDATE `AutomotiveApp`.`users` SET shop_rating = ? WHERE u_id = ?;", [shop_rating,id], function(err, res) {
     if (err) {
       console.log('all tasks error: ', err);
       result(err, null);
@@ -169,7 +169,24 @@ User.updateShopPhoneByID = function(shop_phone, id, result) {
       result(null, {
         "code":200,
         "response":"Update was sucessfull.",
-        "shop_phone":shop_phone
+        "shop_phone":shop_rating
+        });
+    }
+  });
+};
+
+// update/remove favorite shop phone
+User.updateShopAddressByID = function(shop_address, id, result) {
+  sql.query("UPDATE `AutomotiveApp`.`users` SET shop_address = ? WHERE u_id = ?;", [shop_address,id], function(err, res) {
+    if (err) {
+      console.log('all tasks error: ', err);
+      result(err, null);
+    } else {
+      console.log('all tasks: ', res);
+      result(null, {
+        "code":200,
+        "response":"Update was sucessfull.",
+        "shop_phone":shop_address
         });
     }
   });

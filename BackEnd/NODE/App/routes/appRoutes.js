@@ -25,8 +25,10 @@ module.exports = function(app) {
     .put(autoAppUser.update_pass);
   app.route('/user/update_shop_name/:id')
     .put(autoAppUser.update_shop_name);
-  app.route('/user/update_shop_phone/:id')
-    .put(autoAppUser.update_shop_phone);
+  app.route('/user/update_shop_rating/:id')
+    .put(autoAppUser.update_shop_rating);
+  app.route('/user/update_shop_address/:id')
+    .put(autoAppUser.update_shop_address);
   app.route('/user/update_insurance_company/:id')
     .put(autoAppUser.update_insurance_company);
   app.route('/user/update_insurance_phone/:id')
@@ -65,6 +67,11 @@ module.exports = function(app) {
   // GET MAINTENANCE RERCORD
   app.route('/maintenance/get_maint/:id')
     .get(autoMaintenance.get_maint);
+    // DELETE MAINTENANCE RERCORD
+  app.route('/maintenance/delete_maint/:id')
+    .delete(autoMaintenance.delete_maint_MID);
+  app.route('/maintenance/delete_maint_CID/:id')
+    .delete(autoMaintenance.delete_maint_CID);
   // UPDATE MAINTENANCE RERCORD
   app.route('/maintenance/update_maint/:id')
     .put(autoMaintenance.update_maint);
@@ -78,8 +85,6 @@ module.exports = function(app) {
     .put(autoMaintenance.update_cost);
   app.route('/maintenance/update_description/:id')
     .put(autoMaintenance.update_description);
-  // DELETE MAINTENANCE RERCORD
-  app.route('/maintenance/delete_maint/:id')
-    .delete(autoMaintenance.delete_maint);
+
 
 };
