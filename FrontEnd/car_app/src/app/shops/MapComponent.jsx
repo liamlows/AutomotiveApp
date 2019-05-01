@@ -120,7 +120,7 @@ export class MapContainer extends Component {
             <div className="parent">
                 <div className="row justify-content-around" >
                     <div className="google_map">
-                        <Map centerAroundCurrentLocation google={this.props.google} onReady={this.fetchPlaces} 
+                        <Map id="map" centerAroundCurrentLocation google={this.props.google} onReady={this.fetchPlaces} 
                             onRecenter={this.fetchPlaces} onClick={this.onMapClicked}
                             onDragend={this.fetchPlaces}  zoom={14} style={this.style}>
                     
