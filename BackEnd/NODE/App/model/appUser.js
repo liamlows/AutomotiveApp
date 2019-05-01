@@ -145,10 +145,8 @@ User.updatePassByID = function(id, password, result) {
 User.updateShopNameByID = function(shop_name, id, result) {
   sql.query("UPDATE `AutomotiveApp`.`users` SET shop_name = ? WHERE u_id = ?;", [shop_name, id], function(err, res) {
     if (err) {
-      console.log('all tasks error: ', err);
       result(err, null);
     } else {
-      console.log('all tasks: ', res);
       result(null, {
         "code":200,
         "response":"Update was sucessfull.",
@@ -162,10 +160,8 @@ User.updateShopNameByID = function(shop_name, id, result) {
 User.updateShopRatingByID = function(shop_rating, id, result) {
   sql.query("UPDATE `AutomotiveApp`.`users` SET shop_rating = ? WHERE u_id = ?;", [shop_rating,id], function(err, res) {
     if (err) {
-      console.log('all tasks error: ', err);
       result(err, null);
     } else {
-      console.log('all tasks: ', res);
       result(null, {
         "code":200,
         "response":"Update was sucessfull.",
@@ -179,10 +175,8 @@ User.updateShopRatingByID = function(shop_rating, id, result) {
 User.updateShopAddressByID = function(shop_address, id, result) {
   sql.query("UPDATE `AutomotiveApp`.`users` SET shop_address = ? WHERE u_id = ?;", [shop_address,id], function(err, res) {
     if (err) {
-      console.log('all tasks error: ', err);
       result(err, null);
     } else {
-      console.log('all tasks: ', res);
       result(null, {
         "code":200,
         "response":"Update was sucessfull.",
@@ -196,10 +190,8 @@ User.updateShopAddressByID = function(shop_address, id, result) {
 User.updateInsuranceCompanyByID = function(insurance_company, id, result) {
   sql.query("UPDATE `AutomotiveApp`.`users` SET insurance_company = ? WHERE u_id = ?;", [insurance_company, id], function(err, res) {
     if (err) {
-      console.log('all tasks error: ', err);
       result(err, null);
     } else {
-      console.log('all tasks: ', res);
       result(null,{
         "code":200,
         "response":"Update was sucessfull.",
@@ -213,10 +205,8 @@ User.updateInsuranceCompanyByID = function(insurance_company, id, result) {
 User.updateInsurancePhoneByID = function(insurance_phone, id, result) {
   sql.query("UPDATE `AutomotiveApp`.`users` SET insurance_phone = ? WHERE u_id = ?", [insurance_phone, id], function(err, res) {
     if (err) {
-      console.log('all tasks error: ', err);
       result(err, null);
     } else {
-      console.log('all tasks: ', res);
       result(null,{
         "code":200,
         "response":"Update was sucessfull.",
@@ -230,10 +220,8 @@ User.updateInsurancePhoneByID = function(insurance_phone, id, result) {
 User.updateInsuranceEmailByID = function(insurance_email, id, result) {
   sql.query("UPDATE `AutomotiveApp`.`users` SET insurance_email = ? WHERE u_id = ?;", [insurance_email, id], function(err, res) {
     if (err) {
-      console.log('all tasks error: ', err);
       result(err, null);
     } else {
-      console.log('all tasks: ', res);
       result(null,{
         "code":200,
         "response":"Update was sucessfull.",
@@ -247,10 +235,8 @@ User.updateInsuranceEmailByID = function(insurance_email, id, result) {
 User.updateInsuranceNumByID = function(insurance_num, id, result) {
   sql.query("UPDATE `AutomotiveApp`.`users` SET insurance_num = ? WHERE u_id = ?;", [insurance_num, id], function(err, res) {
     if (err) {
-      console.log('all tasks error: ', err);
       result(err, null);
     } else {
-      console.log('all tasks: ', res);
       result(null,{
         "code":200,
         "response":"Update was sucessfull.",
