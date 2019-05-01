@@ -4,23 +4,23 @@ import { InsuranceInfo } from './InsuranceInfo';
 
 class InsurancePage extends Component {
     state = {
-        insurances:[
+        // insurances:[
       
-        ],
+        // ],
         editMode:false
     }
 
-    onNewInsurance(insurance){
-        this.setState(state => {state.insurances.push(insurance); 
+    // onNewInsurance(insurance){
+    //     this.setState(state => {state.insurances.push(insurance); 
           
-          return state;
-    })}
+    //       return state;
+    // })}
 
     render() {
         return (
             <div>
-               {!this.state.editMode && (this.state.insurances.length === 0) && <InsuranceForm onNewInsurance={a => this.onNewInsurance(a)}/> }
-                {!this.state.editMode && (this.state.insurances.length !== 0) && <InsuranceInfo insurances={this.state.insurances} user={this.props.user}/> }
+               {!this.state.editMode && (localStorage.getItem('insurancePhone') == null) && <InsuranceForm  /> }
+                {!this.state.editMode && (localStorage.getItem('insurancePhone') != null) && <InsuranceInfo  /> }
             </div>
         );
     }

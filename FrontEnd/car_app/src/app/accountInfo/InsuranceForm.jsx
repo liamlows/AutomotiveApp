@@ -1,8 +1,11 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Insurance } from './../../models/insurance'
+import { Insurance } from './../../models/insurance';
+import { AccountRepo } from './../../api/AccountRepo';
 export class InsuranceForm extends React.Component {
+
+    accountRepo = new AccountRepo;
 
     state = {
         phone: '',
@@ -11,12 +14,26 @@ export class InsuranceForm extends React.Component {
     }
 
     onSubmit () {
-        this.props.onNewInsurance(new Insurance(this.state.phone, this.state.company, this.state.policy_num))
-        this.setState({
-            phone: '',
-            company: '',
-            policy_num : ''
-        })
+        let userId = 5;
+        if (userId){
+            this.accountRepo.updateInsurancePhone(userId,this.state.phone)
+            .then(localStorage.setItem('insurancePhone', this.state.phone));
+            this.accountRepo.updateInsuranceCom(userId, this.state.company)
+            .then(localStorage.setItem('companyName', this.state.company));
+            this.accountRepo.updateInsurancePolicyNum(userId, this.state.policy_num)
+            .then(localStorage.setItem('policyNum', this.state.policy_num));
+            this.setState({
+                phone:'',
+                company: '',
+                policy_num:''
+            })
+        }
+        // this.props.onNewInsurance(new Insurance(this.state.phone, this.state.company, this.state.policy_num))
+        // this.setState({
+        //     phone: '',
+        //     company: '',
+        //     policy_num : ''
+        // })
 
     }
 
@@ -44,7 +61,7 @@ export class InsuranceForm extends React.Component {
                         <input className="d-block form-control" id="policy" type="text" placeholder="Enter Insurance number" style={{maxWidth:"40%"}} value={this.state.policy_num} onChange={e => this.setState({policy_num:e.target.value})}/>    
                     </div>  
                 </form>
-                <button className="btn btn-primary" type="submit" onClick={e => this.onSubmit()} style={{margin:"2em"}}>
+                <button className="btn btn-primary" type="submit" onClick={() => this.onSubmit()} style={{margin:"2em"}}>
                         Submit
                     </button>
 
