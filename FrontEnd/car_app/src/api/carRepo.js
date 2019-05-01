@@ -7,15 +7,15 @@ export class CarRepo {
 
     };
 
-    addCar(userId, car) {
-        return new Promise((resolve, reject) => {
+    async addCar(userId, car) {
+        return await new Promise((resolve, reject) => {
             axios.post(`${this.url}/car/add_car/${userId}`, car, this.config)
                 .then(resp => resolve(resp.data))
                 .catch(resp => alert(resp));
         });
     }
 
-    getCar(userId) {
+    getCars(userId) {
         return new Promise((resolve, reject) => {
             axios.get(`${this.url}/car/get_car/${userId}`, this.config)
                 .then(resp => resolve(resp.data))

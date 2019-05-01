@@ -15,12 +15,15 @@ export class MyGarage extends React.Component {
         cars: [],
         carToBeAdded: false,
         isCar: false,
-        userId: ''
     };
 
-    onCarAdded(car){
-        console.log(this.carRepo.addCar(3, car)
-        .then(this.setState(state => {state.cars.push(car)})));
+    async onCarAdded(car){
+        await this.carRepo.addCar(3, car);
+        // .then(this.setState(state => {state.cars.push(car)})));
+
+        var id = localStorage.getItem('uID');
+        this.carRepo.getCars(id)
+        .then(cars => this.setState({ cars }));
         this.onCarToBeAdded();
         this.setState(state => ({ isCar: true }));
     };
@@ -30,8 +33,9 @@ export class MyGarage extends React.Component {
     }
 
     componentDidMount() {
-        this.carRepo.getCar()
-        .then(cars => this.setState({ cars }))
+        var id = localStorage.getItem('uID');
+        this.carRepo.getCars(id)
+        .then(cars => {this.setState({ cars }); console.log(cars); });
     }
     
     render() {

@@ -10,10 +10,10 @@ import CarView from './app/carView/carView';
 export default () =>
     <Switch>
         <Route path="/" exact component={FrontPage} />
-        <Route path="/login" exact component={Login} />
-        <Route path="/home" exact component={HomePage} />
+        <Route path="/login" exact component={Login} /> 
+        <Route path='/home' exact component = {HomePage} />
         <Route path="/account_info" exact component={AccountInfo} />
-        {/* <Route path="/car/:carId" exact component={CarView} /> */}
-        <Route path="/car" exact component={CarView} />
+        <Route path="/car/:carId" exact component={CarView} />
+        {/* <Route path="/car" exact component={CarView} /> */}
         <Route component={NotFound} />
     </Switch>;
