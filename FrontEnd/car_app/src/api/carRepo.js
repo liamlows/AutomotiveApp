@@ -47,7 +47,7 @@ export class CarRepo {
         });
     }
 
-    getRecord(carId) {
+    getRecords(carId) {
         return new Promise((resolve, reject) => {
             axios.get(`${this.url}/maintenance/get_maint/${carId}`, this.config)
                 .then(resp => resolve(resp.data))

@@ -118,7 +118,7 @@ export class MapContainer extends Component {
         return (
             <>
             <div className="parent">
-                <div className="row" >
+                <div className="row justify-content-around" >
                     <div className="google_map">
                         <Map centerAroundCurrentLocation google={this.props.google} onReady={this.fetchPlaces} 
                             onRecenter={this.fetchPlaces} onClick={this.onMapClicked}

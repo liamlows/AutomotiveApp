@@ -69,6 +69,8 @@ export class CarView extends React.Component {
                 
             });
         }
+        this.carRepo.getRecords(carId)
+        .then(records => this.setState({ records }));
     }
     
     render() {
@@ -83,9 +85,9 @@ export class CarView extends React.Component {
                 <MyNav />
                 <div className="jumbotron jumbotron" style={{marginTop:'3em'}}>
                     <div className="container">
-                        <div className="btn btn-danger float-right"  style={{marginBottom:'.75em'}}>
-                            <i className="fa fa-trash" onClick={e => this.onDelete()}></i>&nbsp;
-                        </div>
+                        <button className="btn btn-danger float-right" onClick={e => this.onDelete()} style={{marginBottom:'.75em'}}>
+                            <i className="fa fa-trash" ></i>&nbsp;
+                        </button>
                         <div className="row justify-content-start ">
                             <div className="col" >
                                 <img src={`/icons/${this.state.car.MAKE.toLowerCase()}.png`} alt={`icons/${this.state.car.MAKE.toLowerCase()}.png`} style={{width:'30vw',height:'100%',minWidth:'100px'}}/>

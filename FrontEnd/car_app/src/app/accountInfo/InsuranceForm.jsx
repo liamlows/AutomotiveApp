@@ -1,13 +1,11 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Insurance } from './../../models/insurance';
-
 import { AccountRepo } from './../../api/AccountRepo';
 import MyNav from "../home/MyNav";
-export class InsuranceForm extends React.Component {
 
-    accountRepo = new AccountRepo;
+export class InsuranceForm extends React.Component {
+    accountRepo = new AccountRepo();
     
     state = {
         phone: '',

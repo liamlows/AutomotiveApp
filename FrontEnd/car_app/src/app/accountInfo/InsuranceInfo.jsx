@@ -3,7 +3,7 @@ import { AccountRepo } from '../../api/AccountRepo';
 
 export class InsuranceInfo extends React.Component { 
 
-    accountRepo = new AccountRepo;
+    accountRepo = new AccountRepo();
 
     state = {
         insurance_editMode:false,

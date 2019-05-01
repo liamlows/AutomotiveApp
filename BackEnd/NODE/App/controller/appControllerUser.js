@@ -197,8 +197,8 @@ exports.update_shop_name = function(req,res){
     });
   }
 };
-// Update/remove favorite shop phone
-exports.update_shop_phone = function(req,res){
+// Update/remove favorite shop rating
+exports.update_shop_rating = function(req,res){
   if(!req.params.id){
     res.status(400).json({
       "code": 400,
@@ -206,7 +206,26 @@ exports.update_shop_phone = function(req,res){
     });
   }
   else{
-    User.updateShopNameByID(req.body.shop_phone, req.params.id, function(err,user){
+    User.updateShopRatingByID(req.body.shop_rating, req.params.id, function(err,user){
+      if (err){
+        res.send(err);
+      }
+      else{
+        res.json(user);
+      }
+    });
+  }
+};
+// Update/remove favorite shop address
+exports.update_shop_address = function(req,res){
+  if(!req.params.id){
+    res.status(400).json({
+      "code": 400,
+      "response":"Missing ID in API request."
+    });
+  }
+  else{
+    User.updateShopAddressByID(req.body.shop_address, req.params.id, function(err,user){
       if (err){
         res.send(err);
       }
@@ -244,7 +263,7 @@ exports.update_insurance_phone = function(req,res){
     });
   }
   else{
-    User.updateInsuranceCompanyByID(req.body.insurance_phone, req.params.id, function(err,user){
+    User.updateInsurancePhoneByID(req.body.insurance_phone, req.params.id, function(err,user){
       if (err){
         res.send(err);
       }
@@ -263,7 +282,7 @@ exports.update_insurance_email = function(req,res){
     });
   }
   else{
-    User.updateInsuranceCompanyByID(req.body.insurance_email, req.params.id, function(err,user){
+    User.updateInsuranceEmailByID(req.body.insurance_email, req.params.id, function(err,user){
       if (err){
         res.send(err);
       }
@@ -282,7 +301,7 @@ exports.update_insurance_num = function(req,res){
     });
   }
   else{
-    User.updateInsuranceCompanyByID(req.body.insurance_num, req.params.id, function(err,user){
+    User.updateInsuranceNumByID(req.body.insurance_num, req.params.id, function(err,user){
       if (err){
         res.send(err);
       }
