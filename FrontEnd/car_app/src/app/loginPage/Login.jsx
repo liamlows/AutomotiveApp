@@ -56,14 +56,14 @@ export class Login extends Component{
                 <Form className = "Form">
                 <Form.Group controlId="formBasicEmail">
                     {/* <Form.Label>Email address</Form.Label> */}
-                    <Form.Control type="email" placeholder="Email" onChange={e => this.setState({ email: e.target.value })}/>
+                    <Form.Control type="email" placeholder="Email" value= { this.state.email } onChange={e => this.setState({ email: e.target.value })}/>
                     <Form.Text className="text-muted">
                     </Form.Text>
                 </Form.Group>
 
                 <Form.Group controlId="formBasicPassword">
                     {/* <Form.Label>Password</Form.Label> */}
-                    <Form.Control type="password" placeholder="Password" onChange={e => this.setState({ password: e.target.value })}/>
+                    <Form.Control type="password" placeholder="Password" value= { this.state.password } onChange={e => this.setState({ password: e.target.value })}/>
                 </Form.Group>
                 
                 </Form>

@@ -33,10 +33,10 @@ class SignUp extends Component {
                 </Card.Header>
                 <Card.Body style={{padding:'0em'}}>
                     <Form className="Form"  id = "su_form">
-                        <Form.Control className="field" placeholder="First name" onChange={e => this.setState({ first_name: e.target.value })}/>
-                        <Form.Control className="field" placeholder="Last name" onChange={e => this.setState({ last_name: e.target.value })}/>
-                        <Form.Control className="field" placeholder="Email" onChange={e => this.setState({ email: e.target.value })}/>
-                        <Form.Control className="field" placeholder="Password" type="password" onChange={e => this.setState({ password: e.target.value })}/>
+                        <Form.Control className="field" placeholder="First name" value= { this.state.first_name } onChange={e => this.setState({ first_name: e.target.value })}/>
+                        <Form.Control className="field" placeholder="Last name" value= { this.state.last_name } onChange={e => this.setState({ last_name: e.target.value })}/>
+                        <Form.Control className="field" placeholder="Email" value= { this.state.email } onChange={e => this.setState({ email: e.target.value })}/>
+                        <Form.Control className="field" placeholder="Password" type="password" value= { this.state.password } onChange={e => this.setState({ password: e.target.value })}/>
                         
                     </Form>
                     <Button variant="primary" type="submit" onClick={e => this.onSubmit()}>
