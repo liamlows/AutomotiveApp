@@ -10,7 +10,7 @@ export class InsuranceInfo extends React.Component {
         account_editMode: false,
         insurance_phone: localStorage.getItem('insurancePhone'),
         comp_name: localStorage.getItem('companyName'),
-        policy_number: localStorage.getItem('policyNum'),
+        policy_number: localStorage.getItem('policyNumber'),
         user_fname: localStorage.getItem('firstName'),
         user_lname: localStorage.getItem('lastName'),
         user_email: localStorage.getItem('email')
@@ -32,11 +32,11 @@ export class InsuranceInfo extends React.Component {
     saveAccount() {
         let userId = localStorage.getItem('uID');
         if (userId){
-            this.accountRepo.updateEmail(userId, this.state.user_email)
+            this.accountRepo.updateEmail(userId, {user_email: this.state.user_email})
             .then(localStorage.setItem('email', this.state.user_email));
-            this.accountRepo.updateFname(userId, this.state.user_fname)
+            this.accountRepo.updateFname(userId, {user_fname: this.state.user_fname})
             .then(localStorage.setItem('firstName', this.state.user_fname));
-            this.accountRepo.updateLname(userId, this.state.user_lname)
+            this.accountRepo.updateLname(userId, {user_lname: this.state.user_lname})
             .then(localStorage.setItem('lastName', this.state.user_lname));
         }
         this.setState({
@@ -48,12 +48,12 @@ export class InsuranceInfo extends React.Component {
     saveInsurance() {
         let userId = localStorage.getItem('uID');
         if (userId){
-            this.accountRepo.updateInsurancePhone(userId,this.state.insurance_phone)
+            this.accountRepo.updateInsurancePhone(userId, {insurance_phone: this.state.insurance_phone})
             .then(localStorage.setItem('insurancePhone', this.state.insurance_phone));
-            this.accountRepo.updateInsuranceCom(userId, this.state.comp_name)
+            this.accountRepo.updateInsuranceCom(userId, {insurance_company: this.state.comp_name})
             .then(localStorage.setItem('companyName', this.state.comp_name));
-            this.accountRepo.updateInsurancePolicyNum(userId, this.state.policy_number)
-            .then(localStorage.setItem('policyNum', this.state.policy_number));
+            this.accountRepo.updateInsurancePolicyNum(userId, {insurance_num: this.state.policy_number})
+            .then(localStorage.setItem('policyNumber', this.state.policy_number));
             
         }
         this.setState({

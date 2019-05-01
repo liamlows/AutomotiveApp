@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export class AccountRepo {
-    url = "https://ec2-3-92-242-46.compute-1.amazonaws.com:8080";
+    url = "http://ec2-34-227-100-210.compute-1.amazonaws.com:8080";
     config = {
        
     };
