@@ -62,14 +62,4 @@ export default Landing;
     }
 }
 
-export default Landing;
-
-<Row className="landing">
-                <div className="container">
-                    <img className="img-fluid" src="icons/landingImg.png" alt="img"></img>
-                </div>
-                <div className="sign" style={{zIndex: '20'}}>
-                    <SignUp />
-                </div>
-            </Row>
-*/
+export default Landing;*/
