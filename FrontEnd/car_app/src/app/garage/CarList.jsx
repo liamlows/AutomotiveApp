@@ -16,6 +16,22 @@ export const CarList = (props) => (
                     <div className="card-body" style={{padding:'0em'}}>
                         <Link to={`/car/${a.c_id}`} className="btn btn-primary float-right" style={{marginBottom:'.75em'}}>
                             <i className="fa fa-cogs"></i>&nbsp;
+                            {
+                                a.current_mileage - a.milesAtLastMaintenance > 5000
+                                || a.current_mileage - a.milesAtLastOilChange > 5000
+                                || a.current_mileage - a.milesAtLastTireChange > 5000
+                                ? <button className="btn btn-danger btn-sm" style={{borderRadius:'1em',fontSize: '.05em'}}>
+                                <i className="fa fa-exclamation"></i>&nbsp;
+                                </button>
+                                :
+                                a.current_mileage - a.milesAtLastMaintenance > 2000
+                                || a.current_mileage - a.milesAtLastOilChange > 2000
+                                || a.current_mileage - a.milesAtLastTireChange > 2000
+                                ? <button className="btn btn-warning btn-sm" style={{borderRadius:'1em',fontSize: '.05em'}}>
+                                <i className="fa fa-exclamation-triangle"></i>&nbsp;
+                                </button>
+                                : <div></div>
+                            }
                         </Link>
                         <div className="row justify-content-between align-items-center" style={{margin:'0em'}}>
                             <div className="col">

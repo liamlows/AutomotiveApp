@@ -72,7 +72,12 @@ export class MapContainer extends Component {
         this.setState({
             favShop: shop
         }, () => {console.log(this.state.favShop)});
-        
+
+        var id = localStorage.getItem('uID');
+        this.carRepo.updateShopName(id,{"shop_name":p.name});
+        this.carRepo.updateShopAddress(id,{"shop_address":p.vicinity});
+        this.carRepo.updateShopRating(id,{"shop_rating":p.rating});
+
     }
 
     componentDidMount() {

@@ -107,7 +107,7 @@ export class InsuranceInfo extends React.Component {
                             <div style={{margin:"3em"}}>
                                 {!this.state.insurance_editMode && 
                                     <>
-                                        <p ><h5 className="d-inline">Insurance Email: </h5>{this.state.insurance_phone}</p>
+                                        <p ><h5 className="d-inline">Insurance Phone: </h5>{this.state.insurance_phone}</p>
                                         <p ><h5 className="d-inline">Company Name: </h5> {this.state.comp_name}</p>
                                         <p ><h5 className="d-inline">Policy Number: </h5> {this.state.policy_number}</p>
                                         <button className="btn btn-primary float-right" onClick={() => this.editInsurance()}>Edit</button>
