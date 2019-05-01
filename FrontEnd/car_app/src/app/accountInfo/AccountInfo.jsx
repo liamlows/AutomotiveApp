@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { User } from './../../models/user'
-import InsurancePage from './InsurancePage'
+import { User } from './../../models/user';
+import InsurancePage from './InsurancePage';
+import MyNav from '../home/MyNav'
 
 class AccountInfo extends Component {
 
@@ -11,6 +12,7 @@ class AccountInfo extends Component {
   render() {
     return (
       <div className="">
+      <MyNav /> 
         <InsurancePage />
       </div>
     );
