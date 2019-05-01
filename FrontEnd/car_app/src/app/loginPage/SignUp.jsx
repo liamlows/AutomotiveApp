@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Form, Card } from "react-bootstrap";
+import { Button, Form, Card, Alert } from "react-bootstrap";
 import "./SignUp.css";
 import LoginRepo from '../../api/loginRepo';
 
@@ -10,18 +10,24 @@ class SignUp extends Component {
     email: '',
     password: '',
     first_name: '',
-    last_name: ''
+    last_name: '',
+    isRegistered: false
   }
 
     async onSubmit() {
-        console.log(this.state);
-        await this.loginRepo.registerUser(this.state)
-        .then(alert("Account successfully created! Please login with your new credentials!"));
+        var user = {
+          email: this.state.email,
+          password: this.state.password,
+          first_name: this.state.first_name,
+          last_name: this.state.last_name
+        }
+        await this.loginRepo.registerUser(user);
         this.setState(state => {
             state.email="";
             state.password="";
             state.first_name = "";
             state.last_name="";
+            state.isRegistered=true;
             return state;
         });
     }
@@ -38,6 +44,7 @@ class SignUp extends Component {
                         <Form.Control className="field" placeholder="Last name" value= { this.state.last_name } onChange={e => this.setState({ last_name: e.target.value })}/>
                         <Form.Control className="field" placeholder="Email" value= { this.state.email } onChange={e => this.setState({ email: e.target.value })}/>
                         <Form.Control className="field" placeholder="Password" type="password" value= { this.state.password } onChange={e => this.setState({ password: e.target.value })}/>
+                        {this.state.isRegistered && <Alert variant="info">Account successfully created! Please login with your new credentials!</Alert>}
                         
                     </Form>
                     <Button variant="primary" type="submit" onClick={e => this.onSubmit()}>
