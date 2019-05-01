@@ -5,7 +5,24 @@ import './Landing.css'
 import {Row} from 'react-bootstrap';
 
 class Landing extends Component {
-    renderSignUp(x) {
+    render() {
+        return (
+            <>
+         <Row className="landing">
+                <div className="container-fluid" >
+                    <img className="img-fluid" src="icons/landingImg.png" alt="img"></img>
+                </div>
+                <div className="container" style={{position: 'absolute', zIndex:'10', marginRight:'2em'}}>
+                    <SignUp />
+                </div>
+         </Row>
+        </>
+            
+        );
+    }
+}
+export default Landing;
+    /*renderSignUp(x) {
         if(x.matches){
             return (
                 <>
@@ -47,7 +64,6 @@ class Landing extends Component {
 
 export default Landing;
 
-/*
 <Row className="landing">
                 <div className="container">
                     <img className="img-fluid" src="icons/landingImg.png" alt="img"></img>

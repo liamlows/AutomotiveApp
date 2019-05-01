@@ -28,7 +28,7 @@ class SignUp extends Component {
   
     render() {
         return (
-            <Card className="signup" style={{backgroundColor: 'transparent', border: 'none', marginRight:'5vw',marginTop:'3vw'}}>
+            <Card className="signup" style={{backgroundColor: 'transparent', border: 'none', marginRight:'3em',marginTop:'3em'}}>
                 <Card.Header style={{border: 'none'}}>
                     <h5>Sign Up</h5>
                 </Card.Header>
