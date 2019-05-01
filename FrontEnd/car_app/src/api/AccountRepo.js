@@ -30,14 +30,6 @@ export class AccountRepo {
         });
     }
 
-    updateFname(userId, fname) {
-        return new Promise((resolve, reject) => {
-            axios.put(`${this.url}/user/first_name/${userId}`, fname, this.config)
-                .then(resp => resolve(resp.data))
-                .catch(resp => alert(resp));
-        });
-    }
-
     updateInsuranceCom(userId, company) {
         return new Promise((resolve, reject) => {
             axios.put(`${this.url}/user/update_insurance_company/${userId}`, company, this.config)
