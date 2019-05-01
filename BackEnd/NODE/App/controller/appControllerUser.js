@@ -186,12 +186,6 @@ exports.update_shop_name = function(req,res){
       "response":"Missing ID in API request."
     });
   }
-  else if(!req.body.shop_name){
-    res.status(400).json({
-      "code": 400,
-      "response":"Missing Shop in API request."
-    });
-  }
   else{
     User.updateShopNameByID(req.body.shop_name, req.params.id, function(err,user){
       if (err){
@@ -209,12 +203,6 @@ exports.update_shop_phone = function(req,res){
     res.status(400).json({
       "code": 400,
       "response":"Missing ID in API request."
-    });
-  }
-  else if(!req.body.shop_phone){
-    res.status(400).json({
-      "code": 400,
-      "response":"Missing Shop in API request."
     });
   }
   else{
@@ -236,12 +224,6 @@ exports.update_insurance_company = function(req,res){
       "response":"Missing ID in API request."
     });
   }
-  else if(!req.body.insurance_company){
-    res.status(400).json({
-      "code": 400,
-      "response":"Missing Shop in API request."
-    });
-  }
   else{
     User.updateInsuranceCompanyByID(req.body.insurance_company, req.params.id, function(err,user){
       if (err){
@@ -259,12 +241,6 @@ exports.update_insurance_phone = function(req,res){
     res.status(400).json({
       "code": 400,
       "response":"Missing ID in API request."
-    });
-  }
-  else if(!req.body.insurance_phone){
-    res.status(400).json({
-      "code": 400,
-      "response":"Missing Shop in API request."
     });
   }
   else{
@@ -286,12 +262,6 @@ exports.update_insurance_email = function(req,res){
       "response":"Missing ID in API request."
     });
   }
-  else if(!req.body.insurance_email){
-    res.status(400).json({
-      "code": 400,
-      "response":"Missing Shop in API request."
-    });
-  }
   else{
     User.updateInsuranceCompanyByID(req.body.insurance_email, req.params.id, function(err,user){
       if (err){
@@ -309,12 +279,6 @@ exports.update_insurance_num = function(req,res){
     res.status(400).json({
       "code": 400,
       "response":"Missing ID in API request."
-    });
-  }
-  else if(!req.body.insurance_num){
-    res.status(400).json({
-      "code": 400,
-      "response":"Missing Shop in API request."
     });
   }
   else{
