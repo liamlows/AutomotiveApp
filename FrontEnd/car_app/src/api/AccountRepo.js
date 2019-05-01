@@ -54,6 +54,14 @@ export class AccountRepo {
         });
     }
 
+    updatePassword(userId, password) {
+        return new Promise((resolve, reject) => {
+            axios.put(`${this.url}/user/password/${userId}`, password, this.config)
+                .then(resp => resolve(resp.data))
+                .catch(resp => alert(resp));
+        });
+    }
+
 
 
 }
