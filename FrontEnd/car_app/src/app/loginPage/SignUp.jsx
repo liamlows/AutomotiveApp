@@ -15,7 +15,8 @@ class SignUp extends Component {
 
     async onSubmit() {
         console.log(this.state);
-        await this.loginRepo.registerUser(this.state);
+        await this.loginRepo.registerUser(this.state)
+        .then(alert("Account successfully created! Please login with your new credentials!"));
         this.setState(state => {
             state.email="";
             state.password="";
