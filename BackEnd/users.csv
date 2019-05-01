@@ -1,0 +1,46 @@
+u_id,email,first_name,last_name,password,shop_name,shop_rating,shop_address,shop_open,insurance_company,insurance_phone,insurance_num,insurance_email
+1,test@gmail.com,testf,tesl,0416a26ba554334286b1954918ecad7ba6c33575b49df915ff3367b5cef7ecd93b1f0b436636667b27b363011543971f1c81c3151d5ef72733501c1ff33c34af,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+3,rbtest@gmail.com,Riley,Bates,b109f3bbbc244eb82441917ed06d618b9008dd09b3befd1b5e07394c706a8bb980b1d7785e5976ec049b46df5f1326af5a2ea6d103fd07c95385ffab0cacbc86,NULL,NULL,NULL,NULL,"Blue Cross Blue Shield","1 (800) 877 2276",89865688,NULL
+4,testj@gmail.com,Julie,Tapia,b109f3bbbc244eb82441917ed06d618b9008dd09b3befd1b5e07394c706a8bb980b1d7785e5976ec049b46df5f1326af5a2ea6d103fd07c95385ffab0cacbc86,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+5,ruichenn@smu.edu,Ruichen,Ni,ba3253876aed6bc22d4a6ff53d8406c6ad864195ed144ab5c87621b6c233b548baeae6956df346ec8c17f5ea10f35ee3cbc514797ed7ddd3145464e2a0bab413,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+6,usertest@test.com,testf,testl,ee26b0dd4af7e749aa1a8ee3c10ae9923f618980772e473f8819a5d4940e0db27ac185f8a0e1d5f84f88bc887fd67b143732c304cc5fa9ad8e6f57f50028a8ff,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+8,test,test,test,ee26b0dd4af7e749aa1a8ee3c10ae9923f618980772e473f8819a5d4940e0db27ac185f8a0e1d5f84f88bc887fd67b143732c304cc5fa9ad8e6f57f50028a8ff,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+9,test1@test.com,test1,test2,ee26b0dd4af7e749aa1a8ee3c10ae9923f618980772e473f8819a5d4940e0db27ac185f8a0e1d5f84f88bc887fd67b143732c304cc5fa9ad8e6f57f50028a8ff,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+10,test@test.com,test1,test2,ee26b0dd4af7e749aa1a8ee3c10ae9923f618980772e473f8819a5d4940e0db27ac185f8a0e1d5f84f88bc887fd67b143732c304cc5fa9ad8e6f57f50028a8ff,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+11,ruichen@gmail.com,Goku,Sun,e13efc991a9bf44bbb4da87cdbb725240184585ccaf270523170e008cf2a3b85f45f86c3da647f69780fb9e971caf5437b3d06d418355a68c9760c70a31d05c7,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+12,bakerkr@smu.edu,Kyle,Baker,b109f3bbbc244eb82441917ed06d618b9008dd09b3befd1b5e07394c706a8bb980b1d7785e5976ec049b46df5f1326af5a2ea6d103fd07c95385ffab0cacbc86,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+15,test1,test,test,ee26b0dd4af7e749aa1a8ee3c10ae9923f618980772e473f8819a5d4940e0db27ac185f8a0e1d5f84f88bc887fd67b143732c304cc5fa9ad8e6f57f50028a8ff,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+16,ajouhandeauf@myspace.com,Alberto,Jouhandeau,oeLlmjW,Hoppe-Reinger,NULL,NULL,NULL,"Mante and Sons",222-343-3576,428,ajouhandeauf@creativecommons.org
+17,omoricang@dedecms.com,Orsa,Morican,eNtOWcbK,Schaden-Barrows,NULL,NULL,NULL,Gleichner-Keeling,250-612-2180,582,omoricang@hatena.ne.jp
+18,mbuttlerh@barnesandnoble.com,Mariana,Buttler,TJhRTCkF,"Runte LLC",NULL,NULL,NULL,Okuneva-Nader,638-602-5709,276,mbuttlerh@walmart.com
+19,rpaali@nasa.gov,Rowen,Paal,dQW7PNNoSb,"Torphy and Sons",NULL,NULL,NULL,"Lemke, Murray and Stark",696-801-6150,906,rpaali@cbslocal.com
+20,lmclindenj@alibaba.com,Lani,McLinden,yWHI0Z7,"Schroeder Group",NULL,NULL,NULL,Satterfield-Rempel,550-108-0221,432,lmclindenj@amazon.de
+21,rghidellik@cisco.com,Rozina,Ghidelli,FZ3Y6mQJC,Mohr-Trantow,NULL,NULL,NULL,Yundt-Powlowski,726-906-0951,993,rghidellik@microsoft.com
+22,cmacroryl@fema.gov,Collin,MacRory,FZ2OiA25,"Walsh, Reinger and Ferry",NULL,NULL,NULL,"Stroman, Feeney and McCullough",961-126-7721,155,cmacroryl@1688.com
+23,dfawdriem@cnbc.com,Dee,Fawdrie,WxBCjo86,Parker-Hagenes,NULL,NULL,NULL,"Mosciski and Sons",708-194-7845,372,dfawdriem@g.co
+24,cmacmenamien@webnode.com,Cherin,MacMenamie,Uk1YOJ,"Reichel and Sons",NULL,NULL,NULL,Rippin-Ondricka,350-456-9139,975,cmacmenamien@irs.gov
+25,afenlono@huffingtonpost.com,Annecorinne,Fenlon,hxV5YaOyWouR,"Upton LLC",NULL,NULL,NULL,"Breitenberg, Gutkowski and O'Conner",590-722-9327,924,afenlono@deviantart.com
+26,jpietzkerp@goo.gl,Jeanette,Pietzker,rrwk7Ze20rrF,"Boyer LLC",NULL,NULL,NULL,"Douglas and Sons",532-791-2090,642,jpietzkerp@jigsy.com
+27,cnapolitanoq@cargocollective.com,Courtenay,Napolitano,I436CQvV2d,"Rau Inc",NULL,NULL,NULL,"Jakubowski, Morar and Legros",755-496-1266,999,cnapolitanoq@twitter.com
+28,twaterfallr@epa.gov,Tadeo,Waterfall,SjMiWBAal,"Lang, Senger and Koch",NULL,NULL,NULL,"MacGyver Group",840-425-7707,396,twaterfallr@cmu.edu
+29,hmacfadzans@examiner.com,Hi,MacFadzan,SWR4LGIWLGf,"Lindgren Group",NULL,NULL,NULL,"Hane LLC",972-264-1570,983,hmacfadzans@illinois.edu
+30,hbroseniust@privacy.gov.au,Helaine,Brosenius,XjYbA4NsPwu,Strosin-Cremin,NULL,NULL,NULL,"Nikolaus Group",105-192-3014,387,hbroseniust@freewebs.com
+31,ssattinu@amazon.co.jp,Sumner,Sattin,mmLZWonwn,"Thompson, Lind and Wiegand",NULL,NULL,NULL,Dicki-Schulist,864-441-3171,106,ssattinu@unc.edu
+32,mwintonv@technorati.com,Madelon,Winton,PH48ipGNO,"Koss, Kunde and Bernhard",NULL,NULL,NULL,"Lakin, Bogisich and Keebler",666-539-8702,992,mwintonv@blog.com
+33,nleaburnw@hostgator.com,Natal,Leaburn,aRUac5,Kilback-Toy,NULL,NULL,NULL,"Will LLC",505-790-9153,677,nleaburnw@newyorker.com
+34,dvaldesx@nifty.com,Delainey,Valdes,B165kSyxpwt,"Grimes, Rosenbaum and Hickle",NULL,NULL,NULL,"Runte, Torphy and Lubowitz",481-683-3455,569,dvaldesx@sitemeter.com
+35,pderringtony@gov.uk,Paton,Derrington,ti0CIbpE2Kr,Nitzsche-Luettgen,NULL,NULL,NULL,"Tromp Inc",752-693-0578,982,pderringtony@mit.edu
+36,nmalonez@wired.com,Nate,Malone,B955K5VyejJP,"White, Schaefer and Zieme",NULL,NULL,NULL,Jacobson-Kuvalis,552-236-8678,948,nmalonez@alexa.com
+37,ybragger10@tinyurl.com,Yolande,Bragger,SmVo5MH6piw6,"Conroy, Connelly and Balistreri",NULL,NULL,NULL,Zulauf-Harber,935-951-4659,750,ybragger10@ucoz.ru
+38,nshatliffe11@addthis.com,Norby,Shatliffe,nFyvs1Vru0UW,"Heathcote Inc",NULL,NULL,NULL,"Boyer Inc",103-855-0176,303,nshatliffe11@meetup.com
+39,lvasyatkin12@surveymonkey.com,Lutero,Vasyatkin,Nj0EHI,"Greenfelder Group",NULL,NULL,NULL,"Flatley, Hermiston and Huel",896-470-2571,696,lvasyatkin12@qq.com
+40,acogdell13@go.com,Artair,Cogdell,YUlqWfXMM,"Blick Group",NULL,NULL,NULL,Reynolds-Barrows,568-137-0128,174,acogdell13@imdb.com
+41,ruichenn@gmail.com,Ruichen,Ni,ba3253876aed6bc22d4a6ff53d8406c6ad864195ed144ab5c87621b6c233b548baeae6956df346ec8c17f5ea10f35ee3cbc514797ed7ddd3145464e2a0bab413,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+42,jtapia.s@hotmail.com,Julie,Tapia,3c9909afec25354d551dae21590bb26e38d53f2173b8d3dc3eee4c047e7ab1c1eb8b85103e3be7ba613b31bb5c9c36214dc9f14a42fd7a2fdb84856bca5c44c2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+44,rsanchez.g@live.com,Roselia,Sanchez,3c9909afec25354d551dae21590bb26e38d53f2173b8d3dc3eee4c047e7ab1c1eb8b85103e3be7ba613b31bb5c9c36214dc9f14a42fd7a2fdb84856bca5c44c2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+45,ejjfgg,Jt,jgjg,3c9909afec25354d551dae21590bb26e38d53f2173b8d3dc3eee4c047e7ab1c1eb8b85103e3be7ba613b31bb5c9c36214dc9f14a42fd7a2fdb84856bca5c44c2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+46,123@smu.edu,S,K,263fec58861449aacc1c328a4aff64aff4c62df4a2d50b3f207fa89b6e242c9aa778e7a8baeffef85b6ca6d2e7dc16ff0a760d59c13c238f6bcdc32f8ce9cc62,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+47,123123@smu.edu,A,B,263fec58861449aacc1c328a4aff64aff4c62df4a2d50b3f207fa89b6e242c9aa778e7a8baeffef85b6ca6d2e7dc16ff0a760d59c13c238f6bcdc32f8ce9cc62,NULL,NULL,NULL,NULL,"Pocket Garage",12345,"132312 123123",NULL
+48,1234@123,C,D,3c9909afec25354d551dae21590bb26e38d53f2173b8d3dc3eee4c047e7ab1c1eb8b85103e3be7ba613b31bb5c9c36214dc9f14a42fd7a2fdb84856bca5c44c2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+49,123123@333,E,F,3c9909afec25354d551dae21590bb26e38d53f2173b8d3dc3eee4c047e7ab1c1eb8b85103e3be7ba613b31bb5c9c36214dc9f14a42fd7a2fdb84856bca5c44c2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+50,test2,test,test,ee26b0dd4af7e749aa1a8ee3c10ae9923f618980772e473f8819a5d4940e0db27ac185f8a0e1d5f84f88bc887fd67b143732c304cc5fa9ad8e6f57f50028a8ff,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
