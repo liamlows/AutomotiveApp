@@ -13,9 +13,9 @@ class SignUp extends Component {
     last_name: ''
   }
 
-    onSubmit() {
-        alert(`${this.state.email}`);
-        this.loginRepo.registerUser(this.state);
+    async onSubmit() {
+        console.log(this.state);
+        await this.loginRepo.registerUser(this.state);
         this.setState(state => {
             state.email="";
             state.password="";

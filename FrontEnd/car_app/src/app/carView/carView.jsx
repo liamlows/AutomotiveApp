@@ -11,7 +11,6 @@ export class CarView extends React.Component {
     
     state = {
         car: {},
-        // new Car("Ford","RX-8","2018",200,25000,"icons/mazda.png")
         records: [],
         redirect: false
     };
@@ -22,8 +21,6 @@ export class CarView extends React.Component {
 
     onRecordAdded(record){
         let carId = +this.props.match.params.carId;
-        // let productId = +this.props.match.params.productId;
-        // this.productRepository.addReview(productId, review)
         if(record.type==='General'){
             this.setState(state => {
                 state.car['milesAtLastMaintenance'] = record.last_mileage;
@@ -49,6 +46,7 @@ export class CarView extends React.Component {
 
     async onDelete(){
         let carId = +this.props.match.params.carId;
+        await this.carRepo.deleteRecordsByCID(carId);
         await this.carRepo.deleteCar(carId);
         this.setState({redirect: true})
     }

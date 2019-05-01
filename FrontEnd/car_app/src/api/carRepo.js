@@ -31,6 +31,14 @@ export class CarRepo {
         });
     }
 
+    deleteRecordsByCID(carId){
+        return new Promise((resolve, reject) => {
+            axios.delete(`${this.url}/maintenance/delete_maint_CID/${carId}`, this.config)
+                .then(resp => resolve(resp.data))
+                .catch(resp => alert(resp));
+        });
+    }
+
     updateCar(carId, car) {
         return new Promise((resolve, reject) => {
             axios.put(`${this.url}/car/update_car_all/${carId}`, car, this.config)
@@ -55,9 +63,9 @@ export class CarRepo {
         });
     }
 
-    deleteRecord(maintId) {
+    deleteRecordByMID(maintId) {
         return new Promise((resolve, reject) => {
-            axios.delete(`${this.url}/maintenance/delete_maint/${maintId}`, this.config)
+            axios.delete(`${this.url}/maintenance/delete_maint_MID/${maintId}`, this.config)
                 .then(resp => resolve(resp.data))
                 .catch(resp => alert(resp));
         });
