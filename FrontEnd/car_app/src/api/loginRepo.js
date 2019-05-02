@@ -33,7 +33,6 @@ export class LoginRepo {
                     localStorage.setItem('insurancePhone', resp.data.insurance_phone);
                     localStorage.setItem('insuranceEmail', resp.data.insurance_email);
                     localStorage.setItem('policyNumber', resp.data.insurance_num);
-                    localStorage.setItem('password', resp.data.password);
                 })
                 .catch(resp => alert(resp));
         });
