@@ -14,17 +14,17 @@ export class CarView extends React.Component {
         records: [],
         redirect: false,
         displayGeneralUrgent: false,
-        generalUrgent: 5000,
+        generalUrgent: 45000,
         displayGeneralRecom: false,
-        generalRecom: 2000,
+        generalRecom: 30000,
         displayOilUrgent: false,
-        oilChangeUrgent: 3000,
+        oilChangeUrgent: 90000,
         displayOilRecom: false,
-        oilChangeRecom: 2000,
+        oilChangeRecom: 6000,
         displayTiresUrgent: false,
-        tiresUrgent: 4000,
+        tiresUrgent: 50000,
         displayTiresRecom: false,
-        tiresRecom: 2000,
+        tiresRecom: 25000,
         avg_miles: 0,
         curr_miles: 0
     };
@@ -222,7 +222,7 @@ export class CarView extends React.Component {
                                     ? <span className="badge badge-danger" style={{marginLeft:'1em'}}>Urgent</span>
                                     :
                                     this.state.displayGeneralRecom
-                                    ? <span className="badge badge-warning" style={{marginLeft:'1em'}}>Needed in {parseInt((this.state.generalUrgent - (this.state.car.current_mileage - this.state.car.miles_maint))/this.state.car.avg_mileage)} days</span>
+                                    ? <span className="badge badge-warning" style={{marginLeft:'1em'}}>Needed within {parseInt((this.state.generalUrgent - (this.state.car.current_mileage - this.state.car.miles_maint))/this.state.car.avg_mileage)} days</span>
                                     : <span className="badge badge-success" style={{marginLeft:'1em'}}><i className="fa fa-check"></i>&nbsp;</span>
                                 }
                                  </p>
@@ -231,7 +231,7 @@ export class CarView extends React.Component {
                                     ? <span className="badge badge-danger" style={{marginLeft:'1em'}}>Urgent</span>
                                     :
                                     this.state.displayOilRecom
-                                    ? <span className="badge badge-warning" style={{marginLeft:'1em'}}>Needed in {parseInt((this.state.oilChangeUrgent - (this.state.car.current_mileage - this.state.car.miles_oil))/this.state.car.avg_mileage)} days</span>
+                                    ? <span className="badge badge-warning" style={{marginLeft:'1em'}}>Needed within {parseInt((this.state.oilChangeUrgent - (this.state.car.current_mileage - this.state.car.miles_oil))/this.state.car.avg_mileage)} days</span>
                                     : <span className="badge badge-success" style={{marginLeft:'1em'}}><i className="fa fa-check"></i>&nbsp;</span>
                                 }
                                 </p>
@@ -240,7 +240,7 @@ export class CarView extends React.Component {
                                     ? <span className="badge badge-danger" style={{marginLeft:'1em'}}>Urgent</span>
                                     :
                                     this.state.displayTiresRecom
-                                    ?<span className="badge badge-warning" style={{marginLeft:'1em'}}>Needed in {parseInt((this.state.tiresUrgent - (this.state.car.current_mileage - this.state.car.miles_tire))/this.state.car.avg_mileage)} days</span>
+                                    ?<span className="badge badge-warning" style={{marginLeft:'1em'}}>Needed within {parseInt((this.state.tiresUrgent - (this.state.car.current_mileage - this.state.car.miles_tire))/this.state.car.avg_mileage)} days</span>
                                     :<span className="badge badge-success" style={{marginLeft:'1em'}}><i className="fa fa-check"></i>&nbsp;</span>
                                 }
                                 </p>
