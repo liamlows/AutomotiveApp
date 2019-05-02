@@ -160,7 +160,7 @@ User.updateShopRatingByID = function(shop_rating, id, result) {
       result(null, {
         "code":200,
         "response":"Update was sucessfull.",
-        "shop_phone":shop_rating
+        "shop_rating":shop_rating
         });
     }
   });
@@ -174,7 +174,7 @@ User.updateShopAddressByID = function(shop_address, id, result) {
       result(null, {
         "code":200,
         "response":"Update was sucessfull.",
-        "shop_phone":shop_address
+        "shop_address":shop_address
         });
     }
   });
@@ -188,7 +188,7 @@ User.updateShopOpenByID = function(shop_open, id, result) {
       result(null, {
         "code":200,
         "response":"Update was sucessfull.",
-        "shop_phone":shop_open
+        "shop_open":shop_open
         });
     }
   });
