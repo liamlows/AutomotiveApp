@@ -1,4 +1,3 @@
-//G#########################################################################
 'use strict';
 module.exports = function(app) {
   var autoAppUser = require('../controller/appControllerUser');
@@ -75,7 +74,7 @@ module.exports = function(app) {
   // GET MAINTENANCE RERCORD
   app.route('/api/maintenance/get_maint/:id')
     .get(autoMaintenance.get_maint);
-    // DELETE MAINTENANCE RERCORD
+  // DELETE MAINTENANCE RERCORD
   app.route('/api/maintenance/delete_maint_MID/:id')
     .delete(autoMaintenance.delete_maint_MID);
   app.route('/api/maintenance/delete_maint_CID/:id')

@@ -1,6 +1,9 @@
 'use strict';
 var User = require('../model/appUser.js');
 
+// This is the controller file for handling the API requests for the users table
+// The associated file with actual SQL queries is appUser.js
+
 // Register user
 exports.create_user = function(req,res){
   // gen user obj

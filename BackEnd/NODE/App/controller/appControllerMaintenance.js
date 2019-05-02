@@ -1,6 +1,9 @@
 'use strict';
 var Maintenance = require('../model/appMaintenance.js');
 
+// This is the controller file for handling the API requests for the maintenance table
+// The associated file with actual SQL queries is appMaintenance.js
+
 // Add maintenance record by car ID
 exports.add_maint = function(req,res){
   // handle missing ID
@@ -61,7 +64,7 @@ exports.delete_maint_MID = function(req,res){
     });
   }
 };
-// Delete maintenance record by maintenance ID
+// Delete maintenance record by car ID
 exports.delete_maint_CID = function(req,res){
   // handle missing ID
   if(!req.params.id){

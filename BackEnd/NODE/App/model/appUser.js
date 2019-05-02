@@ -2,7 +2,10 @@
 var sql = require('./dbConn.js');
 var sha512 = require('js-sha512');
 
-//User object constructor
+// This is the query file for handling the API requests for the users table
+// The associated file which controls this file is appControllerUser.js
+
+// User object constructor
 var User = function(user) {
   this.email = user.email;
   this.password = user.password;
@@ -10,8 +13,7 @@ var User = function(user) {
   this.last_name = user.last_name;
   this.created_at = new Date();
 };
-
-// creates user to be inserted into database
+// Creates user to be inserted into database
 User.createUser = function(newUser, result) {
   let hash = sha512(newUser.password);
   sql.query("INSERT INTO `AutomotiveApp`.`users` (`email`, `first_name`, `last_name`, `password`) VALUES ('" + newUser.email + "', '" + newUser.first_name + "', '" + newUser.last_name + "', '" + hash + "');",
@@ -25,8 +27,7 @@ User.createUser = function(newUser, result) {
     }
   );
 };
-
-// attempts to login user if found in database
+// Attempts to login user if found in database
 User.loginUser = function(login_user, result){
   let hash = sha512(login_user.password);
   sql.query('SELECT * FROM `AutomotiveApp`.`users` WHERE email = ?;',[login_user.email], function(err, res){
@@ -66,8 +67,7 @@ User.loginUser = function(login_user, result){
     }
   });
 }
-
-//Delete user account
+// Delete user account
 User.deleteUserByID = function(id,result) {
   sql.query("DELETE from `AutomotiveApp`.`users` WHERE u_id = ?;", [id], function(err, res) {
     if (err) {
@@ -77,8 +77,7 @@ User.deleteUserByID = function(id,result) {
     }
   });
 };
-
-// update email by user id
+// Update email by user id
 User.updateEmailByID = function(id, email, result) {
   sql.query("UPDATE `AutomotiveApp`.`users` SET email = ? WHERE u_id = ?;", [email, id], function(err, res){
     if(err){
@@ -93,8 +92,7 @@ User.updateEmailByID = function(id, email, result) {
     }
   });
 }
-
-// update first name by user id
+// Update first name by user id
 User.updateFNameByID = function(id, first_name, result) {
   sql.query("UPDATE `AutomotiveApp`.`users` SET first_name = ? WHERE u_id = ?;", [first_name, id], function(err, res){
     if(err){
@@ -109,8 +107,7 @@ User.updateFNameByID = function(id, first_name, result) {
     }
   });
 }
-
-// update last name by user id
+// Update last name by user id
 User.updateLNameByID = function(id, last_name, result) {
   sql.query("UPDATE `AutomotiveApp`.`users` SET last_name = ? WHERE u_id = ?;", [last_name, id], function(err, res){
     if(err){
@@ -125,8 +122,7 @@ User.updateLNameByID = function(id, last_name, result) {
     }
   });
 }
-
-// update password by user id
+// Update password by user id
 User.updatePassByID = function(id, password, result) {
   let hash = sha512(password);
   sql.query("UPDATE `AutomotiveApp`.`users` SET password = ? WHERE u_id = ?;", [hash, id], function(err, res){
@@ -141,8 +137,7 @@ User.updatePassByID = function(id, password, result) {
     }
   });
 }
-
-// update/remove favorite shop name
+// Update/remove favorite shop name
 User.updateShopNameByID = function(shop_name, id, result) {
   sql.query("UPDATE `AutomotiveApp`.`users` SET shop_name = ? WHERE u_id = ?;", [shop_name, id], function(err, res) {
     if (err) {
@@ -156,8 +151,7 @@ User.updateShopNameByID = function(shop_name, id, result) {
     }
   });
 };
-
-// update/remove favorite shop phone
+// Update/remove favorite shop rating
 User.updateShopRatingByID = function(shop_rating, id, result) {
   sql.query("UPDATE `AutomotiveApp`.`users` SET shop_rating = ? WHERE u_id = ?;", [shop_rating,id], function(err, res) {
     if (err) {
@@ -171,8 +165,7 @@ User.updateShopRatingByID = function(shop_rating, id, result) {
     }
   });
 };
-
-// update/remove favorite shop phone
+// Update/remove favorite shop address
 User.updateShopAddressByID = function(shop_address, id, result) {
   sql.query("UPDATE `AutomotiveApp`.`users` SET shop_address = ? WHERE u_id = ?;", [shop_address,id], function(err, res) {
     if (err) {
@@ -186,7 +179,7 @@ User.updateShopAddressByID = function(shop_address, id, result) {
     }
   });
 };
-// update/remove favorite shop phone
+// Update/remove if favorite shop is open
 User.updateShopOpenByID = function(shop_open, id, result) {
   sql.query("UPDATE `AutomotiveApp`.`users` SET shop_open = ? WHERE u_id = ?;", [shop_open,id], function(err, res) {
     if (err) {
@@ -200,7 +193,7 @@ User.updateShopOpenByID = function(shop_open, id, result) {
     }
   });
 };
-// update/remove insurance company
+// Update/remove insurance company
 User.updateInsuranceCompanyByID = function(insurance_company, id, result) {
   sql.query("UPDATE `AutomotiveApp`.`users` SET insurance_company = ? WHERE u_id = ?;", [insurance_company, id], function(err, res) {
     if (err) {
@@ -214,8 +207,7 @@ User.updateInsuranceCompanyByID = function(insurance_company, id, result) {
     }
   });
 };
-
-// update/remove insurance phone
+// Update/remove insurance phone
 User.updateInsurancePhoneByID = function(insurance_phone, id, result) {
   sql.query("UPDATE `AutomotiveApp`.`users` SET insurance_phone = ? WHERE u_id = ?", [insurance_phone, id], function(err, res) {
     if (err) {
@@ -229,8 +221,7 @@ User.updateInsurancePhoneByID = function(insurance_phone, id, result) {
     }
   });
 };
-
-// update/remove insurance email
+// Update/remove insurance email
 User.updateInsuranceEmailByID = function(insurance_email, id, result) {
   sql.query("UPDATE `AutomotiveApp`.`users` SET insurance_email = ? WHERE u_id = ?;", [insurance_email, id], function(err, res) {
     if (err) {
@@ -244,8 +235,7 @@ User.updateInsuranceEmailByID = function(insurance_email, id, result) {
     }
   });
 };
-
-// update/remove insurance number
+// Update/remove insurance number
 User.updateInsuranceNumByID = function(insurance_num, id, result) {
   sql.query("UPDATE `AutomotiveApp`.`users` SET insurance_num = ? WHERE u_id = ?;", [insurance_num, id], function(err, res) {
     if (err) {

@@ -1,0 +1,193 @@
+                        -------------------------------
+                        ----     USER SECTION      ----
+                        -------------------------------
+// ##### REGISTER USER #####
+ENDPOINT/register
+  - POST
+  - body requires 'email', 'password', 'first_name', 'last_name'
+  - will return a success/failure status code
+
+// ##### LOGIN USER #####
+ENDPOINT/login
+  - POST
+  - body requires 'email' and 'password'
+  - will return all attributes of user for local storage
+
+// ##### DELETE USER #####
+ENDPOINT/delete_user/:id
+  - DELETE
+  - :id = user id
+  - will return a success/failure status code
+
+// ##### UPDATE USER INFORMATION #####
+// Below is info on what to send; if able to update information, all return a success code, message, and the updated value.
+ENDPOINT/user/email/:id
+  - PUT
+  - :id = user id
+  - body requires 'email'
+ENDPOINT/user/first_name/:id
+  - PUT
+  - :id = user id
+  - body requires 'first_name'
+ENDPOINT/user/last_name/:id
+  - PUT
+  - :id = user id
+  - body requires 'last_name'
+ENDPOINT/user/password/:id
+  - PUT
+  - :id = user id
+  - body requires 'password'
+ENDPOINT/user/update_shop_name/:id
+  - PUT
+  - :id = user id
+  - body accepts 'shop_name'
+ENDPOINT/user/update_shop_rating/:id
+  - PUT
+  - :id = user id
+  - body accepts 'shop_rating'
+ENDPOINT/user/update_shop_address/:id
+  - PUT
+  - :id = user id
+  - body accepts 'shop_address'
+ENDPOINT/user/update_shop_open/:id
+  - PUT
+  - :id = user id
+  - body accepts 'shop_open'
+ENDPOINT/user/update_insurance_company/:id
+  - PUT
+  - :id = user id
+  - body accepts 'insurance_company'
+ENDPOINT/user/update_insurance_phone/:id
+  - PUT
+  - :id = user id
+  - body accepts 'insurance_phone'
+ENDPOINT/user/update_insurance_email/:id
+  - PUT
+  - :id = user id
+  - body accepts 'insurance_email'
+ENDPOINT/user/update_insurance_num/:id
+  - PUT
+  - :id = user id
+  - body requires 'insurance_num'
+                        -------------------------------
+                        ----      CAR SECTION      ----
+                        -------------------------------
+// ##### ADD CAR #####
+ENDPOINT/car/add_car/:id
+  - POST
+  - :id = user id
+  - body requires MAKE, MODEL, and YEAR
+  - will return a success/failure status code
+
+// ##### GET CAR #####
+ENDPOINT/car/get_car/:id
+  - GET
+  - :id = user id
+  - returns all cars matching user id (JSON)
+
+// ##### DELETE CAR #####
+ENDPOINT/car/delete_car/:id
+  - DELETE
+  - :id = car id
+  - will return a success/failure status code
+
+// ##### UPDATE CAR #####
+ENDPOINT/car/update_car_all/:id
+  - PUT
+  - :id = car id
+  - body accepts values for 'MAKE', 'MODEL', 'YEAR', 'avg_mileage', 'cur_mileage'
+  - will return a success/failure status code
+ENDPOINT/car/update_car_make/:id
+  - PUT
+  - :id = car id
+  - body requires 'MAKE'
+  - will return a success/failure status code; if successful will also return updated value
+ENDPOINT/car/update_car_model/:id
+  - PUT
+  - :id = car id
+  - body requires 'MODEL'
+  - will return a success/failure status code; if successful will also return updated value
+ENDPOINT/car/update_car_year/:id
+  - PUT
+  - :id = car id
+  - body requires 'YEAR'
+  - will return a success/failure status code; if successful will also return updated value
+ENDPOINT/car/update_car_avg_mileage/:id
+  - PUT
+  - :id = car id
+  - body accepts 'avg_mileage'
+  - will return a success/failure status code; if successful will also return updated value
+ENDPOINT/car/update_car_cur_mileage/:id
+  - PUT
+  - :id = car id
+  - body accepts 'cur_mileage'
+  - will return a success/failure status code; if successful will also return updated value
+ENDPOINT/car/update_car_oil_mileage/:id
+  - PUT
+  - :id = car id
+  - body accepts 'miles_oil'
+  - will return a success/failure status code; if successful will also return updated value
+ENDPOINT/car/update_car_tire_mileage/:id
+  - PUT
+  - :id = car id
+  - body accepts 'miles_tire'
+  - will return a success/failure status code; if successful will also return updated value
+ENDPOINT/car/update_car_maint_mileage/:id
+  - PUT
+  - :id = car id
+  - body accepts 'miles_maint'
+  - will return a success/failure status code; if successful will also return updated value
+                        -------------------------------
+                        ----  MAINTENANCE SECTION  ----
+                        -------------------------------
+// ### ADD MAINTENANCE RECORD ###
+ENDPOINT/maintenance/add_maint/:id
+  - POST
+  - :id = car id
+  - body requires 'type', 'last_mileage', 'date_serviced', 'cost', 'description'
+  - will return a success/failure status code
+// ### GET MAINTENANCE RECORD ###
+ENDPOINT/maintenance/get_maint/:id
+  - GET
+  - :id = car id
+  - will return all records from maintenance that match the car id
+// ### DELETE MAINTENANCE RECORD ###
+ENDPOINT/maintenance/delete_maint_MID/:id
+  - DELETE
+  - :id = maintenance id
+  - will return a success/failure status code (deletes single car associated with CID)
+ENDPOINT/maintenance/delete_maint_CID/:id
+  - DELETE
+  - :id = car id
+  - will return a success/failure status code (deletes all cars associated with UID)
+// ### UPDATE MAINTENANCE RECORD ###
+ENDPOINT/maintenance/update_maint/:id;
+  - PUT
+  - :id = maintenance id
+  - body accepts 'cur_mileage'
+  - will return a success/failure status code; if successful will also return updated value
+ENDPOINT/maintenance/update_type/:id
+  - PUT
+  - :id = maintenance id
+  - body accepts 'cur_mileage'
+  - will return a success/failure status code; if successful will also return updated value
+ENDPOINT/maintenance/update_last_mileage/:id
+  - PUT
+  - :id = maintenance id
+  - body accepts 'cur_mileage'
+  - will return a success/failure status code; if successful will also return updated value
+ENDPOINT/maintenance/update_date_serviced/:id
+  - PUT
+  - :id = maintenance id
+  - body accepts 'cur_mileage'
+  - will return a success/failure status code; if successful will also return updated value
+ENDPOINT/maintenance/update_cost/:id
+  - PUT
+  - :id = maintenance id
+  - body accepts 'cur_mileage'
+  - will return a success/failure status code; if successful will also return updated value
+ENDPOINT/maintenance/update_description/:id
+  - PUT
+  - :id = maintenance id
+  - body accepts 'cur_mileage'
+  - will return a success/failure status code; if successful will also return updated value
