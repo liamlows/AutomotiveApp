@@ -99,7 +99,7 @@ export class MapContainer extends Component {
                 name: localStorage.getItem('shopName'),
                 address: localStorage.getItem('shopAddress'),
                 rating: localStorage.getItem('shopRating'),
-                open_now: localStorage.getItem('shopRating')
+                open_now: localStorage.getItem('shopOpen')
             }
         })
     }
