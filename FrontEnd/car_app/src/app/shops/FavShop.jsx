@@ -12,11 +12,17 @@ export const FavShop = (props) => {
                     <div className="col">
                         <h5 style={{marginBottom:'0em'}}>{props.favShop.name}</h5>
                         {
-                            (props.favShop.rating!=='' && props.favShop.rating) ? 
+                            (props.favShop.rating!=='' && props.favShop.rating) 
+                            && (props.favShop.rating!=='undefined') && (props.favShop.rating!=='null')? 
                                 <h6 className="text-muted" style={{marginBottom:'.08em'}}>Rating: {props.favShop.rating}</h6> 
                                 : <div></div>
                         }
-                        <h6 className="text-muted">{props.favShop.address}</h6>
+                        {
+                            ( props.favShop.address!=='undefined')
+                            ?  <h6 className="text-muted">{props.favShop.address}</h6>
+                            : <div></div>
+                        }
+                       
                     </div>
                     <div className="col">
                         {

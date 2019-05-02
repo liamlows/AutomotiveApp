@@ -26,7 +26,9 @@ export class LoginRepo {
                     localStorage.setItem('code', resp.data.code);
                     localStorage.setItem('resp', resp.data.response);
                     localStorage.setItem('shopName', resp.data.shop_name);
-                    localStorage.setItem('shopPhone', resp.data.shop_phone);
+                    localStorage.setItem('shopAddress', resp.data.shop_phone);
+                    localStorage.setItem('shopRating',resp.data.shop_rating);
+                    localStorage.setItem('shopOpen',resp.data.shop_open);
                     localStorage.setItem('companyName', resp.data.insurance_company);
                     localStorage.setItem('insurancePhone', resp.data.insurance_phone);
                     localStorage.setItem('insuranceEmail', resp.data.insurance_email);

@@ -235,6 +235,25 @@ exports.update_shop_address = function(req,res){
     });
   }
 };
+// Update/remove favorite shop open
+exports.update_shop_open = function(req,res){
+  if(!req.params.id){
+    res.status(400).json({
+      "code": 400,
+      "response":"Missing ID in API request."
+    });
+  }
+  else{
+    User.updateShopOpenByID(req.body.shop_open, req.params.id, function(err,user){
+      if (err){
+        res.send(err);
+      }
+      else{
+        res.json(user);
+      }
+    });
+  }
+};
 // Update/remove insurance company
 exports.update_insurance_company = function(req,res){
   if(!req.params.id){

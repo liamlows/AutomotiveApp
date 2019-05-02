@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export class CarRepo {
     url = "http://ec2-34-227-100-210.compute-1.amazonaws.com:8080/api";
-    // url = "autoapp_node_comp:8080;"
+    // url = "/api"
     config = {
 
     };
@@ -26,14 +26,6 @@ export class CarRepo {
     deleteCar(carId) {
         return new Promise((resolve, reject) => {
             axios.delete(`${this.url}/car/delete_car/${carId}`, this.config)
-                .then(resp => resolve(resp.data))
-                .catch(resp => alert(resp));
-        });
-    }
-
-    deleteRecordsByCID(carId){
-        return new Promise((resolve, reject) => {
-            axios.delete(`${this.url}/maintenance/delete_maint_CID/${carId}`, this.config)
                 .then(resp => resolve(resp.data))
                 .catch(resp => alert(resp));
         });
@@ -63,10 +55,38 @@ export class CarRepo {
         });
     }
 
+    updateMilesMaint(carId, miles_maint) {
+        return new Promise((resolve, reject) => {
+            axios.put(`${this.url}/car/update_car_maint_mileage/${carId}`, miles_maint, this.config)
+                .then(resp => resolve(resp.data))
+                .catch(resp => alert(resp));
+        });
+    }
+
+    updateMilesOil(carId, miles_oil) {
+        return new Promise((resolve, reject) => {
+            axios.put(`${this.url}/car/update_car_oil_mileage/${carId}`, miles_oil, this.config)
+                .then(resp => resolve(resp.data))
+                .catch(resp => alert(resp));
+        });
+    }
+
+    updateMilesTire(carId, miles_tire) {
+        return new Promise((resolve, reject) => {
+            axios.put(`${this.url}/car/update_car_tire_mileage/${carId}`, miles_tire, this.config)
+                .then(resp => resolve(resp.data))
+                .catch(resp => alert(resp));
+        });
+    }
+
     addRecord(carId, record) {
         return new Promise((resolve, reject) => {
             axios.post(`${this.url}/maintenance/add_maint/${carId}`, record, this.config)
                 .then(resp => resolve(resp.data))
+                // .then(resp => {
+                //     resolve(resp.data);
+                //     localStorage.setItem('response', resp.data.m_id);
+                // })
                 .catch(resp => alert(resp));
         });
     }
@@ -74,6 +94,14 @@ export class CarRepo {
     getRecords(carId) {
         return new Promise((resolve, reject) => {
             axios.get(`${this.url}/maintenance/get_maint/${carId}`, this.config)
+                .then(resp => resolve(resp.data))
+                .catch(resp => alert(resp));
+        });
+    }
+
+    deleteRecordsByCID(carId){
+        return new Promise((resolve, reject) => {
+            axios.delete(`${this.url}/maintenance/delete_maint_CID/${carId}`, this.config)
                 .then(resp => resolve(resp.data))
                 .catch(resp => alert(resp));
         });
@@ -114,6 +142,14 @@ export class CarRepo {
     updateShopRating(userId, rating) {
         return new Promise((resolve, reject) => {
             axios.put(`${this.url}/user/update_shop_rating/${userId}`, rating, this.config)
+                .then(resp => resolve(resp.data))
+                .catch(resp => alert(resp));
+        });
+    }
+
+    updateShopOpen(userId, open) {
+        return new Promise((resolve, reject) => {
+            axios.put(`${this.url}/user/update_shop_open/${userId}`, open, this.config)
                 .then(resp => resolve(resp.data))
                 .catch(resp => alert(resp));
         });

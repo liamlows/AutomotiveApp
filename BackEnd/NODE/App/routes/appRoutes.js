@@ -29,6 +29,8 @@ module.exports = function(app) {
     .put(autoAppUser.update_shop_rating);
   app.route('/api/user/update_shop_address/:id')
     .put(autoAppUser.update_shop_address);
+  app.route('/api/user/update_shop_open/:id')
+    .put(autoAppUser.update_shop_open);
   app.route('/api/user/update_insurance_company/:id')
     .put(autoAppUser.update_insurance_company);
   app.route('/api/user/update_insurance_phone/:id')
