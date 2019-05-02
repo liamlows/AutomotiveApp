@@ -56,11 +56,11 @@ export class InsuranceInfo extends React.Component {
         let userId = localStorage.getItem('uID');
         
         if (userId && this.state.policyNumValidation && this.state.phoneValidation && this.state.companyNameValidation){
-            this.accountRepo.updateInsurancePhone(userId, {insurance_phone: this.state.insurance_phone})
+            this.accountRepo.updateInsurancePhone(userId, {'insurance_phone': this.state.insurance_phone})
             .then(localStorage.setItem('insurancePhone', this.state.insurance_phone));
-            this.accountRepo.updateInsuranceCom(userId, {insurance_company: this.state.comp_name})
+            this.accountRepo.updateInsuranceCom(userId, {'insurance_company': this.state.comp_name})
             .then(localStorage.setItem('companyName', this.state.comp_name));
-            this.accountRepo.updateInsurancePolicyNum(userId, {insurance_num: this.state.policy_number})
+            this.accountRepo.updateInsurancePolicyNum(userId, {'insurance_num': this.state.policy_number})
             .then(localStorage.setItem('policyNumber', this.state.policy_number));
             
         }
@@ -162,7 +162,8 @@ export class InsuranceInfo extends React.Component {
                                     </>
                                         
                                 }
-                                {this.state.insurance_editMode && 
+                                {
+                                    this.state.insurance_editMode && 
                                     <>
                                         <h5 className="d-block-inline">Insurance Phone: </h5><input className="d-inline" id="phone" type="phone" placeholder="Enter phone number" style={{maxWidth:"40%"}} value={this.state.insurance_phone} onChange={e => this.setState({insurance_phone:e.target.value})}/>
                                         <h5 className="d-block-inline">Company Name: </h5><input  id="name" type="name" placeholder="Enter Company Name" style={{maxWidth:"40%"}} value={this.state.comp_name} onChange={e => this.setState({comp_name:e.target.value})}/>

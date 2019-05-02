@@ -13,19 +13,20 @@ export class InsuranceForm extends React.Component {
     }
 
     onSubmit () {
-        let userId = 5;
+        var userId = localStorage.getItem('uID');
         if (userId){
-            this.accountRepo.updateInsurancePhone(userId,this.state.phone)
+            this.accountRepo.updateInsurancePhone(userId, {'insurance_phone': this.state.phone})
             .then(localStorage.setItem('insurancePhone', this.state.phone));
-            this.accountRepo.updateInsuranceCom(userId, this.state.company)
+            this.accountRepo.updateInsuranceCom(userId, {'insurance_company': this.state.company})
             .then(localStorage.setItem('companyName', this.state.company));
-            this.accountRepo.updateInsurancePolicyNum(userId, this.state.policy_num)
+            this.accountRepo.updateInsurancePolicyNum(userId, {'insurance_num': this.state.policy_num})
             .then(localStorage.setItem('policyNumber', this.state.policy_num));
             this.setState({
                 phone:'',
                 company: '',
                 policy_num:''
             })
+            window.location.reload();
         }
         // this.props.onNewInsurance(new Insurance(this.state.phone, this.state.company, this.state.policy_num))
         // this.setState({
