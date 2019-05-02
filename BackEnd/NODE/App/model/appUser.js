@@ -186,7 +186,20 @@ User.updateShopAddressByID = function(shop_address, id, result) {
     }
   });
 };
-
+// update/remove favorite shop phone
+User.updateShopOpenByID = function(shop_open, id, result) {
+  sql.query("UPDATE `AutomotiveApp`.`users` SET shop_open = ? WHERE u_id = ?;", [shop_open,id], function(err, res) {
+    if (err) {
+      result(err, null);
+    } else {
+      result(null, {
+        "code":200,
+        "response":"Update was sucessfull.",
+        "shop_phone":shop_open
+        });
+    }
+  });
+};
 // update/remove insurance company
 User.updateInsuranceCompanyByID = function(insurance_company, id, result) {
   sql.query("UPDATE `AutomotiveApp`.`users` SET insurance_company = ? WHERE u_id = ?;", [insurance_company, id], function(err, res) {
