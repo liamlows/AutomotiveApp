@@ -59,7 +59,7 @@ export class MapContainer extends Component {
         });
     };
 
-    onShopClicked = (p) => {
+    onShopClicked = async (p) => {
         console.log(p);
         var shop;
         if(p.opening_hours !== {} && p.opening_hours){
@@ -74,10 +74,10 @@ export class MapContainer extends Component {
         }, () => {console.log(this.state.favShop)});
 
         var id = localStorage.getItem('uID');
-        this.carRepo.updateShopName(id,{"shop_name":p.name});
-        this.carRepo.updateShopAddress(id,{"shop_address":p.vicinity});
-        this.carRepo.updateShopRating(id,{"shop_rating":p.rating});
-
+        await this.carRepo.updateShopName(id,{"shop_name":p.name});
+        await this.carRepo.updateShopAddress(id,{"shop_address":p.vicinity});
+        await this.carRepo.updateShopRating(id,{"shop_rating":p.rating});
+        await this.carRepo.updateShopOpen(id,{"shop_open":p.open});
     }
 
     componentDidMount() {
@@ -94,6 +94,14 @@ export class MapContainer extends Component {
                 })
             }
         }
+        this.setState({
+            favShop: {
+                name: localStorage.getItem('shopName'),
+                address: localStorage.getItem('shopAddress'),
+                rating: localStorage.getItem('shopRating'),
+                open_now: localStorage.getItem('shopRating')
+            }
+        })
     }
 
     fetchPlaces = (mapProps, map) => this.searchNearby(map, map.center);

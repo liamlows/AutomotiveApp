@@ -6,7 +6,7 @@ import { AccountRepo } from "../../api/AccountRepo";
 export class ChangePassword extends Component {
 
 
-    accountRepo = new AccountRepo;
+    accountRepo = new AccountRepo();
 
     state = {
         current_password: '',

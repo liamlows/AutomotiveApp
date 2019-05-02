@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 
 
 export const CarList = (props) => (
+
     <div>
 
         {!props.cars.length 
@@ -15,21 +16,23 @@ export const CarList = (props) => (
                 <div key={i} className="card col-md-5" style={{margin:'1em',padding:'.5em'}}>
                     <div className="card-body" style={{padding:'0em'}}>
                         <Link to={`/car/${a.c_id}`} className="btn btn-primary float-right" style={{marginBottom:'.75em'}}>
-                            <i className="fa fa-cogs"></i>&nbsp;
+                            <i className="fa fa-cogs" style={{marginRight:'.2em'}}></i>&nbsp;
                             {
-                                a.current_mileage - a.milesAtLastMaintenance > 5000
-                                || a.current_mileage - a.milesAtLastOilChange > 5000
-                                || a.current_mileage - a.milesAtLastTireChange > 5000
-                                ? <button className="btn btn-danger btn-sm" style={{borderRadius:'1em',fontSize: '.05em'}}>
-                                <i className="fa fa-exclamation"></i>&nbsp;
-                                </button>
+                                a.current_mileage - a.miles_maint > 5000
+                                || a.current_mileage - a.miles_oil > 5000
+                                || a.current_mileage - a.miles_tire > 5000
+                                ? 
+                                // <button className="btn btn-danger btn-sm" style={{borderRadius:'1em',fontSize: '.05em'}}>
+                                <i className="fa fa-exclamation" style={{color:'red'}}></i>
+                                // </button>
                                 :
-                                a.current_mileage - a.milesAtLastMaintenance > 2000
-                                || a.current_mileage - a.milesAtLastOilChange > 2000
-                                || a.current_mileage - a.milesAtLastTireChange > 2000
-                                ? <button className="btn btn-warning btn-sm" style={{borderRadius:'1em',fontSize: '.05em'}}>
-                                <i className="fa fa-exclamation-triangle"></i>&nbsp;
-                                </button>
+                                a.current_mileage - a.miles_maint > 2000
+                                || a.current_mileage - a.miles_oil > 2000
+                                || a.current_mileage - a.miles_tire > 2000
+                                ? 
+                                // <button className="btn btn-warning btn-sm" style={{borderRadius:'1em',fontSize: '.05em'}}>
+                                <i className="fa fa-exclamation-triangle" style={{color:'rgb(255, 242, 10)'}}></i>
+                                // </button>
                                 : <div></div>
                             }
                         </Link>
@@ -42,7 +45,7 @@ export const CarList = (props) => (
                                 <h4 className="">{ a.MODEL }</h4>
                                 <h4 className="">{ a.YEAR }</h4>
                                 {
-                                    (a.current_mileage !== 'undefined' && a.current_mileage !== undefined && a.current_mileage !== '') ? <h5 className="text-muted">{ a.current_mileage } miles</h5> : <div></div>
+                                    (a.avg_mileage !== 'undefined' && a.avg_mileage !== undefined && a.avg_mileage !== '') ? <h5 className="text-muted">{ a.avg_mileage } miles/day</h5> : <div></div>
                                 }
                                 
                             </div>
