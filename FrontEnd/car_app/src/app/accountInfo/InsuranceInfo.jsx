@@ -41,11 +41,9 @@ export class InsuranceInfo extends React.Component {
     saveAccount() {
         let userId = localStorage.getItem('uID');
         if (userId){
-            // this.accountRepo.updateEmail(userId, {user_email: this.state.user_email})
-            // .then(localStorage.setItem('email', this.state.user_email));
-            this.accountRepo.updateFname(userId, {user_fname: this.state.user_fname})
+            this.accountRepo.updateFname(userId, {'first_name': this.state.user_fname})
             .then(localStorage.setItem('firstName', this.state.user_fname));
-            this.accountRepo.updateLname(userId, {user_lname: this.state.user_lname})
+            this.accountRepo.updateLname(userId, {'last_name': this.state.user_lname})
             .then(localStorage.setItem('lastName', this.state.user_lname));
         }
         this.setState({
@@ -133,7 +131,7 @@ export class InsuranceInfo extends React.Component {
                                 {this.state.account_editMode && ( 
                                 <>
 
-                                    <h5 className="d-block-inline">Your Email:</h5><input readonly="readonly" className="bg-light form-control" id="email" type="email" placeholder="Enter email" style={{maxWidth:"40%"}} value={this.state.user_email} />
+                                    <p ><h5 className="d-inline">Your Email:</h5>  {this.state.user_email}</p>
                                     <h5 className="d-block-inline">Your First Name:</h5> <input className="form-control" id="fname" type="name" placeholder="Enter First Name" style={{maxWidth:"40%"}} value={this.state.user_fname} onChange={e => this.setState({user_fname:e.target.value})}/>
                                     <h5 className="d-block-inline">Your Last Name:</h5> <input className="form-control" id="lname" type="name" placeholder="Enter Last Name" style={{maxWidth:"40%"}} value={this.state.user_lname} onChange={e => this.setState({user_lname:e.target.value})}/>
 

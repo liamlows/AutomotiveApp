@@ -48,7 +48,7 @@ export class ChangePassword extends Component {
                 })
             }
             else {
-                this.accountRepo.updatePassword(userId, {password:this.state.new_password_1} )
+                this.accountRepo.updatePassword(userId, {'password':this.state.new_password_1} )
                 .then(
                     this.setState({
                     redirect:"/password/success/:id"
