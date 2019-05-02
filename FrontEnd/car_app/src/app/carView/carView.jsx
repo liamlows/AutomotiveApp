@@ -110,6 +110,15 @@ export class CarView extends React.Component {
                 })
                 
             }
+            this.setState(state => {
+                state.displayGeneralUrgent = state.car.current_mileage - state.car.miles_maint >= state.generalUrgent;
+                state.displayGeneralRecom = state.car.current_mileage - state.car.miles_maint >= state.generalRecom;
+                state.displayOilUrgent = state.car.current_mileage - state.car.miles_oil >= state.oilChangeUrgent;
+                state.displayOilRecom = state.car.current_mileage - state.car.miles_oil >= state.oilChangeRecom;
+                state.displayTiresUrgent = state.car.current_mileage - state.car.miles_tire >= state.tiresUrgent;
+                state.displayTiresRecom = state.car.current_mileage - state.car.miles_tire >= state.tiresRecom;
+                return state;
+            });    
             this.updateMileage();
         }
         this.setState(prevState => ({ editMode: !prevState.editMode}));
