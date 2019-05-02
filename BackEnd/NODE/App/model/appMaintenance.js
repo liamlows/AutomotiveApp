@@ -22,7 +22,7 @@ Maintenance.createMaint = function(id, newMaint, result) {
         }
       }
       else {
-        result(null,{"code":200,"response":"Car creation was sucessfull."});
+        result(null,res);
       }
     }
   );

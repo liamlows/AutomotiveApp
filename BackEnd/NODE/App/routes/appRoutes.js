@@ -74,7 +74,7 @@ module.exports = function(app) {
   app.route('/api/maintenance/get_maint/:id')
     .get(autoMaintenance.get_maint);
     // DELETE MAINTENANCE RERCORD
-  app.route('/api/maintenance/delete_maint/:id')
+  app.route('/api/maintenance/delete_maint_MID/:id')
     .delete(autoMaintenance.delete_maint_MID);
   app.route('/api/maintenance/delete_maint_CID/:id')
     .delete(autoMaintenance.delete_maint_CID);
