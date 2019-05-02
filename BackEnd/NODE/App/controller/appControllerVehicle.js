@@ -1,5 +1,8 @@
 'use strict';
-var Car = require('../model/appCar.js');
+var Car = require('../model/appVehicle.js');
+
+// This is the controller file for handling the API requests for the vehicles table
+// The associated file with actual SQL queries is appVehicle.js
 
 // Add car object to DB by UID
 exports.add_car = function(req,res){

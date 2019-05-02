@@ -1,16 +1,20 @@
 version: '3'
 # list out mysql/node/nginx service
 services:
+  # Our MySQL DB container
   autoapp_mysql_comp:
     image: liamlows/autoapp_mysql
     build: ./BackEnd/MYSQL
     container_name: autoapp_mysql_comp
-    command: --default-authentication-plugin=mysql_native_password
     restart: always
     ports:
       - 3306:3306
+    # Allows for plaintext password connection (needed for mysql8)
+    command: --default-authentication-plugin=mysql_native_password
+    # Allows for persistance of MYSQL data
     volumes:
       - mysql_volume:/var/lib/mysql
+  # Our Node Express.js API container
   autoapp_node_comp:
     image: liamlows/autoapp_node-api
     build: ./BackEnd/NODE
@@ -18,12 +22,16 @@ services:
     restart: always
     ports:
       - 8080:8080
+    # Allows us to connect to the MYSQL container
     links:
       - autoapp_mysql_comp:autoapp_mysql_comp
+    # Prevents container from running without MYSQL running
     depends_on:
       - autoapp_mysql_comp
+    # Uses cross platform persistance for the Node API
     volumes:
       - ./BackEnd/NODE:/var/lib/node
+  # Our NGINX web server container
   autoapp_nginx_comp:
     image: liamlows/autoapp_nginx
     build: ./FrontEnd
@@ -31,9 +39,11 @@ services:
     restart: always
     ports:
       -  80:80
-      -  443:443
+    #  -  443:443 # <---- ADD THIS FOR HTTPS!
+    # Allows us to connect to the NODE Express.js container
     links:
       - autoapp_node_comp:autoapp_node_comp
+    # Uses cross platform persistance for the production build of the website and nginx.conf
     volumes:
       -  ./FrontEnd/car_app/build:/var/www
       -  ./FrontEnd/nginx/nginx.conf:/etc/nginx/nginx.conf
