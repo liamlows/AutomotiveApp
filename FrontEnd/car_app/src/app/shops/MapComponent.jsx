@@ -74,10 +74,14 @@ export class MapContainer extends Component {
         }, () => {console.log(this.state.favShop)});
 
         var id = localStorage.getItem('uID');
-        await this.carRepo.updateShopName(id,{"shop_name":p.name});
-        await this.carRepo.updateShopAddress(id,{"shop_address":p.vicinity});
-        await this.carRepo.updateShopRating(id,{"shop_rating":p.rating});
-        await this.carRepo.updateShopOpen(id,{"shop_open":p.open});
+        await this.carRepo.updateShopName(id,{"shop_name":p.name})
+        .then(localStorage.setItem('shopName',p.name));
+        await this.carRepo.updateShopAddress(id,{"shop_address":p.vicinity})
+        .then(localStorage.setItem('shopAddress',p.vicinity));
+        await this.carRepo.updateShopRating(id,{"shop_rating":p.rating})
+        .then(localStorage.setItem('shopRating',p.rating));
+        await this.carRepo.updateShopOpen(id,{"shop_open":p.open})
+        .then(localStorage.setItem('shopOpen',p.open));
     }
 
     componentDidMount() {
@@ -160,7 +164,8 @@ export class MapContainer extends Component {
                 </div>
                 <div className="clearfix"> </div>
                 <div className="favShop" style={{marginTop:'1.5em',marginBottom:'0em'}}>
-                    { this.state.favShop.hasOwnProperty('name') ? <FavShop favShop={this.state.favShop} /> : <div className="alert alert-success" >Add your favorite shop!</div>}
+                    { (this.state.favShop.hasOwnProperty('name') && this.state.favShop.name!=='null')
+                     ? <FavShop favShop={this.state.favShop} /> : <div className="alert alert-success" >Add your favorite shop!</div>}
                 </div>
                 <hr/>
             </div>
