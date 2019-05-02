@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export class LoginRepo {
-    url = "http://ec2-34-227-100-210.compute-1.amazonaws.com:8080";
+    url = "http://ec2-34-227-100-210.compute-1.amazonaws.com:8080/api";
     config = {
 
     };
@@ -31,7 +31,6 @@ export class LoginRepo {
                     localStorage.setItem('insurancePhone', resp.data.insurance_phone);
                     localStorage.setItem('insuranceEmail', resp.data.insurance_email);
                     localStorage.setItem('policyNumber', resp.data.insurance_num);
-                    localStorage.setItem('password', resp.data.password);
                 })
                 .catch(resp => alert(resp));
         });
