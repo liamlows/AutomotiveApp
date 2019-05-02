@@ -148,12 +148,12 @@ export class CarView extends React.Component {
         .then(records => this.setState({ records }));
         
         this.setState(state => {
-            state.displayGeneralUrgent = state.car.current_mileage - state.car.miles_maint > state.generalUrgent;
-            state.displayGeneralRecom = state.car.current_mileage - state.car.miles_maint > state.generalRecom;
-            state.displayOilUrgent = state.car.current_mileage - state.car.miles_oil > state.oilChangeUrgent;
-            state.displayOilRecom = state.car.current_mileage - state.car.miles_oil > state.oilChangeRecom;
-            state.displayTiresUrgent = state.car.current_mileage - state.car.miles_tire > state.tiresUrgent;
-            state.displayTiresRecom = state.car.current_mileage - state.car.miles_tire > state.tiresRecom;
+            state.displayGeneralUrgent = state.car.current_mileage - state.car.miles_maint >= state.generalUrgent;
+            state.displayGeneralRecom = state.car.current_mileage - state.car.miles_maint >= state.generalRecom;
+            state.displayOilUrgent = state.car.current_mileage - state.car.miles_oil >= state.oilChangeUrgent;
+            state.displayOilRecom = state.car.current_mileage - state.car.miles_oil >= state.oilChangeRecom;
+            state.displayTiresUrgent = state.car.current_mileage - state.car.miles_tire >= state.tiresUrgent;
+            state.displayTiresRecom = state.car.current_mileage - state.car.miles_tire >= state.tiresRecom;
             return state;
         });    
     }
@@ -222,7 +222,7 @@ export class CarView extends React.Component {
                                     ? <span className="badge badge-danger" style={{marginLeft:'1em'}}>Urgent</span>
                                     :
                                     this.state.displayGeneralRecom
-                                    ? <span className="badge badge-warning" style={{marginLeft:'1em'}}>Needed within {parseInt((this.state.generalUrgent - (this.state.car.current_mileage - this.state.car.miles_maint))/this.state.car.avg_mileage)} days</span>
+                                    ? <span className="badge badge-warning" style={{marginLeft:'1em'}}>Needed within {parseInt((this.state.generalUrgent - (this.state.car.current_mileage - this.state.car.miles_maint))/this.state.car.avg_mileage)+1} days</span>
                                     : <span className="badge badge-success" style={{marginLeft:'1em'}}><i className="fa fa-check"></i>&nbsp;</span>
                                 }
                                  </p>
@@ -231,7 +231,7 @@ export class CarView extends React.Component {
                                     ? <span className="badge badge-danger" style={{marginLeft:'1em'}}>Urgent</span>
                                     :
                                     this.state.displayOilRecom
-                                    ? <span className="badge badge-warning" style={{marginLeft:'1em'}}>Needed within {parseInt((this.state.oilChangeUrgent - (this.state.car.current_mileage - this.state.car.miles_oil))/this.state.car.avg_mileage)} days</span>
+                                    ? <span className="badge badge-warning" style={{marginLeft:'1em'}}>Needed within {parseInt((this.state.oilChangeUrgent - (this.state.car.current_mileage - this.state.car.miles_oil))/this.state.car.avg_mileage)+1} days</span>
                                     : <span className="badge badge-success" style={{marginLeft:'1em'}}><i className="fa fa-check"></i>&nbsp;</span>
                                 }
                                 </p>
@@ -240,7 +240,7 @@ export class CarView extends React.Component {
                                     ? <span className="badge badge-danger" style={{marginLeft:'1em'}}>Urgent</span>
                                     :
                                     this.state.displayTiresRecom
-                                    ?<span className="badge badge-warning" style={{marginLeft:'1em'}}>Needed within {parseInt((this.state.tiresUrgent - (this.state.car.current_mileage - this.state.car.miles_tire))/this.state.car.avg_mileage)} days</span>
+                                    ?<span className="badge badge-warning" style={{marginLeft:'1em'}}>Needed within {parseInt((this.state.tiresUrgent - (this.state.car.current_mileage - this.state.car.miles_tire))/this.state.car.avg_mileage)+1} days</span>
                                     :<span className="badge badge-success" style={{marginLeft:'1em'}}><i className="fa fa-check"></i>&nbsp;</span>
                                 }
                                 </p>
