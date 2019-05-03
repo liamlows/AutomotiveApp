@@ -8,7 +8,7 @@ import { Redirect } from 'react-router-dom';
 
 export class CarView extends React.Component {
     carRepo = new CarRepo();
-    
+
     state = {
         car: {},
         records: [],
@@ -18,7 +18,7 @@ export class CarView extends React.Component {
         displayGeneralRecom: false,
         generalRecom: 30000,
         displayOilUrgent: false,
-        oilChangeUrgent: 90000,
+        oilChangeUrgent: 9000,
         displayOilRecom: false,
         oilChangeRecom: 6000,
         displayTiresUrgent: false,
@@ -35,7 +35,7 @@ export class CarView extends React.Component {
 
     async onRecordAdded(record){
         let carId = +this.props.match.params.carId;
-        if(record.type==='General' && record.last_mileage > this.state.car.miles_maint){  
+        if(record.type==='General' && record.last_mileage > this.state.car.miles_maint){
             this.setState(state => {
                 state.car['miles_maint'] = record.last_mileage;
                 state.displayGeneralUrgent = this.state.car.current_mileage - this.state.car.miles_maint > this.state.generalUrgent;
@@ -102,13 +102,13 @@ export class CarView extends React.Component {
                 await this.setState(state => {
                     state.car.current_mileage = state.curr_miles;
                 })
-                
+
             }
             if(this.state.avg_miles !== 0){
                 await this.setState(state => {
                     state.car.avg_mileage = state.avg_miles;
                 })
-                
+
             }
             this.setState(state => {
                 state.displayGeneralUrgent = state.car.current_mileage - state.car.miles_maint >= state.generalUrgent;
@@ -118,7 +118,7 @@ export class CarView extends React.Component {
                 state.displayTiresUrgent = state.car.current_mileage - state.car.miles_tire >= state.tiresUrgent;
                 state.displayTiresRecom = state.car.current_mileage - state.car.miles_tire >= state.tiresRecom;
                 return state;
-            });    
+            });
             this.updateMileage();
         }
         this.setState(prevState => ({ editMode: !prevState.editMode}));
@@ -146,16 +146,16 @@ export class CarView extends React.Component {
                         let m_maint = cars[i].miles_maint || 0;
                         let m_oil = cars[i].miles_oil || 0;
                         let m_tire = cars[i].miles_tire || 0;
-                        this.setState({car: 
+                        this.setState({car:
                             new Car(make,model,year,avg_m,cur_m,m_maint,m_oil,m_tire)});
                     }
                 }
-                
+
             });
         }
         this.carRepo.getRecords(carId)
         .then(records => this.setState({ records }));
-        
+
         this.setState(state => {
             state.displayGeneralUrgent = state.car.current_mileage - state.car.miles_maint >= state.generalUrgent;
             state.displayGeneralRecom = state.car.current_mileage - state.car.miles_maint >= state.generalRecom;
@@ -164,11 +164,11 @@ export class CarView extends React.Component {
             state.displayTiresUrgent = state.car.current_mileage - state.car.miles_tire >= state.tiresUrgent;
             state.displayTiresRecom = state.car.current_mileage - state.car.miles_tire >= state.tiresRecom;
             return state;
-        });    
+        });
     }
-    
+
     render() {
-        if(!this.state.car || this.state.car.MAKE === 'undefined' || this.state.car.MAKE === undefined){ 
+        if(!this.state.car || this.state.car.MAKE === 'undefined' || this.state.car.MAKE === undefined){
             return(<div className="alert alert-primary">Loading...</div>
         )}
         if(this.state.redirect){
@@ -183,7 +183,7 @@ export class CarView extends React.Component {
                             <i className="fa fa-trash" ></i>&nbsp;
                         </button>
                         {
-                            !this.state.editMode ?                         
+                            !this.state.editMode ?
                             <button className="btn btn-primary float-right" onClick={e => this.onEdit()} style={{marginBottom:'.75em', marginRight:'.5em'}}>
                                 <i className="fa fa-edit" ></i>&nbsp;
                             </button>
@@ -195,7 +195,7 @@ export class CarView extends React.Component {
                         <div className="row justify-content-start ">
                             <div className="col" >
                                 <img src={`/icons/${this.state.car.MAKE.toLowerCase()}.png`} alt={`icons/${this.state.car.MAKE.toLowerCase()}.png`} style={{width:'30vw',height:'100%',minWidth:'100px'}}/>
-                                
+
                             </div>
                             <div className="col">
                                 <h1 className="display-4">{this.state.car.MAKE}</h1>
@@ -208,7 +208,7 @@ export class CarView extends React.Component {
                                    :
                                    <input className="form-control" type="number" placeholder={this.state.car.current_mileage}
                                 //    value={this.state.car.current_mileage}
-                                   onChange={e => this.setState({ curr_miles: e.target.value })} 
+                                   onChange={e => this.setState({ curr_miles: e.target.value })}
                                    style={{width:'50%'}}></input>
                                    : <div></div>
                                }
@@ -253,14 +253,14 @@ export class CarView extends React.Component {
                                     :<span className="badge badge-success" style={{marginLeft:'1em'}}><i className="fa fa-check"></i>&nbsp;</span>
                                 }
                                 </p>
-                            
+
                             </div>
                         </div>
                     </div>
-                </div>  
+                </div>
 
-                { 
-                    !!this.state.records && <MaintenanceList records={this.state.records} onDelete= {x => this.onDeleteMaint(x) }/> 
+                {
+                    !!this.state.records && <MaintenanceList records={this.state.records} onDelete= {x => this.onDeleteMaint(x) }/>
                 }
                 <MaintenanceForm onRecordAdded={ a => this.onRecordAdded(a) } />
             </>

@@ -1,8 +1,7 @@
 import axios from 'axios';
 
 export class CarRepo {
-    url = "http://ec2-34-227-100-210.compute-1.amazonaws.com:8080/api";
-    // url = "/api"
+    url = "/api";
     config = {
 
     };
